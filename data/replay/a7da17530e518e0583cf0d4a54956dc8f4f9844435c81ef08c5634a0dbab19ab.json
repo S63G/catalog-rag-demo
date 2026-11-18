@@ -1,0 +1,136 @@
+{
+ "source": "live",
+ "endpoint": "https://api.deepseek.com/chat/completions",
+ "model": "deepseek-flash",
+ "request_sha256": "a7da17530e518e0583cf0d4a54956dc8f4f9844435c81ef08c5634a0dbab19ab",
+ "request": {
+  "model": "deepseek-flash",
+  "messages": [
+   {
+    "role": "system",
+    "content": "从销售同事的消息里提取报价请求，只输出一个 JSON 对象。只提取消息里写明的内容：customer 为客户名称原文（没写则 null）；items 每行包括 product（型号/规格原文，保留原写法，如“6204-2RS”“M8×20”“DN25 316 球阀”）、quantity（数字）、unit（原文单位，如 个、箱、台；没写则 null）、target_price（客户要求的单价；没写则 null）。不要换算单位，不要补全型号。\nJSON Schema:\n{\"$defs\": {\"QuoteItemRequest\": {\"properties\": {\"product\": {\"description\": \"型号/规格原文，如 6204-2RS、M8×20、DN25 316 球阀\", \"minLength\": 1, \"title\": \"Product\", \"type\": \"string\"}, \"quantity\": {\"exclusiveMinimum\": 0, \"title\": \"Quantity\", \"type\": \"number\"}, \"unit\": {\"anyOf\": [{\"type\": \"string\"}, {\"type\": \"null\"}], \"default\": null, \"description\": \"原文单位，如 个、箱、台；没有写则 null\", \"title\": \"Unit\"}, \"target_price\": {\"anyOf\": [{\"exclusiveMinimum\": 0, \"type\": \"number\"}, {\"type\": \"null\"}], \"default\": null, \"description\": \"客户要求的单价；没有写则 null\", \"title\": \"Target Price\"}}, \"required\": [\"product\", \"quantity\"], \"title\": \"QuoteItemRequest\", \"type\": \"object\"}}, \"properties\": {\"customer\": {\"anyOf\": [{\"type\": \"string\"}, {\"type\": \"null\"}], \"default\": null, \"description\": \"客户名称原文；没有写则 null\", \"title\": \"Customer\"}, \"items\": {\"items\": {\"$ref\": \"#/$defs/QuoteItemRequest\"}, \"minItems\": 1, \"title\": \"Items\", \"type\": \"array\"}}, \"required\": [\"items\"], \"title\": \"QuoteRequest\", \"type\": \"object\"}"
+   },
+   {
+    "role": "user",
+    "content": "甬港澄远要 PC6-01 接头 30 个和 6205-ZZ 100 个，出个报价草稿"
+   }
+  ],
+  "temperature": 0,
+  "response_format": {
+   "type": "json_object"
+  }
+ },
+ "calls": [
+  {
+   "recorded_at": "2026-11-18T08:18:25+00:00",
+   "run": "bm25",
+   "latency_ms": 1964.4,
+   "response": {
+    "id": "af4e9a60-13a5-4cf4-aa84-7f60b29981cf",
+    "object": "chat.completion",
+    "created": 1794989904,
+    "model": "deepseek-flash",
+    "choices": [
+     {
+      "index": 0,
+      "message": {
+       "role": "assistant",
+       "content": "{\"customer\":\"甬港澄远\",\"items\":[{\"product\":\"PC6-01 接头\",\"quantity\":30,\"unit\":\"个\",\"target_price\":null},{\"product\":\"6205-ZZ\",\"quantity\":100,\"unit\":\"个\",\"target_price\":null}]}",
+       "reasoning_content": "We need answer only JSON object. Need extract. Message: \"甬港澄远要 PC6-01 接头 30 个和 6205-ZZ 100 个，出个报价草稿\" Customer: 甬港澄远. Items: product \"PC6-01 接头\" quantity 30 unit 个 target_price null. Second product \"6205-ZZ\" quantity 100 unit 个 target null. Need preserve original writing. \"PC6-01 接头\" is product? It says \"PC6-01 接头 30 个\" Could product be \"PC6-01 接头\" or \"PC6-01\"? Schema says product 型号/规格原文, retain original. Message includes \"PC6-01 接头\" as item phrase. We should probably include \"PC6-01 接头\" because it's written. For second \"6205-ZZ\". No target prices. JSON only. Ensure valid."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+     }
+    ],
+    "usage": {
+     "prompt_tokens": 528,
+     "completion_tokens": 255,
+     "total_tokens": 783,
+     "prompt_tokens_details": {
+      "cached_tokens": 256
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 200
+     },
+     "prompt_cache_hit_tokens": 256,
+     "prompt_cache_miss_tokens": 272
+    },
+    "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
+   }
+  },
+  {
+   "recorded_at": "2026-11-18T08:20:28+00:00",
+   "run": "hybrid",
+   "latency_ms": 1940.0,
+   "response": {
+    "id": "850b4e6e-5bfb-4ef0-a8fc-801f3a1f06ea",
+    "object": "chat.completion",
+    "created": 1794990027,
+    "model": "deepseek-flash",
+    "choices": [
+     {
+      "index": 0,
+      "message": {
+       "role": "assistant",
+       "content": "{\"customer\":\"甬港澄远\",\"items\":[{\"product\":\"PC6-01 接头\",\"quantity\":30,\"unit\":\"个\",\"target_price\":null},{\"product\":\"6205-ZZ\",\"quantity\":100,\"unit\":\"个\",\"target_price\":null}]}",
+       "reasoning_content": "We need answer only JSON object per schema. Need extract from message. Customer \"甬港澄远\" likely. Items: PC6-01 接头 30 个; 6205-ZZ 100 个. Unit for second not written? \"100 个\" actually message: \"PC6-01 接头 30 个和 6205-ZZ 100 个\" both have 个. Product should be original model/spec: For first product maybe \"PC6-01 接头\" or product should model/spec original? Schema examples. The item line includes product（型号/规格原文，保留原写法）. \"PC6-01 接头\" is product phrase. But product field expected model/spec, likely include \"PC6-01 接头\" because \"接头\" is part of item description. Second \"6205-ZZ\". Quantity 30 and 100. Unit \"个\". target null. Customer \"甬港澄远\". Need valid JSON only. Ensure no markdown."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+     }
+    ],
+    "usage": {
+     "prompt_tokens": 528,
+     "completion_tokens": 266,
+     "total_tokens": 794,
+     "prompt_tokens_details": {
+      "cached_tokens": 384
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 211
+     },
+     "prompt_cache_hit_tokens": 384,
+     "prompt_cache_miss_tokens": 144
+    },
+    "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
+   }
+  },
+  {
+   "recorded_at": "2026-11-18T08:22:40+00:00",
+   "run": "hybrid_rerank",
+   "latency_ms": 2174.8,
+   "response": {
+    "id": "e97ceba2-e784-422f-866d-52a169a354cf",
+    "object": "chat.completion",
+    "created": 1794990158,
+    "model": "deepseek-flash",
+    "choices": [
+     {
+      "index": 0,
+      "message": {
+       "role": "assistant",
+       "content": "{\"customer\":\"甬港澄远\",\"items\":[{\"product\":\"PC6-01 接头\",\"quantity\":30,\"unit\":\"个\",\"target_price\":null},{\"product\":\"6205-ZZ\",\"quantity\":100,\"unit\":\"个\",\"target_price\":null}]}",
+       "reasoning_content": "我需要从销售同事的消息中提取报价请求，只输出一个 JSON 对象。\n\n消息：\"甬港澄远要 PC6-01 接头 30 个和 6205-ZZ 100 个，出个报价草稿\"\n\n提取：\n- customer: \"甬港澄远\"\n- items:\n  1. product: \"PC6-01 接头\", quantity: 30, unit: \"个\", target_price: null\n  2. product: \"6205-ZZ\", quantity: 100, unit: \"个\", target_price: null\n\n注意 product 要原文保留。消息里是\"PC6-01 接头\"和\"6205-ZZ\"。产品名称原文应该写\"PC6-01 接头\"还是只用\"PC6-01\"？消息中\"要 PC6-01 接头 30 个\"，产品是 PC6-01 接头。型号原文是 PC6-01，描述是接头。根据 schema，product 是型号/规格原文。我认为应保留\"PC6-01 接头\"，因为原文就是这样写的。不过也可以只写\"PC6-01\"。指令说\"product（型号/规格原文，保留原写法）\"。原文中产品表述是\"PC6-01 接头\"，保留原写法就包括接头。我选\"PC6-01 接头\"。\n\n第二个\"6205-ZZ 100 个\"。\n\n输出 JSON。"
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+     }
+    ],
+    "usage": {
+     "prompt_tokens": 528,
+     "completion_tokens": 355,
+     "total_tokens": 883,
+     "prompt_tokens_details": {
+      "cached_tokens": 384
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 300
+     },
+     "prompt_cache_hit_tokens": 384,
+     "prompt_cache_miss_tokens": 144
+    },
+    "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
+   }
+  }
+ ]
+}

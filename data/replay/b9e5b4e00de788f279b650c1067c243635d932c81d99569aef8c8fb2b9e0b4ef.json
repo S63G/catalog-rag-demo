@@ -1,0 +1,62 @@
+{
+ "source": "live",
+ "endpoint": "https://api.deepseek.com/chat/completions",
+ "model": "deepseek-flash",
+ "request_sha256": "b9e5b4e00de788f279b650c1067c243635d932c81d99569aef8c8fb2b9e0b4ef",
+ "request": {
+  "model": "deepseek-flash",
+  "messages": [
+   {
+    "role": "system",
+    "content": "你是瑞丰机电批发（虚构）的产品目录助手，回答公司销售和客服同事的问题。只能依据用户消息里 <资料> 中的内容回答，不要使用资料以外的知识，也不要做资料里没有的推算。\n规则：\n1. 资料能回答问题时：answerable=true；回答简洁，直接给出型号、参数和单位；每句事实后用 [编号] 标注来源，编号必须是资料里给出的编号。\n2. 资料不能回答问题时（问到的型号、规格、参数、品牌、认证等在资料中不存在）：answerable=false，answer 用一句话说明目录资料中没有这方面信息（可以顺带说明资料里有哪些相近内容），citations 为空。不要猜测。\n3. 表格数据原样引用，不要换算单位。\n4. 给出“系统匹配的替代候选”时，只推荐这些候选并说明替代条件；没有给出候选时不要自行推荐替代型号。\n5. 当前提问者角色：客服。客服看不到价格，回答中不要出现任何价格或金额。\n只输出一个 JSON 对象：{\"answerable\": true 或 false, \"answer\": \"回答正文\", \"citations\": [引用的编号]}"
+   },
+   {
+    "role": "user",
+    "content": "<资料>\n[1] 来源：常见问题FAQ.md Q19｜瑞丰机电批发（虚构） 常见问题（FAQ） › Q19\n问：可以看产品实物吗？\n答：宁波仓库展示区工作日开放参观，请提前一天预约（地址为演示用虚构地址）。\n\n[2] 来源：常见问题FAQ.md Q9｜瑞丰机电批发（虚构） 常见问题（FAQ） › Q9\n问：可以提供样品吗？\n答：单价 200 元以下的物料可申请免费样品，每个型号限 1 件（按箱销售的物料提供 1 小包）；运费由客户承担。\n\n[3] 来源：RF-13_尼龙扎带规格书.pdf 第3页｜尼龙扎带 产品规格书 › 6 选型与替代说明\n· 户外使用请选黑色；白色扎带长期日晒会变脆。\n· 拉力要求高时选更宽的规格，不要多根串接。\n\n[4] 来源：常见问题FAQ.md Q1｜瑞丰机电批发（虚构） 常见问题（FAQ） › Q1\n问：怎么下单？\n答：可通过邮件、飞书或电话向对接销售下单，订单需写明物料编码或规格型号、数量和收货地址。新客户首单需先开户。\n\n[5] 来源：RF-18_导轨式接线端子规格书.pdf 第3页｜UK 系列导轨式接线端子 产品规格书 › 6 选型与替代说明\n· 可以用额定截面更大的端子替代较小的端子，但端子宽度会增加，需确认导轨上的安装空间。\n</资料>\n\n问题：明天宁波会下雨吗？"
+   }
+  ],
+  "temperature": 0,
+  "response_format": {
+   "type": "json_object"
+  }
+ },
+ "calls": [
+  {
+   "recorded_at": "2026-11-18T08:18:37+00:00",
+   "run": "bm25",
+   "latency_ms": 1011.2,
+   "response": {
+    "id": "e4fb33f1-226d-4b80-ba0b-10dab36f4b97",
+    "object": "chat.completion",
+    "created": 1794989917,
+    "model": "deepseek-flash",
+    "choices": [
+     {
+      "index": 0,
+      "message": {
+       "role": "assistant",
+       "content": "{\"answerable\": false, \"answer\": \"目录资料中没有关于天气或降雨预报的信息，资料里只有产品规格、下单、样品和参观预约等相关内容。\", \"citations\": []}",
+       "reasoning_content": "The资料 has nothing about weather. answerable=false."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+     }
+    ],
+    "usage": {
+     "prompt_tokens": 659,
+     "completion_tokens": 54,
+     "total_tokens": 713,
+     "prompt_tokens_details": {
+      "cached_tokens": 128
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 11
+     },
+     "prompt_cache_hit_tokens": 128,
+     "prompt_cache_miss_tokens": 531
+    },
+    "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
+   }
+  }
+ ]
+}

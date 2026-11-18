@@ -1,0 +1,62 @@
+{
+ "source": "live",
+ "endpoint": "https://api.deepseek.com/chat/completions",
+ "model": "deepseek-flash",
+ "request_sha256": "a39eee2c6f67ae8aae158e16a1b01d68e571af8b9492b863433ced963b8afc0a",
+ "request": {
+  "model": "deepseek-flash",
+  "messages": [
+   {
+    "role": "system",
+    "content": "你是瑞丰机电批发（虚构）的产品目录助手，回答公司销售和客服同事的问题。只能依据用户消息里 <资料> 中的内容回答，不要使用资料以外的知识，也不要做资料里没有的推算。\n规则：\n1. 资料能回答问题时：answerable=true；回答简洁，直接给出型号、参数和单位；每句事实后用 [编号] 标注来源，编号必须是资料里给出的编号。\n2. 资料不能回答问题时（问到的型号、规格、参数、品牌、认证等在资料中不存在）：answerable=false，answer 用一句话说明目录资料中没有这方面信息（可以顺带说明资料里有哪些相近内容），citations 为空。不要猜测。\n3. 表格数据原样引用，不要换算单位。\n4. 给出“系统匹配的替代候选”时，只推荐这些候选并说明替代条件；没有给出候选时不要自行推荐替代型号。\n5. 当前提问者角色：销售。可以回答价格；价目表中的价格是含税目录价（协议客户以协议价为准）。\n只输出一个 JSON 对象：{\"answerable\": true 或 false, \"answer\": \"回答正文\", \"citations\": [引用的编号]}"
+   },
+   {
+    "role": "user",
+    "content": "<资料>\n[1] 来源：RF-09_三相异步电机规格书.pdf 第2页｜YE3 系列超高效三相异步电动机 产品规格书 › 表1 YE3 电机规格参数\n型号 YE3 3kW 4P；物料编码 5.01.0010；功率(kW) 3；极数 4P；同步转速(r/min) 1500；额定转速(r/min) 1430；机座号 100L2；额定电流(A) 6.5；效率等级 IE3；材质 铸铁机壳\n\n[2] 来源：瑞丰价目表_2026Q4.xlsx 价目表 第183行｜瑞丰价目表_2026Q4.xlsx › 价目表\n物料编码 5.01.0010；品名 三相异步电机；规格型号 YE3 3kW 4P；销售单位 台；包装 按台；目录含税单价(元) 1523.8；税率 13%；起订量 1；标准交期(天) 5\n\n[3] 来源：常见问题FAQ.md Q2｜瑞丰机电批发（虚构） 常见问题（FAQ） › Q2\n问：几点前下单可以当天发货？\n答：现货物料工作日 16:00 前确认的订单当天发货，16:00 以后次日发货。非现货物料按价目表中的标准交期发货。\n\n[4] 来源：RF-09_三相异步电机规格书.pdf 第2页｜YE3 系列超高效三相异步电动机 产品规格书 › 表1 YE3 电机规格参数\n型号 YE3 4kW 4P；物料编码 5.01.0012；功率(kW) 4；极数 4P；同步转速(r/min) 1500；额定转速(r/min) 1440；机座号 112M；额定电流(A) 8.5；效率等级 IE3；材质 铸铁机壳\n\n[5] 来源：RF-09_三相异步电机规格书.pdf 第2页｜YE3 系列超高效三相异步电动机 产品规格书 › 表1 YE3 电机规格参数\n型号 YE3 1.5kW 4P；物料编码 5.01.0006；功率(kW) 1.5；极数 4P；同步转速(r/min) 1500；额定转速(r/min) 1420；机座号 90L；额定电流(A) 3.6；效率等级 IE3；材质 铸铁机壳\n</资料>\n\n问题：YE3 3kW 4极电机的标准交期是几天？"
+   }
+  ],
+  "temperature": 0,
+  "response_format": {
+   "type": "json_object"
+  }
+ },
+ "calls": [
+  {
+   "recorded_at": "2026-11-18T08:17:57+00:00",
+   "run": "bm25",
+   "latency_ms": 714.0,
+   "response": {
+    "id": "80fa2554-adf2-4654-9f6f-3f1d20b98468",
+    "object": "chat.completion",
+    "created": 1794989877,
+    "model": "deepseek-flash",
+    "choices": [
+     {
+      "index": 0,
+      "message": {
+       "role": "assistant",
+       "content": "{\"answerable\":true,\"answer\":\"YE3 3kW 4P（物料编码 5.01.0010）的标准交期为 5 天。[2]\",\"citations\":[2]}",
+       "reasoning_content": ""
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+     }
+    ],
+    "usage": {
+     "prompt_tokens": 899,
+     "completion_tokens": 44,
+     "total_tokens": 943,
+     "prompt_tokens_details": {
+      "cached_tokens": 128
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 0
+     },
+     "prompt_cache_hit_tokens": 128,
+     "prompt_cache_miss_tokens": 771
+    },
+    "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
+   }
+  }
+ ]
+}

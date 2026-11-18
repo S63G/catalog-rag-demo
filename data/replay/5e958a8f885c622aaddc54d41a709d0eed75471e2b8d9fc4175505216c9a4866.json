@@ -1,0 +1,62 @@
+{
+ "source": "live",
+ "endpoint": "https://api.deepseek.com/chat/completions",
+ "model": "deepseek-flash",
+ "request_sha256": "5e958a8f885c622aaddc54d41a709d0eed75471e2b8d9fc4175505216c9a4866",
+ "request": {
+  "model": "deepseek-flash",
+  "messages": [
+   {
+    "role": "system",
+    "content": "你是瑞丰机电批发（虚构）的产品目录助手，回答公司销售和客服同事的问题。只能依据用户消息里 <资料> 中的内容回答，不要使用资料以外的知识，也不要做资料里没有的推算。\n规则：\n1. 资料能回答问题时：answerable=true；回答简洁，直接给出型号、参数和单位；每句事实后用 [编号] 标注来源，编号必须是资料里给出的编号。\n2. 资料不能回答问题时（问到的型号、规格、参数、品牌、认证等在资料中不存在）：answerable=false，answer 用一句话说明目录资料中没有这方面信息（可以顺带说明资料里有哪些相近内容），citations 为空。不要猜测。\n3. 表格数据原样引用，不要换算单位。\n4. 给出“系统匹配的替代候选”时，只推荐这些候选并说明替代条件；没有给出候选时不要自行推荐替代型号。\n5. 当前提问者角色：客服。客服看不到价格，回答中不要出现任何价格或金额。\n只输出一个 JSON 对象：{\"answerable\": true 或 false, \"answer\": \"回答正文\", \"citations\": [引用的编号]}"
+   },
+   {
+    "role": "user",
+    "content": "<资料>\n[1] 来源：RF-19_不锈钢球阀规格书.pdf 第2页｜不锈钢内螺纹两片式球阀 产品规格书 › 表1 不锈钢球阀规格参数\n型号 DN32 304；物料编码 9.01.0007；公称通径 DN32；连接螺纹 G1-1/4；公称压力(MPa) 4.0；材质 304不锈钢；阀座密封 PTFE；适用温度(℃) -20~+180\n\n[2] 来源：RF-19_不锈钢球阀规格书.pdf 第2页｜不锈钢内螺纹两片式球阀 产品规格书 › 表1 不锈钢球阀规格参数\n型号 DN32 316；物料编码 9.01.0008；公称通径 DN32；连接螺纹 G1-1/4；公称压力(MPa) 4.0；材质 316不锈钢；阀座密封 PTFE；适用温度(℃) -20~+180\n\n[3] 来源：RF-19_不锈钢球阀规格书.pdf 第3页｜不锈钢内螺纹两片式球阀 产品规格书 › 6 选型与替代说明\n· 同通径时 316 可以替代 304（耐氯离子和酸性介质更好）；304 替代 316 前需确认介质不含氯离子。\n· 海水、含盐介质请选 316。\n\n[4] 来源：RF-19_不锈钢球阀规格书.pdf 第1页｜不锈钢内螺纹两片式球阀 产品规格书 › 2 主要特点\n· 公称压力：DN15~DN25 为 6.4MPa，DN32~DN50 为 4.0MPa\n· 适用温度 -20~+180℃（PTFE 阀座）\n· 连接螺纹：G（55° 圆柱管螺纹）\n· 全通径设计，流阻小\n\n[5] 来源：RF-19_不锈钢球阀规格书.pdf 第1页｜不锈钢内螺纹两片式球阀 产品规格书 › 3 材质与执行标准\n· 阀体：304（CF8）或 316（CF8M）不锈钢\n· 阀座：PTFE\n· 执行标准：GB/T 12237\n</资料>\n系统按规格书第 6 节替代规则为 DN32 304 匹配的替代候选：DN32 316（物料编码 9.01.0008）：通径和螺纹相同、阀体材质不同\n\n问题：DN32 的 304 球阀要用在海水管路，换哪个？"
+   }
+  ],
+  "temperature": 0,
+  "response_format": {
+   "type": "json_object"
+  }
+ },
+ "calls": [
+  {
+   "recorded_at": "2026-11-18T08:22:24+00:00",
+   "run": "hybrid_rerank",
+   "latency_ms": 1903.7,
+   "response": {
+    "id": "1f06598e-d529-4acd-a440-1cf66de04bf1",
+    "object": "chat.completion",
+    "created": 1794990143,
+    "model": "deepseek-flash",
+    "choices": [
+     {
+      "index": 0,
+      "message": {
+       "role": "assistant",
+       "content": "{\"answerable\": true, \"answer\": \"请选用 DN32 316 不锈钢球阀，物料编码为 9.01.0008，公称通径为 DN32，连接螺纹为 G1-1/4，公称压力为 4.0MPa，材质为 316 不锈钢，阀座密封为 PTFE，适用温度为 -20~+180℃[2]。同通径下，316 可替代 304，耐氯离子和酸性介质更好；海水、含盐介质请选 316[3]。替代条件为通径和螺纹相同、阀体材质不同。\", \"citations\": [2, 3]}",
+       "reasoning_content": "Answer: 316 can replace 304, seawater requires 316. Candidate DN32 316, 物料编码 9.01.0008, 通径和螺纹相同、阀体材质不同。引用 [3][1][2]? Citation for seawater: [3]. Model params DN32 316 from [2]. Also [3] states 316 can substitute. Include condition: 通径和螺纹相同，阀体材质不同（from candidate info, which is in user message but not numbered... The candidate info comes from system, not with 编号. Rules say citations must be 编号 from 资料. I can cite [3] and [2]."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+     }
+    ],
+    "usage": {
+     "prompt_tokens": 877,
+     "completion_tokens": 283,
+     "total_tokens": 1160,
+     "prompt_tokens_details": {
+      "cached_tokens": 512
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 140
+     },
+     "prompt_cache_hit_tokens": 512,
+     "prompt_cache_miss_tokens": 365
+    },
+    "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
+   }
+  }
+ ]
+}

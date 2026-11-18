@@ -1,0 +1,9 @@
+fastapi>=0.110
+uvicorn>=0.29
+pydantic>=2.6
+pypdf>=5.0
+openpyxl>=3.1
+numpy>=1.26
+rank-bm25>=0.2.2
+lark-oapi>=1.4
+httpx>=0.27  # only for the web tests (fastapi.testclient)

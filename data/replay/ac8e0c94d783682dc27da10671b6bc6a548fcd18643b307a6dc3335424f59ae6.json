@@ -1,0 +1,62 @@
+{
+ "source": "live",
+ "endpoint": "https://api.deepseek.com/chat/completions",
+ "model": "deepseek-flash",
+ "request_sha256": "ac8e0c94d783682dc27da10671b6bc6a548fcd18643b307a6dc3335424f59ae6",
+ "request": {
+  "model": "deepseek-flash",
+  "messages": [
+   {
+    "role": "system",
+    "content": "你是瑞丰机电批发（虚构）的产品目录助手，回答公司销售和客服同事的问题。只能依据用户消息里 <资料> 中的内容回答，不要使用资料以外的知识，也不要做资料里没有的推算。\n规则：\n1. 资料能回答问题时：answerable=true；回答简洁，直接给出型号、参数和单位；每句事实后用 [编号] 标注来源，编号必须是资料里给出的编号。\n2. 资料不能回答问题时（问到的型号、规格、参数、品牌、认证等在资料中不存在）：answerable=false，answer 用一句话说明目录资料中没有这方面信息（可以顺带说明资料里有哪些相近内容），citations 为空。不要猜测。\n3. 表格数据原样引用，不要换算单位。\n4. 给出“系统匹配的替代候选”时，只推荐这些候选并说明替代条件；没有给出候选时不要自行推荐替代型号。\n5. 当前提问者角色：客服。客服看不到价格，回答中不要出现任何价格或金额。\n只输出一个 JSON 对象：{\"answerable\": true 或 false, \"answer\": \"回答正文\", \"citations\": [引用的编号]}"
+   },
+   {
+    "role": "user",
+    "content": "<资料>\n[1] 来源：常见问题FAQ.md Q6｜瑞丰机电批发（虚构） 常见问题（FAQ） › Q6\n问：可以退换货吗？\n答：产品未使用、包装完好的，自签收之日起 15 天内可以退换；按箱销售的物料须整箱退回。定制切割的导轨、电线电缆截断后不予退换。\n\n[2] 来源：常见问题FAQ.md Q12｜瑞丰机电批发（虚构） 常见问题（FAQ） › Q12\n问：能做非标定制吗？\n答：不接受非标定制。直线导轨可按长度切割，电线电缆可按米截断（最少 10 米），其他物料只销售目录内规格。\n\n[3] 来源：RF-15_直线导轨规格书.pdf 第1页｜HGR 系列直线导轨（导轨条） 产品规格书 › 2 主要特点\n· 精度等级：普通级（C）\n· 导轨表面高频淬火，硬度 HRC58~62\n· 标准长度 500mm 与 1000mm，可按需切割（另收加工费）\n\n[4] 来源：RF-15_直线导轨规格书.pdf 第3页｜HGR 系列直线导轨（导轨条） 产品规格书 › 8 质保与服务\n质保期：自发货之日起 12 个月。质保期内因材料或制造缺陷造成的损坏，免费更换同型号产品；因安装不当、超规格使用或人为损坏不在质保范围内。技术咨询：瑞丰机电批发（虚构） 技术部，工作日 8:30-17:30。\n\n[5] 来源：RF-15_直线导轨规格书.pdf 第3页｜HGR 系列直线导轨（导轨条） 产品规格书 › 6 选型与替代说明\n· 同规格不同长度的导轨可以截短替代（长换短），截短后两端孔距需重新确认。\n· 不同规格（如 HGR20 与 HGR25）的导轨宽度和高度不同，不能互换。\n</资料>\n\n问题：买的导轨切割过了还能退吗？"
+   }
+  ],
+  "temperature": 0,
+  "response_format": {
+   "type": "json_object"
+  }
+ },
+ "calls": [
+  {
+   "recorded_at": "2026-11-18T08:22:01+00:00",
+   "run": "hybrid_rerank",
+   "latency_ms": 1082.8,
+   "response": {
+    "id": "70e29ec2-6187-4c07-aabb-313c68c7ef9c",
+    "object": "chat.completion",
+    "created": 1794990121,
+    "model": "deepseek-flash",
+    "choices": [
+     {
+      "index": 0,
+      "message": {
+       "role": "assistant",
+       "content": "{\"answerable\": true, \"answer\": \"不能退。定制切割的导轨不予退换[1]；导轨可按长度切割，属于非标加工[2]。\", \"citations\": [1, 2]}",
+       "reasoning_content": "资料[1]明确：定制切割的导轨不予退换。引用[1]。也可[2]提到导轨可按长度切割。回答简洁。answerable=true。"
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+     }
+    ],
+    "usage": {
+     "prompt_tokens": 765,
+     "completion_tokens": 83,
+     "total_tokens": 848,
+     "prompt_tokens_details": {
+      "cached_tokens": 384
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 35
+     },
+     "prompt_cache_hit_tokens": 384,
+     "prompt_cache_miss_tokens": 381
+    },
+    "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
+   }
+  }
+ ]
+}

@@ -1,0 +1,136 @@
+{
+ "source": "live",
+ "endpoint": "https://api.deepseek.com/chat/completions",
+ "model": "deepseek-flash",
+ "request_sha256": "2cf87e616e93b37e1c323da43ff8b591b92292f611552ace251a4e8bc0777f46",
+ "request": {
+  "model": "deepseek-flash",
+  "messages": [
+   {
+    "role": "system",
+    "content": "从销售同事的消息里提取报价请求，只输出一个 JSON 对象。只提取消息里写明的内容：customer 为客户名称原文（没写则 null）；items 每行包括 product（型号/规格原文，保留原写法，如“6204-2RS”“M8×20”“DN25 316 球阀”）、quantity（数字）、unit（原文单位，如 个、箱、台；没写则 null）、target_price（客户要求的单价；没写则 null）。不要换算单位，不要补全型号。\nJSON Schema:\n{\"$defs\": {\"QuoteItemRequest\": {\"properties\": {\"product\": {\"description\": \"型号/规格原文，如 6204-2RS、M8×20、DN25 316 球阀\", \"minLength\": 1, \"title\": \"Product\", \"type\": \"string\"}, \"quantity\": {\"exclusiveMinimum\": 0, \"title\": \"Quantity\", \"type\": \"number\"}, \"unit\": {\"anyOf\": [{\"type\": \"string\"}, {\"type\": \"null\"}], \"default\": null, \"description\": \"原文单位，如 个、箱、台；没有写则 null\", \"title\": \"Unit\"}, \"target_price\": {\"anyOf\": [{\"exclusiveMinimum\": 0, \"type\": \"number\"}, {\"type\": \"null\"}], \"default\": null, \"description\": \"客户要求的单价；没有写则 null\", \"title\": \"Target Price\"}}, \"required\": [\"product\", \"quantity\"], \"title\": \"QuoteItemRequest\", \"type\": \"object\"}}, \"properties\": {\"customer\": {\"anyOf\": [{\"type\": \"string\"}, {\"type\": \"null\"}], \"default\": null, \"description\": \"客户名称原文；没有写则 null\", \"title\": \"Customer\"}, \"items\": {\"items\": {\"$ref\": \"#/$defs/QuoteItemRequest\"}, \"minItems\": 1, \"title\": \"Items\", \"type\": \"array\"}}, \"required\": [\"items\"], \"title\": \"QuoteRequest\", \"type\": \"object\"}"
+   },
+   {
+    "role": "user",
+    "content": "给沪东衡砺报个价：6204-2RS 200个，M8×20内六角螺钉 5箱"
+   }
+  ],
+  "temperature": 0,
+  "response_format": {
+   "type": "json_object"
+  }
+ },
+ "calls": [
+  {
+   "recorded_at": "2026-11-18T08:18:23+00:00",
+   "run": "bm25",
+   "latency_ms": 1295.8,
+   "response": {
+    "id": "3245b26d-1ee5-43f8-b543-e48ac6c32f6d",
+    "object": "chat.completion",
+    "created": 1794989903,
+    "model": "deepseek-flash",
+    "choices": [
+     {
+      "index": 0,
+      "message": {
+       "role": "assistant",
+       "content": "{\"customer\":\"沪东衡砺\",\"items\":[{\"product\":\"6204-2RS\",\"quantity\":200,\"unit\":\"个\",\"target_price\":null},{\"product\":\"M8×20内六角螺钉\",\"quantity\":5,\"unit\":\"箱\",\"target_price\":null}]}",
+       "reasoning_content": "We need answer only JSON object per schema. Need extract. Message: \"给沪东衡砺报个价：6204-2RS 200个，M8×20内六角螺钉 5箱\" Customer 沪东衡砺. Items: product \"6204-2RS\", quantity 200, unit \"个\", target null. product \"M8×20内六角螺钉\", quantity 5, unit \"箱\". Need preserve original product? \"M8×20内六角螺钉\" yes. JSON only. Ensure numbers. Final."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+     }
+    ],
+    "usage": {
+     "prompt_tokens": 526,
+     "completion_tokens": 175,
+     "total_tokens": 701,
+     "prompt_tokens_details": {
+      "cached_tokens": 256
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 117
+     },
+     "prompt_cache_hit_tokens": 256,
+     "prompt_cache_miss_tokens": 270
+    },
+    "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
+   }
+  },
+  {
+   "recorded_at": "2026-11-18T08:20:26+00:00",
+   "run": "hybrid",
+   "latency_ms": 2842.7,
+   "response": {
+    "id": "80931be2-ef55-4f96-9f44-26525bf6d0b8",
+    "object": "chat.completion",
+    "created": 1794990024,
+    "model": "deepseek-flash",
+    "choices": [
+     {
+      "index": 0,
+      "message": {
+       "role": "assistant",
+       "content": "{\"customer\":\"沪东衡砺\",\"items\":[{\"product\":\"6204-2RS\",\"quantity\":200,\"unit\":\"个\",\"target_price\":null},{\"product\":\"M8×20内六角螺钉\",\"quantity\":5,\"unit\":\"箱\",\"target_price\":null}]}",
+       "reasoning_content": "我们需要回答用户。需要从销售同事消息提取报价请求，只输出JSON对象。消息：\"给沪东衡砺报个价：6204-2RS 200个，M8×20内六角螺钉 5箱\"\n\n需要提取 customer = 沪东衡砺。items: 6204-2RS quantity 200 unit 个 target_price null. 第二项 product 原文 \"M8×20内六角螺钉\" 还是 \"M8×20\"？ 用户要求 product 型号/规格原文，保留原写法。消息中 \"M8×20内六角螺钉\" 是产品描述，应保留原文。 quantity 5 unit 箱 target_price null. 输出 JSON only. 需要确保合法 JSON。不要 markdown。 一个对象。 \n{\"customer\":\"沪东衡砺\",\"items\":[{\"product\":\"6204-2RS\",\"quantity\":200,\"unit\":\"个\",\"target_price\":null},{\"product\":\"M8×20内六角螺钉\",\"quantity\":5,\"unit\":\"箱\",\"target_price\":null}]}\n\n需要只输出JSON。没问题。"
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+     }
+    ],
+    "usage": {
+     "prompt_tokens": 526,
+     "completion_tokens": 290,
+     "total_tokens": 816,
+     "prompt_tokens_details": {
+      "cached_tokens": 384
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 232
+     },
+     "prompt_cache_hit_tokens": 384,
+     "prompt_cache_miss_tokens": 142
+    },
+    "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
+   }
+  },
+  {
+   "recorded_at": "2026-11-18T08:22:38+00:00",
+   "run": "hybrid_rerank",
+   "latency_ms": 1313.5,
+   "response": {
+    "id": "b57574a0-f174-4b2b-9131-9316743cf9cc",
+    "object": "chat.completion",
+    "created": 1794990157,
+    "model": "deepseek-flash",
+    "choices": [
+     {
+      "index": 0,
+      "message": {
+       "role": "assistant",
+       "content": "{\"customer\":\"沪东衡砺\",\"items\":[{\"product\":\"6204-2RS\",\"quantity\":200,\"unit\":\"个\",\"target_price\":null},{\"product\":\"M8×20内六角螺钉\",\"quantity\":5,\"unit\":\"箱\",\"target_price\":null}]}",
+       "reasoning_content": "We need answer only JSON object per schema. Need extract quote request. Message: \"给沪东衡砺报个价：6204-2RS 200个，M8×20内六角螺钉 5箱\"\n\nCustomer: 沪东衡砺 (the recipient of quote, \"给...报个价\" means quote to them, customer name original). Items:\n1 product \"6204-2RS\", quantity 200, unit \"个\", target_price null.\n2 product \"M8×20内六角螺钉\", quantity 5, unit \"箱\", target_price null.\nNeed output JSON object only. Ensure valid JSON. No markdown. \n"
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+     }
+    ],
+    "usage": {
+     "prompt_tokens": 526,
+     "completion_tokens": 196,
+     "total_tokens": 722,
+     "prompt_tokens_details": {
+      "cached_tokens": 384
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 138
+     },
+     "prompt_cache_hit_tokens": 384,
+     "prompt_cache_miss_tokens": 142
+    },
+    "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
+   }
+  }
+ ]
+}

@@ -1,0 +1,62 @@
+{
+ "source": "live",
+ "endpoint": "https://api.deepseek.com/chat/completions",
+ "model": "deepseek-flash",
+ "request_sha256": "24a0dc249a092bbddbba4df9bb1c63a759f64f98c435eece2be2de6b42b3fb82",
+ "request": {
+  "model": "deepseek-flash",
+  "messages": [
+   {
+    "role": "system",
+    "content": "你是瑞丰机电批发（虚构）的产品目录助手，回答公司销售和客服同事的问题。只能依据用户消息里 <资料> 中的内容回答，不要使用资料以外的知识，也不要做资料里没有的推算。\n规则：\n1. 资料能回答问题时：answerable=true；回答简洁，直接给出型号、参数和单位；每句事实后用 [编号] 标注来源，编号必须是资料里给出的编号。\n2. 资料不能回答问题时（问到的型号、规格、参数、品牌、认证等在资料中不存在）：answerable=false，answer 用一句话说明目录资料中没有这方面信息（可以顺带说明资料里有哪些相近内容），citations 为空。不要猜测。\n3. 表格数据原样引用，不要换算单位。\n4. 给出“系统匹配的替代候选”时，只推荐这些候选并说明替代条件；没有给出候选时不要自行推荐替代型号。\n5. 当前提问者角色：销售。可以回答价格；价目表中的价格是含税目录价（协议客户以协议价为准）。\n只输出一个 JSON 对象：{\"answerable\": true 或 false, \"answer\": \"回答正文\", \"citations\": [引用的编号]}"
+   },
+   {
+    "role": "user",
+    "content": "<资料>\n[1] 来源：RF-19_不锈钢球阀规格书.pdf 第2页｜不锈钢内螺纹两片式球阀 产品规格书 › 表1 不锈钢球阀规格参数\n型号 DN50 304；物料编码 9.01.0011；公称通径 DN50；连接螺纹 G2；公称压力(MPa) 4.0；材质 304不锈钢；阀座密封 PTFE；适用温度(℃) -20~+180\n\n[2] 来源：RF-19_不锈钢球阀规格书.pdf 第2页｜不锈钢内螺纹两片式球阀 产品规格书 › 表1 不锈钢球阀规格参数\n型号 DN50 316；物料编码 9.01.0012；公称通径 DN50；连接螺纹 G2；公称压力(MPa) 4.0；材质 316不锈钢；阀座密封 PTFE；适用温度(℃) -20~+180\n\n[3] 来源：RF-19_不锈钢球阀规格书.pdf 第2页｜不锈钢内螺纹两片式球阀 产品规格书 › 表1 不锈钢球阀规格参数\n型号 DN25 304；物料编码 9.01.0005；公称通径 DN25；连接螺纹 G1；公称压力(MPa) 6.4；材质 304不锈钢；阀座密封 PTFE；适用温度(℃) -20~+180\n\n[4] 来源：RF-19_不锈钢球阀规格书.pdf 第2页｜不锈钢内螺纹两片式球阀 产品规格书 › 表1 不锈钢球阀规格参数\n型号 DN25 316；物料编码 9.01.0006；公称通径 DN25；连接螺纹 G1；公称压力(MPa) 6.4；材质 316不锈钢；阀座密封 PTFE；适用温度(℃) -20~+180\n\n[5] 来源：RF-19_不锈钢球阀规格书.pdf 第2页｜不锈钢内螺纹两片式球阀 产品规格书 › 表1 不锈钢球阀规格参数\n型号 DN15 304；物料编码 9.01.0001；公称通径 DN15；连接螺纹 G1/2；公称压力(MPa) 6.4；材质 304不锈钢；阀座密封 PTFE；适用温度(℃) -20~+180\n</资料>\n\n问题：DN65 的不锈钢球阀多少钱？"
+   }
+  ],
+  "temperature": 0,
+  "response_format": {
+   "type": "json_object"
+  }
+ },
+ "calls": [
+  {
+   "recorded_at": "2026-11-18T08:20:39+00:00",
+   "run": "hybrid",
+   "latency_ms": 1323.0,
+   "response": {
+    "id": "a4faedad-bc51-4b7f-a910-d2402d7f52bf",
+    "object": "chat.completion",
+    "created": 1794990039,
+    "model": "deepseek-flash",
+    "choices": [
+     {
+      "index": 0,
+      "message": {
+       "role": "assistant",
+       "content": "{\"answerable\": false, \"answer\": \"目录资料中没有 DN65 不锈钢球阀的信息，也没有价格数据；现有资料仅列出 DN50、DN25、DN15 等规格。\", \"citations\": []}",
+       "reasoning_content": "用户问DN65不锈钢球阀价格。资料中没有DN65，也没有价格。应answerable=false，说明目录无DN65信息，可提及资料中有DN50、DN25、DN15等相近规格。citations为空。注意不要给出价格。"
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+     }
+    ],
+    "usage": {
+     "prompt_tokens": 852,
+     "completion_tokens": 103,
+     "total_tokens": 955,
+     "prompt_tokens_details": {
+      "cached_tokens": 128
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 54
+     },
+     "prompt_cache_hit_tokens": 128,
+     "prompt_cache_miss_tokens": 724
+    },
+    "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
+   }
+  }
+ ]
+}

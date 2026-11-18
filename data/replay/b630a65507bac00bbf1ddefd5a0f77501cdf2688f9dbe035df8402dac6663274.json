@@ -1,0 +1,62 @@
+{
+ "source": "live",
+ "endpoint": "https://api.deepseek.com/chat/completions",
+ "model": "deepseek-flash",
+ "request_sha256": "b630a65507bac00bbf1ddefd5a0f77501cdf2688f9dbe035df8402dac6663274",
+ "request": {
+  "model": "deepseek-flash",
+  "messages": [
+   {
+    "role": "system",
+    "content": "你是瑞丰机电批发（虚构）的产品目录助手，回答公司销售和客服同事的问题。只能依据用户消息里 <资料> 中的内容回答，不要使用资料以外的知识，也不要做资料里没有的推算。\n规则：\n1. 资料能回答问题时：answerable=true；回答简洁，直接给出型号、参数和单位；每句事实后用 [编号] 标注来源，编号必须是资料里给出的编号。\n2. 资料不能回答问题时（问到的型号、规格、参数、品牌、认证等在资料中不存在）：answerable=false，answer 用一句话说明目录资料中没有这方面信息（可以顺带说明资料里有哪些相近内容），citations 为空。不要猜测。\n3. 表格数据原样引用，不要换算单位。\n4. 给出“系统匹配的替代候选”时，只推荐这些候选并说明替代条件；没有给出候选时不要自行推荐替代型号。\n5. 当前提问者角色：销售。可以回答价格；价目表中的价格是含税目录价（协议客户以协议价为准）。\n只输出一个 JSON 对象：{\"answerable\": true 或 false, \"answer\": \"回答正文\", \"citations\": [引用的编号]}"
+   },
+   {
+    "role": "user",
+    "content": "<资料>\n[1] 来源：RF-04_BV单芯铜线规格书.pdf 第2页｜BV 单芯聚氯乙烯绝缘铜线 产品规格书 › 表1 BV 电线规格参数\n型号 BV 2.5mm2 蓝 100m；物料编码 2.01.0005；截面(mm2) 2.5；导体结构(根/mm) 1/1.78；绝缘厚度(mm) 0.8；平均外径(mm) 3.9；颜色 蓝色；材质 铜导体/PVC绝缘；每卷(m) 100\n\n[2] 来源：RF-04_BV单芯铜线规格书.pdf 第2页｜BV 单芯聚氯乙烯绝缘铜线 产品规格书 › 表1 BV 电线规格参数\n型号 BV 2.5mm2 红 100m；物料编码 2.01.0004；截面(mm2) 2.5；导体结构(根/mm) 1/1.78；绝缘厚度(mm) 0.8；平均外径(mm) 3.9；颜色 红色；材质 铜导体/PVC绝缘；每卷(m) 100\n\n[3] 来源：RF-04_BV单芯铜线规格书.pdf 第2页｜BV 单芯聚氯乙烯绝缘铜线 产品规格书 › 表1 BV 电线规格参数\n型号 BV 2.5mm2 黄绿 100m；物料编码 2.01.0006；截面(mm2) 2.5；导体结构(根/mm) 1/1.78；绝缘厚度(mm) 0.8；平均外径(mm) 3.9；颜色 黄绿色；材质 铜导体/PVC绝缘；每卷(m) 100\n\n[4] 来源：RF-04_BV单芯铜线规格书.pdf 第3页｜BV 单芯聚氯乙烯绝缘铜线 产品规格书 › 7 安装与使用注意事项\n· 穿管敷设时管内导线总截面不超过管内截面的 40%\n· 弯曲半径不小于电线外径的 4 倍\n· 施工环境温度不低于 0℃\n\n[5] 来源：瑞丰价目表_2026Q4.xlsx 价目表 第89行｜瑞丰价目表_2026Q4.xlsx › 价目表\n物料编码 2.01.0005；品名 BV单芯铜线；规格型号 BV 2.5mm2 蓝 100m；销售单位 卷；包装 100m/卷；目录含税单价(元) 228.1；税率 13%；起订量 1；标准交期(天) 现货\n</资料>\n\n问题：2.5平方的BV线外径多粗？"
+   }
+  ],
+  "temperature": 0,
+  "response_format": {
+   "type": "json_object"
+  }
+ },
+ "calls": [
+  {
+   "recorded_at": "2026-11-18T08:17:51+00:00",
+   "run": "bm25",
+   "latency_ms": 1295.7,
+   "response": {
+    "id": "b782031b-38db-4f3f-95c1-33ef8f843d0b",
+    "object": "chat.completion",
+    "created": 1794989871,
+    "model": "deepseek-flash",
+    "choices": [
+     {
+      "index": 0,
+      "message": {
+       "role": "assistant",
+       "content": "{\"answerable\": true, \"answer\": \"BV 2.5mm² 电线的平均外径为 3.9mm（蓝、红、黄绿三种颜色规格相同）[1][2][3]。\", \"citations\": [1, 2, 3]}",
+       "reasoning_content": "The资料 has average outer diameter 3.9mm for BV 2.5mm2. Answer with citations [1][2][3].\n\nQuestion asks \"2.5平方的BV线外径多粗\" — answerable. Answer briefly."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+     }
+    ],
+    "usage": {
+     "prompt_tokens": 932,
+     "completion_tokens": 115,
+     "total_tokens": 1047,
+     "prompt_tokens_details": {
+      "cached_tokens": 128
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 52
+     },
+     "prompt_cache_hit_tokens": 128,
+     "prompt_cache_miss_tokens": 804
+    },
+    "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
+   }
+  }
+ ]
+}

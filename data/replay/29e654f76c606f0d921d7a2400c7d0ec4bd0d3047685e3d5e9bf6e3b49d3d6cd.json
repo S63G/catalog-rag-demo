@@ -1,0 +1,62 @@
+{
+ "source": "live",
+ "endpoint": "https://api.deepseek.com/chat/completions",
+ "model": "deepseek-flash",
+ "request_sha256": "29e654f76c606f0d921d7a2400c7d0ec4bd0d3047685e3d5e9bf6e3b49d3d6cd",
+ "request": {
+  "model": "deepseek-flash",
+  "messages": [
+   {
+    "role": "system",
+    "content": "你是瑞丰机电批发（虚构）的产品目录助手，回答公司销售和客服同事的问题。只能依据用户消息里 <资料> 中的内容回答，不要使用资料以外的知识，也不要做资料里没有的推算。\n规则：\n1. 资料能回答问题时：answerable=true；回答简洁，直接给出型号、参数和单位；每句事实后用 [编号] 标注来源，编号必须是资料里给出的编号。\n2. 资料不能回答问题时（问到的型号、规格、参数、品牌、认证等在资料中不存在）：answerable=false，answer 用一句话说明目录资料中没有这方面信息（可以顺带说明资料里有哪些相近内容），citations 为空。不要猜测。\n3. 表格数据原样引用，不要换算单位。\n4. 给出“系统匹配的替代候选”时，只推荐这些候选并说明替代条件；没有给出候选时不要自行推荐替代型号。\n5. 当前提问者角色：销售。可以回答价格；价目表中的价格是含税目录价（协议客户以协议价为准）。\n只输出一个 JSON 对象：{\"answerable\": true 或 false, \"answer\": \"回答正文\", \"citations\": [引用的编号]}"
+   },
+   {
+    "role": "user",
+    "content": "<资料>\n[1] 来源：RF-19_不锈钢球阀规格书.pdf 第3页｜不锈钢内螺纹两片式球阀 产品规格书 › 7 安装与使用注意事项\n· 安装时扳手夹在靠近螺纹一端的阀体上，不要扳动另一半阀体\n· 生料带缠绕 8~10 圈，顺螺纹方向\n· 球阀只能全开或全关，不可用于节流\n\n[2] 来源：RF-10_通用变频器规格书.pdf 第1页｜FV 系列通用变频器 产品规格书 › 4 适用范围\n风机水泵节能改造、输送线、机床主轴调速。\n\n[3] 来源：RF-19_不锈钢球阀规格书.pdf 第1页｜不锈钢内螺纹两片式球阀 产品规格书 › 1 产品概述\n两片式内螺纹球阀，阀体材质 304 或 316 不锈钢，阀座为 PTFE，手柄操作，规格 DN15~DN50。\n\n[4] 来源：RF-09_三相异步电机规格书.pdf 第3页｜YE3 系列超高效三相异步电动机 产品规格书 › 6 选型与替代说明\n· 同功率、同极数、同机座号的电机才能直接替换安装；2 极与 4 极转速不同，不能互相替代。\n· 用变频器调速时，建议在 5~50Hz 范围内运行，长期低速运行需加装独立风机（本目录未收录）。\n\n[5] 来源：RF-19_不锈钢球阀规格书.pdf 第2页｜不锈钢内螺纹两片式球阀 产品规格书 › 表1 不锈钢球阀规格参数\n型号 DN50 304；物料编码 9.01.0011；公称通径 DN50；连接螺纹 G2；公称压力(MPa) 4.0；材质 304不锈钢；阀座密封 PTFE；适用温度(℃) -20~+180\n</资料>\n\n问题：球阀能不能拿来调节流量？"
+   }
+  ],
+  "temperature": 0,
+  "response_format": {
+   "type": "json_object"
+  }
+ },
+ "calls": [
+  {
+   "recorded_at": "2026-11-18T08:17:55+00:00",
+   "run": "bm25",
+   "latency_ms": 957.7,
+   "response": {
+    "id": "d24c12d0-f968-4fff-b69c-c2e88f660d5f",
+    "object": "chat.completion",
+    "created": 1794989875,
+    "model": "deepseek-flash",
+    "choices": [
+     {
+      "index": 0,
+      "message": {
+       "role": "assistant",
+       "content": "{\"answerable\": true, \"answer\": \"不能用于调节流量。球阀只能全开或全关，不可用于节流 [1]。\", \"citations\": [1]}",
+       "reasoning_content": "Answer: 不能节流，只能全开或全关。引用[1]。资料可回答。"
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+     }
+    ],
+    "usage": {
+     "prompt_tokens": 762,
+     "completion_tokens": 62,
+     "total_tokens": 824,
+     "prompt_tokens_details": {
+      "cached_tokens": 128
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 22
+     },
+     "prompt_cache_hit_tokens": 128,
+     "prompt_cache_miss_tokens": 634
+    },
+    "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
+   }
+  }
+ ]
+}

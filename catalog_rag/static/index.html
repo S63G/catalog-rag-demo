@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>产品目录助手</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <div>
+      <h1>产品目录 RAG 助手</h1>
+      <span class="sub">瑞丰机电批发（虚构） · 规格书 / 价目表 / FAQ</span>
+    </div>
+    <div class="right">
+      <span class="badge warn">演示数据均为虚构</span>
+      <span class="badge" id="mode"></span>
+    </div>
+  </header>
+  <main>
+    <section class="chat">
+      <div id="messages">
+        <div class="msg system">
+          <p>直接提问即可。回答都附带来源（文档 + 页码/行号），资料里没有的会明确拒答。</p>
+          <div class="chips" id="examples"></div>
+        </div>
+      </div>
+      <form id="ask">
+        <div class="controls">
+          <label>角色
+            <select id="role"><option>销售</option><option>客服</option></select>
+          </label>
+          <details>
+            <summary>筛选</summary>
+            <div class="filters">
+              <label>型号 <input id="f-model" placeholder="如 LJ18"></label>
+              <label>材质 <input id="f-material" placeholder="如 316、FKM"></label>
+              <label>尺寸 <input id="f-size" placeholder="如 M6、DN25"></label>
+              <label>价格 <input id="f-min" type="number" min="0" placeholder="下限"> – <input id="f-max" type="number" min="0" placeholder="上限"></label>
+              <span class="hint">价格筛选仅销售可用</span>
+            </div>
+          </details>
+        </div>
+        <div class="input">
+          <textarea id="question" rows="2" placeholder="例如：6204-2RS 的外径是多少？（Enter 发送，Shift+Enter 换行）"></textarea>
+          <button type="submit" id="send">发送</button>
+        </div>
+      </form>
+    </section>
+    <aside>
+      <h2>来源原文</h2>
+      <div id="source" class="panel muted">点击回答中的 [编号] 查看引用的原文片段。</div>
+      <h2>调用追踪</h2>
+      <div id="trace" class="panel muted">每次回答的检索、重排、生成耗时和估算费用。</div>
+      <h2>查询日志 <button id="refresh" class="link">刷新</button></h2>
+      <div id="logs" class="panel"></div>
+    </aside>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>

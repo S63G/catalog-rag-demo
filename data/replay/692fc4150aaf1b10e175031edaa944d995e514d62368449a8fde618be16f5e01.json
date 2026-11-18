@@ -1,0 +1,62 @@
+{
+ "source": "live",
+ "endpoint": "https://api.deepseek.com/chat/completions",
+ "model": "deepseek-flash",
+ "request_sha256": "692fc4150aaf1b10e175031edaa944d995e514d62368449a8fde618be16f5e01",
+ "request": {
+  "model": "deepseek-flash",
+  "messages": [
+   {
+    "role": "system",
+    "content": "你是瑞丰机电批发（虚构）的产品目录助手，回答公司销售和客服同事的问题。只能依据用户消息里 <资料> 中的内容回答，不要使用资料以外的知识，也不要做资料里没有的推算。\n规则：\n1. 资料能回答问题时：answerable=true；回答简洁，直接给出型号、参数和单位；每句事实后用 [编号] 标注来源，编号必须是资料里给出的编号。\n2. 资料不能回答问题时（问到的型号、规格、参数、品牌、认证等在资料中不存在）：answerable=false，answer 用一句话说明目录资料中没有这方面信息（可以顺带说明资料里有哪些相近内容），citations 为空。不要猜测。\n3. 表格数据原样引用，不要换算单位。\n4. 给出“系统匹配的替代候选”时，只推荐这些候选并说明替代条件；没有给出候选时不要自行推荐替代型号。\n5. 当前提问者角色：客服。客服看不到价格，回答中不要出现任何价格或金额。\n只输出一个 JSON 对象：{\"answerable\": true 或 false, \"answer\": \"回答正文\", \"citations\": [引用的编号]}"
+   },
+   {
+    "role": "user",
+    "content": "<资料>\n[1] 来源：RF-09_三相异步电机规格书.pdf 第2页｜YE3 系列超高效三相异步电动机 产品规格书 › 表1 YE3 电机规格参数\n型号 YE3 7.5kW 2P；物料编码 5.01.0015；功率(kW) 7.5；极数 2P；同步转速(r/min) 3000；额定转速(r/min) 2920；机座号 132S2；额定电流(A) 14.3；效率等级 IE3；材质 铸铁机壳\n\n[2] 来源：RF-09_三相异步电机规格书.pdf 第2页｜YE3 系列超高效三相异步电动机 产品规格书 › 表1 YE3 电机规格参数\n型号 YE3 7.5kW 4P；物料编码 5.01.0016；功率(kW) 7.5；极数 4P；同步转速(r/min) 1500；额定转速(r/min) 1460；机座号 132M；额定电流(A) 15.2；效率等级 IE3；材质 铸铁机壳\n\n[3] 来源：RF-09_三相异步电机规格书.pdf 第2页｜YE3 系列超高效三相异步电动机 产品规格书 › 表1 YE3 电机规格参数\n型号 YE3 5.5kW 2P；物料编码 5.01.0013；功率(kW) 5.5；极数 2P；同步转速(r/min) 3000；额定转速(r/min) 2910；机座号 132S1；额定电流(A) 10.7；效率等级 IE3；材质 铸铁机壳\n\n[4] 来源：RF-09_三相异步电机规格书.pdf 第2页｜YE3 系列超高效三相异步电动机 产品规格书 › 表1 YE3 电机规格参数\n型号 YE3 5.5kW 4P；物料编码 5.01.0014；功率(kW) 5.5；极数 4P；同步转速(r/min) 1500；额定转速(r/min) 1450；机座号 132S；额定电流(A) 11.4；效率等级 IE3；材质 铸铁机壳\n\n[5] 来源：RF-09_三相异步电机规格书.pdf 第3页｜YE3 系列超高效三相异步电动机 产品规格书 › 6 选型与替代说明\n· 同功率、同极数、同机座号的电机才能直接替换安装；2 极与 4 极转速不同，不能互相替代。\n· 用变频器调速时，建议在 5~50Hz 范围内运行，长期低速运行需加装独立风机（本目录未收录）。\n</资料>\n\n问题：YE3 7.5kW 电机运行噪声多少分贝？"
+   }
+  ],
+  "temperature": 0,
+  "response_format": {
+   "type": "json_object"
+  }
+ },
+ "calls": [
+  {
+   "recorded_at": "2026-11-18T08:20:37+00:00",
+   "run": "hybrid",
+   "latency_ms": 1316.3,
+   "response": {
+    "id": "1d6a1dd7-04c6-47d1-a14b-fe68a983a094",
+    "object": "chat.completion",
+    "created": 1794990037,
+    "model": "deepseek-flash",
+    "choices": [
+     {
+      "index": 0,
+      "message": {
+       "role": "assistant",
+       "content": "{\"answerable\": false, \"answer\": \"目录资料中没有电机运行噪声（分贝）方面的信息；现有资料仅包含 YE3 系列电机的功率、极数、转速、机座号、额定电流、效率等级和材质等参数。\", \"citations\": []}",
+       "reasoning_content": "资料中没有噪声分贝信息。answerable=false。citations 为空。可以说明资料中有功率、极数、转速等信息，但没有噪声。"
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+     }
+    ],
+    "usage": {
+     "prompt_tokens": 944,
+     "completion_tokens": 93,
+     "total_tokens": 1037,
+     "prompt_tokens_details": {
+      "cached_tokens": 128
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 31
+     },
+     "prompt_cache_hit_tokens": 128,
+     "prompt_cache_miss_tokens": 816
+    },
+    "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
+   }
+  }
+ ]
+}

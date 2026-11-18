@@ -1,0 +1,2214 @@
+{
+ "label": "live:hybrid:deepseek/deepseek-flash",
+ "pipeline": "hybrid",
+ "mode": "live",
+ "chat_model": "deepseek/deepseek-flash",
+ "embed_model": "text-embedding-v4 (512d)",
+ "rerank_model": null,
+ "run_at": "2026-11-18T08:20:47+00:00",
+ "gold_written_at": "2026-11-18",
+ "summary": {
+  "questions": 50,
+  "overall_correct": {
+   "n": 48,
+   "d": 50,
+   "pct": 96.0
+  },
+  "hit_at_5": {
+   "n": 36,
+   "d": 37,
+   "pct": 97.3
+  },
+  "answer_correct": {
+   "n": 38,
+   "d": 40,
+   "pct": 95.0
+  },
+  "citation_correct": {
+   "n": 36,
+   "d": 37,
+   "pct": 97.3
+  },
+  "citation_precision": {
+   "n": 73,
+   "d": 75,
+   "pct": 97.3
+  },
+  "refusal_correct": {
+   "n": 7,
+   "d": 7,
+   "pct": 100.0
+  },
+  "false_refusal": {
+   "n": 1,
+   "d": 40,
+   "pct": 2.5
+  },
+  "deny_correct": {
+   "n": 3,
+   "d": 3,
+   "pct": 100.0
+  },
+  "price_leak_to_support": 0,
+  "ungrounded_number_answers": 0,
+  "errors": 0,
+  "latency_ms": {
+   "mean": 2733.8,
+   "p50": 2620.2,
+   "p95": 4472.8,
+   "max": 5291.8,
+   "n": 47
+  },
+  "cost_usd": {
+   "total": 0.017581,
+   "per_question": 0.0003516
+  },
+  "tokens": {
+   "bailian": {
+    "input": 686,
+    "output": 0,
+    "cached": 0,
+    "calls": 44
+   },
+   "deepseek": {
+    "input": 41231,
+    "output": 7344,
+    "cached": 12416,
+    "calls": 47
+   }
+  },
+  "by_category": {
+   "表格参数": {
+    "n": 8,
+    "d": 8,
+    "pct": 100.0
+   },
+   "表格参数（续表页）": {
+    "n": 1,
+    "d": 1,
+    "pct": 100.0
+   },
+   "正文说明": {
+    "n": 7,
+    "d": 7,
+    "pct": 100.0
+   },
+   "口语提问": {
+    "n": 6,
+    "d": 6,
+    "pct": 100.0
+   },
+   "价格（销售）": {
+    "n": 3,
+    "d": 4,
+    "pct": 75.0
+   },
+   "FAQ": {
+    "n": 3,
+    "d": 4,
+    "pct": 75.0
+   },
+   "替代型号": {
+    "n": 4,
+    "d": 4,
+    "pct": 100.0
+   },
+   "筛选（材质+价格区间）": {
+    "n": 1,
+    "d": 1,
+    "pct": 100.0
+   },
+   "筛选（尺寸）": {
+    "n": 1,
+    "d": 1,
+    "pct": 100.0
+   },
+   "筛选（材质）": {
+    "n": 1,
+    "d": 1,
+    "pct": 100.0
+   },
+   "报价草稿": {
+    "n": 3,
+    "d": 3,
+    "pct": 100.0
+   },
+   "权限（客服问价）": {
+    "n": 2,
+    "d": 2,
+    "pct": 100.0
+   },
+   "权限（客服报价）": {
+    "n": 1,
+    "d": 1,
+    "pct": 100.0
+   },
+   "目录外（应拒答）": {
+    "n": 7,
+    "d": 7,
+    "pct": 100.0
+   }
+  }
+ },
+ "rows": [
+  {
+   "id": "A1",
+   "category": "表格参数",
+   "role": "客服",
+   "question": "6204-2RS 的外径和宽度是多少？",
+   "expect": "answer",
+   "status": "answered",
+   "answer": "6204-2RS 的外径 D 为 47 mm [1]；宽度 B 为 14 mm [1]。",
+   "sources": [
+    "RF-01_深沟球轴承规格书.pdf|p2"
+   ],
+   "cited": [
+    "RF-01_深沟球轴承规格书.pdf|p2"
+   ],
+   "retrieved_top5": [
+    "RF-01_深沟球轴承规格书.pdf|p2",
+    "RF-01_深沟球轴承规格书.pdf|p4",
+    "RF-01_深沟球轴承规格书.pdf|p2",
+    "RF-01_深沟球轴承规格书.pdf|p3",
+    "RF-01_深沟球轴承规格书.pdf|p2"
+   ],
+   "warnings": [],
+   "total_ms": 1887.5,
+   "cost_usd": 0.00031084799999999996,
+   "tokens": {
+    "bailian": {
+     "input": 15,
+     "output": 0,
+     "cached": 0,
+     "calls": 1
+    },
+    "deepseek": {
+     "input": 946,
+     "output": 53,
+     "cached": 128,
+     "calls": 1
+    }
+   },
+   "hit5": true,
+   "citation_ok": true,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "A2",
+   "category": "表格参数",
+   "role": "客服",
+   "question": "CJX2-2510 接触器能带多大功率的电机？",
+   "expect": "answer",
+   "status": "answered",
+   "answer": "CJX2-2510 接触器的额定电流 Ie 为 25A，AC-3 可控电机功率为 11kW；该型号有线圈 AC220V 和 AC380V 两种版本，两者的可控电机功率均为 11kW。[1][2]",
+   "sources": [
+    "RF-02_交流接触器规格书.pdf|p2"
+   ],
+   "cited": [
+    "RF-02_交流接触器规格书.pdf|p2",
+    "RF-02_交流接触器规格书.pdf|p2"
+   ],
+   "retrieved_top5": [
+    "RF-02_交流接触器规格书.pdf|p2",
+    "RF-02_交流接触器规格书.pdf|p2",
+    "RF-02_交流接触器规格书.pdf|p3",
+    "RF-02_交流接触器规格书.pdf|p1",
+    "RF-02_交流接触器规格书.pdf|p2"
+   ],
+   "warnings": [],
+   "total_ms": 2735.4,
+   "cost_usd": 0.000419652,
+   "tokens": {
+    "bailian": {
+     "input": 22,
+     "output": 0,
+     "cached": 0,
+     "calls": 1
+    },
+    "deepseek": {
+     "input": 919,
+     "output": 150,
+     "cached": 128,
+     "calls": 1
+    }
+   },
+   "hit5": true,
+   "citation_ok": true,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "A3",
+   "category": "表格参数",
+   "role": "销售",
+   "question": "DZ47-63 3P 的断路器宽度是多少毫米？",
+   "expect": "answer",
+   "status": "answered",
+   "answer": "DZ47-63 3P 系列目录所列型号的宽度均为 54 mm。[1][2][3][4][5]",
+   "sources": [
+    "RF-03_小型断路器规格书.pdf|p2"
+   ],
+   "cited": [
+    "RF-03_小型断路器规格书.pdf|p2",
+    "RF-03_小型断路器规格书.pdf|p2",
+    "RF-03_小型断路器规格书.pdf|p2",
+    "RF-03_小型断路器规格书.pdf|p2",
+    "RF-03_小型断路器规格书.pdf|p2"
+   ],
+   "retrieved_top5": [
+    "RF-03_小型断路器规格书.pdf|p2",
+    "RF-03_小型断路器规格书.pdf|p2",
+    "RF-03_小型断路器规格书.pdf|p2",
+    "RF-03_小型断路器规格书.pdf|p2",
+    "RF-03_小型断路器规格书.pdf|p2"
+   ],
+   "warnings": [],
+   "total_ms": 2620.2,
+   "cost_usd": 0.000368004,
+   "tokens": {
+    "bailian": {
+     "input": 19,
+     "output": 0,
+     "cached": 0,
+     "calls": 1
+    },
+    "deepseek": {
+     "input": 881,
+     "output": 148,
+     "cached": 256,
+     "calls": 1
+    }
+   },
+   "hit5": true,
+   "citation_ok": true,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "A4",
+   "category": "表格参数",
+   "role": "客服",
+   "question": "M10×30 内六角螺钉的头部直径是多少？",
+   "expect": "answer",
+   "status": "answered",
+   "answer": "M10×30 12.9级内六角圆柱头螺钉的头部直径 dk 为 16 mm。[1]",
+   "sources": [
+    "RF-06_内六角圆柱头螺钉规格书.pdf|p2"
+   ],
+   "cited": [
+    "RF-06_内六角圆柱头螺钉规格书.pdf|p2"
+   ],
+   "retrieved_top5": [
+    "RF-06_内六角圆柱头螺钉规格书.pdf|p2",
+    "RF-06_内六角圆柱头螺钉规格书.pdf|p2",
+    "RF-06_内六角圆柱头螺钉规格书.pdf|p2",
+    "RF-06_内六角圆柱头螺钉规格书.pdf|p2",
+    "RF-06_内六角圆柱头螺钉规格书.pdf|p2"
+   ],
+   "warnings": [],
+   "total_ms": 5291.8,
+   "cost_usd": 0.00033283200000000003,
+   "tokens": {
+    "bailian": {
+     "input": 18,
+     "output": 0,
+     "cached": 0,
+     "calls": 1
+    },
+    "deepseek": {
+     "input": 1052,
+     "output": 76,
+     "cached": 256,
+     "calls": 1
+    }
+   },
+   "hit5": true,
+   "citation_ok": true,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "A5",
+   "category": "表格参数（续表页）",
+   "role": "销售",
+   "question": "M12×25 螺钉的内六角对边尺寸是多少？",
+   "expect": "answer",
+   "status": "answered",
+   "answer": "M12×25 12.9级内六角圆柱头螺钉的内六角对边尺寸 s 为 10 mm。[1]",
+   "sources": [
+    "RF-06_内六角圆柱头螺钉规格书.pdf|p3"
+   ],
+   "cited": [
+    "RF-06_内六角圆柱头螺钉规格书.pdf|p3"
+   ],
+   "retrieved_top5": [
+    "RF-06_内六角圆柱头螺钉规格书.pdf|p3",
+    "RF-06_内六角圆柱头螺钉规格书.pdf|p2",
+    "RF-06_内六角圆柱头螺钉规格书.pdf|p2",
+    "RF-06_内六角圆柱头螺钉规格书.pdf|p2",
+    "RF-06_内六角圆柱头螺钉规格书.pdf|p3"
+   ],
+   "warnings": [],
+   "total_ms": 1888.2,
+   "cost_usd": 0.000350976,
+   "tokens": {
+    "bailian": {
+     "input": 20,
+     "output": 0,
+     "cached": 0,
+     "calls": 1
+    },
+    "deepseek": {
+     "input": 1060,
+     "output": 89,
+     "cached": 256,
+     "calls": 1
+    }
+   },
+   "hit5": true,
+   "citation_ok": true,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "A6",
+   "category": "表格参数",
+   "role": "客服",
+   "question": "YE3 5.5kW 4极电机的机座号和额定电流是多少？",
+   "expect": "answer",
+   "status": "answered",
+   "answer": "YE3 5.5kW 4P 的机座号为 132S，额定电流为 11.4A [1]。",
+   "sources": [
+    "RF-09_三相异步电机规格书.pdf|p2"
+   ],
+   "cited": [
+    "RF-09_三相异步电机规格书.pdf|p2"
+   ],
+   "retrieved_top5": [
+    "RF-09_三相异步电机规格书.pdf|p2",
+    "RF-09_三相异步电机规格书.pdf|p2",
+    "RF-09_三相异步电机规格书.pdf|p2",
+    "RF-09_三相异步电机规格书.pdf|p2",
+    "RF-09_三相异步电机规格书.pdf|p2"
+   ],
+   "warnings": [],
+   "total_ms": 2964.3,
+   "cost_usd": 0.00024246,
+   "tokens": {
+    "bailian": {
+     "input": 23,
+     "output": 0,
+     "cached": 0,
+     "calls": 1
+    },
+    "deepseek": {
+     "input": 959,
+     "output": 55,
+     "cached": 384,
+     "calls": 1
+    }
+   },
+   "hit5": true,
+   "citation_ok": true,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "A7",
+   "category": "表格参数",
+   "role": "销售",
+   "question": "FV-7.5kW 变频器的额定输出电流是多少？",
+   "expect": "answer",
+   "status": "answered",
+   "answer": "FV-7.5kW 380V 的额定输出电流为 17A [1]。",
+   "sources": [
+    "RF-10_通用变频器规格书.pdf|p2"
+   ],
+   "cited": [
+    "RF-10_通用变频器规格书.pdf|p2"
+   ],
+   "retrieved_top5": [
+    "RF-10_通用变频器规格书.pdf|p2",
+    "RF-10_通用变频器规格书.pdf|p2",
+    "RF-10_通用变频器规格书.pdf|p2",
+    "RF-10_通用变频器规格书.pdf|p2",
+    "RF-10_通用变频器规格书.pdf|p2"
+   ],
+   "warnings": [],
+   "total_ms": 1904.0,
+   "cost_usd": 0.000241776,
+   "tokens": {
+    "bailian": {
+     "input": 20,
+     "output": 0,
+     "cached": 0,
+     "calls": 1
+    },
+    "deepseek": {
+     "input": 892,
+     "output": 40,
+     "cached": 256,
+     "calls": 1
+    }
+   },
+   "hit5": true,
+   "citation_ok": true,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "A8",
+   "category": "表格参数",
+   "role": "客服",
+   "question": "LJ12A3-4-Z/AX 是什么输出类型？",
+   "expect": "answer",
+   "status": "answered",
+   "answer": "LJ12A3-4-Z/AX 的输出类型为 NPN，输出状态为常闭 [1]。",
+   "sources": [
+    "RF-16_电感式接近开关规格书.pdf|p1",
+    "RF-16_电感式接近开关规格书.pdf|p2"
+   ],
+   "cited": [
+    "RF-16_电感式接近开关规格书.pdf|p2"
+   ],
+   "retrieved_top5": [
+    "RF-16_电感式接近开关规格书.pdf|p2",
+    "RF-16_电感式接近开关规格书.pdf|p2",
+    "RF-16_电感式接近开关规格书.pdf|p2",
+    "RF-16_电感式接近开关规格书.pdf|p2",
+    "RF-16_电感式接近开关规格书.pdf|p2"
+   ],
+   "warnings": [],
+   "total_ms": 2764.2,
+   "cost_usd": 0.000221928,
+   "tokens": {
+    "bailian": {
+     "input": 17,
+     "output": 0,
+     "cached": 0,
+     "calls": 1
+    },
+    "deepseek": {
+     "input": 888,
+     "output": 56,
+     "cached": 384,
+     "calls": 1
+    }
+   },
+   "hit5": true,
+   "citation_ok": true,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "A9",
+   "category": "表格参数",
+   "role": "客服",
+   "question": "HGR25 导轨的宽度和高度分别是多少？",
+   "expect": "answer",
+   "status": "answered",
+   "answer": "HGR25 导轨的宽度为 23mm，高度为 22mm。[1][3]",
+   "sources": [
+    "RF-15_直线导轨规格书.pdf|p2"
+   ],
+   "cited": [
+    "RF-15_直线导轨规格书.pdf|p2",
+    "RF-15_直线导轨规格书.pdf|p2"
+   ],
+   "retrieved_top5": [
+    "RF-15_直线导轨规格书.pdf|p2",
+    "RF-15_直线导轨规格书.pdf|p3",
+    "RF-15_直线导轨规格书.pdf|p2",
+    "RF-15_直线导轨规格书.pdf|p2",
+    "RF-15_直线导轨规格书.pdf|p2"
+   ],
+   "warnings": [],
+   "total_ms": 2209.3,
+   "cost_usd": 0.00029914799999999995,
+   "tokens": {
+    "bailian": {
+     "input": 15,
+     "output": 0,
+     "cached": 0,
+     "calls": 1
+    },
+    "deepseek": {
+     "input": 843,
+     "output": 69,
+     "cached": 128,
+     "calls": 1
+    }
+   },
+   "hit5": true,
+   "citation_ok": true,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "B1",
+   "category": "正文说明",
+   "role": "客服",
+   "question": "深沟球轴承 2RS 的工作温度范围是多少？",
+   "expect": "answer",
+   "status": "answered",
+   "answer": "-2RS 的工作温度范围为 -20~+110℃ [1]。",
+   "sources": [
+    "RF-01_深沟球轴承规格书.pdf|p1"
+   ],
+   "cited": [
+    "RF-01_深沟球轴承规格书.pdf|p1"
+   ],
+   "retrieved_top5": [
+    "RF-01_深沟球轴承规格书.pdf|p1",
+    "RF-01_深沟球轴承规格书.pdf|p2",
+    "RF-01_深沟球轴承规格书.pdf|p2",
+    "RF-01_深沟球轴承规格书.pdf|p2",
+    "RF-01_深沟球轴承规格书.pdf|p2"
+   ],
+   "warnings": [],
+   "total_ms": 2091.0,
+   "cost_usd": 0.00028364399999999994,
+   "tokens": {
+    "bailian": {
+     "input": 14,
+     "output": 0,
+     "cached": 0,
+     "calls": 1
+    },
+    "deepseek": {
+     "input": 921,
+     "output": 68,
+     "cached": 256,
+     "calls": 1
+    }
+   },
+   "hit5": true,
+   "citation_ok": true,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "B2",
+   "category": "正文说明",
+   "role": "客服",
+   "question": "YE3 电机的防护等级和绝缘等级是什么？",
+   "expect": "answer",
+   "status": "answered",
+   "answer": "YE3 系列电机的防护等级为 IP55 [1]；绝缘等级为 F 级，温升按 B 级考核 [1]。",
+   "sources": [
+    "RF-09_三相异步电机规格书.pdf|p1"
+   ],
+   "cited": [
+    "RF-09_三相异步电机规格书.pdf|p1"
+   ],
+   "retrieved_top5": [
+    "RF-09_三相异步电机规格书.pdf|p1",
+    "RF-09_三相异步电机规格书.pdf|p2",
+    "RF-09_三相异步电机规格书.pdf|p2",
+    "RF-09_三相异步电机规格书.pdf|p2",
+    "RF-09_三相异步电机规格书.pdf|p2"
+   ],
+   "warnings": [],
+   "total_ms": 3435.9,
+   "cost_usd": 0.00028657199999999997,
+   "tokens": {
+    "bailian": {
+     "input": 13,
+     "output": 0,
+     "cached": 0,
+     "calls": 1
+    },
+    "deepseek": {
+     "input": 915,
+     "output": 72,
+     "cached": 256,
+     "calls": 1
+    }
+   },
+   "hit5": true,
+   "citation_ok": true,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "B3",
+   "category": "正文说明",
+   "role": "销售",
+   "question": "FV 变频器支持什么通讯协议？",
+   "expect": "answer",
+   "status": "answered",
+   "answer": "FV 系列通用变频器标配 RS485 通讯口，支持 Modbus-RTU 协议。[1]",
+   "sources": [
+    "RF-10_通用变频器规格书.pdf|p1"
+   ],
+   "cited": [
+    "RF-10_通用变频器规格书.pdf|p1"
+   ],
+   "retrieved_top5": [
+    "RF-10_通用变频器规格书.pdf|p1",
+    "RF-10_通用变频器规格书.pdf|p2",
+    "RF-10_通用变频器规格书.pdf|p2",
+    "RF-10_通用变频器规格书.pdf|p2",
+    "RF-10_通用变频器规格书.pdf|p2"
+   ],
+   "warnings": [],
+   "total_ms": 2165.2,
+   "cost_usd": 0.0002598,
+   "tokens": {
+    "bailian": {
+     "input": 12,
+     "output": 0,
+     "cached": 0,
+     "calls": 1
+    },
+    "deepseek": {
+     "input": 854,
+     "output": 65,
+     "cached": 256,
+     "calls": 1
+    }
+   },
+   "hit5": true,
+   "citation_ok": true,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "B4",
+   "category": "正文说明",
+   "role": "客服",
+   "question": "缸径 50 的 SC 气缸在 0.5MPa 下理论推力大约多少？",
+   "expect": "answer",
+   "status": "answered",
+   "answer": "缸径 50 的 SC 气缸在 0.5MPa 下理论推力约为 982N。[1]",
+   "sources": [
+    "RF-07_标准气缸规格书.pdf|p3"
+   ],
+   "cited": [
+    "RF-07_标准气缸规格书.pdf|p3"
+   ],
+   "retrieved_top5": [
+    "RF-07_标准气缸规格书.pdf|p3",
+    "RF-07_标准气缸规格书.pdf|p2",
+    "RF-07_标准气缸规格书.pdf|p2",
+    "RF-07_标准气缸规格书.pdf|p2",
+    "RF-07_标准气缸规格书.pdf|p2"
+   ],
+   "warnings": [],
+   "total_ms": 3061.0,
+   "cost_usd": 0.000266676,
+   "tokens": {
+    "bailian": {
+     "input": 26,
+     "output": 0,
+     "cached": 0,
+     "calls": 1
+    },
+    "deepseek": {
+     "input": 891,
+     "output": 92,
+     "cached": 384,
+     "calls": 1
+    }
+   },
+   "hit5": true,
+   "citation_ok": true,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "B5",
+   "category": "正文说明",
+   "role": "客服",
+   "question": "M8 的 12.9 级内六角螺钉推荐拧紧力矩是多少？",
+   "expect": "answer",
+   "status": "answered",
+   "answer": "M8 的 12.9 级内六角圆柱头螺钉推荐拧紧力矩（干燥）为 37N·m。[1]",
+   "sources": [
+    "RF-06_内六角圆柱头螺钉规格书.pdf|p4"
+   ],
+   "cited": [
+    "RF-06_内六角圆柱头螺钉规格书.pdf|p4"
+   ],
+   "retrieved_top5": [
+    "RF-06_内六角圆柱头螺钉规格书.pdf|p4",
+    "RF-06_内六角圆柱头螺钉规格书.pdf|p2",
+    "RF-06_内六角圆柱头螺钉规格书.pdf|p2",
+    "RF-06_内六角圆柱头螺钉规格书.pdf|p2",
+    "RF-06_内六角圆柱头螺钉规格书.pdf|p2"
+   ],
+   "warnings": [],
+   "total_ms": 2320.5,
+   "cost_usd": 0.000324264,
+   "tokens": {
+    "bailian": {
+     "input": 24,
+     "output": 0,
+     "cached": 0,
+     "calls": 1
+    },
+    "deepseek": {
+     "input": 1058,
+     "output": 67,
+     "cached": 256,
+     "calls": 1
+    }
+   },
+   "hit5": true,
+   "citation_ok": true,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "B6",
+   "category": "正文说明",
+   "role": "客服",
+   "question": "直线导轨的质保期是多久？",
+   "expect": "answer",
+   "status": "answered",
+   "answer": "HGR 系列直线导轨的质保期为自发货之日起 12 个月 [1]。质保期内因材料或制造缺陷造成的损坏，免费更换同型号产品；因安装不当、超规格使用或人为损坏不在质保范围内 [1]。",
+   "sources": [
+    "RF-15_直线导轨规格书.pdf|p3"
+   ],
+   "cited": [
+    "RF-15_直线导轨规格书.pdf|p3"
+   ],
+   "retrieved_top5": [
+    "RF-15_直线导轨规格书.pdf|p3",
+    "常见问题FAQ.md|Q7",
+    "RF-15_直线导轨规格书.pdf|p1",
+    "RF-18_导轨式接线端子规格书.pdf|p3",
+    "RF-15_直线导轨规格书.pdf|p3"
+   ],
+   "warnings": [],
+   "total_ms": 2047.1,
+   "cost_usd": 0.00031205999999999996,
+   "tokens": {
+    "bailian": {
+     "input": 11,
+     "output": 0,
+     "cached": 0,
+     "calls": 1
+    },
+    "deepseek": {
+     "input": 755,
+     "output": 102,
+     "cached": 128,
+     "calls": 1
+    }
+   },
+   "hit5": true,
+   "citation_ok": true,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "B7",
+   "category": "正文说明",
+   "role": "销售",
+   "question": "PU 气管在 60℃ 时最高使用压力是多少？",
+   "expect": "answer",
+   "status": "answered",
+   "answer": "PU 气管在 60℃ 时最高使用压力约为 0.5MPa [1]。",
+   "sources": [
+    "RF-08_PU气管与快插接头规格书.pdf|p3"
+   ],
+   "cited": [
+    "RF-08_PU气管与快插接头规格书.pdf|p3"
+   ],
+   "retrieved_top5": [
+    "RF-08_PU气管与快插接头规格书.pdf|p3",
+    "RF-08_PU气管与快插接头规格书.pdf|p1",
+    "RF-08_PU气管与快插接头规格书.pdf|p2",
+    "RF-08_PU气管与快插接头规格书.pdf|p2",
+    "RF-08_PU气管与快插接头规格书.pdf|p2"
+   ],
+   "warnings": [],
+   "total_ms": 2207.3,
+   "cost_usd": 0.000228336,
+   "tokens": {
+    "bailian": {
+     "input": 18,
+     "output": 0,
+     "cached": 0,
+     "calls": 1
+    },
+    "deepseek": {
+     "input": 880,
+     "output": 126,
+     "cached": 640,
+     "calls": 1
+    }
+   },
+   "hit5": true,
+   "citation_ok": true,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "C1",
+   "category": "口语提问",
+   "role": "客服",
+   "question": "那个18的接近开关，PNP常开的，能感应多远？",
+   "expect": "answer",
+   "status": "answered",
+   "answer": "LJ18A3-8-Z/BY 为 M18 螺纹规格、PNP 常开输出的电感式接近开关，检测距离为 8mm，检测距离以 Q235 钢为标准检测体 [1][3]。该型号工作电压为 DC6~36V，采用镀镍黄铜外壳，安装方式为非埋入式 [3]。若检测铝、铜等非铁金属，检测距离会明显缩短，约为标称值的 40%~50% [2]。",
+   "sources": [
+    "RF-16_电感式接近开关规格书.pdf|p1",
+    "RF-16_电感式接近开关规格书.pdf|p2"
+   ],
+   "cited": [
+    "RF-16_电感式接近开关规格书.pdf|p1",
+    "RF-16_电感式接近开关规格书.pdf|p3",
+    "RF-16_电感式接近开关规格书.pdf|p2"
+   ],
+   "retrieved_top5": [
+    "RF-16_电感式接近开关规格书.pdf|p1",
+    "RF-16_电感式接近开关规格书.pdf|p3",
+    "RF-16_电感式接近开关规格书.pdf|p2",
+    "RF-16_电感式接近开关规格书.pdf|p2",
+    "RF-16_电感式接近开关规格书.pdf|p2"
+   ],
+   "warnings": [],
+   "total_ms": 2148.6,
+   "cost_usd": 0.000389004,
+   "tokens": {
+    "bailian": {
+     "input": 19,
+     "output": 0,
+     "cached": 0,
+     "calls": 1
+    },
+    "deepseek": {
+     "input": 903,
+     "output": 160,
+     "cached": 256,
+     "calls": 1
+    }
+   },
+   "hit5": true,
+   "citation_ok": true,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "C2",
+   "category": "口语提问",
+   "role": "客服",
+   "question": "6205 带胶封的那款极限转速多少啊",
+   "expect": "answer",
+   "status": "answered",
+   "answer": "6205-2RS 为双面胶封，极限转速 8400 r/min [1]。",
+   "sources": [
+    "RF-01_深沟球轴承规格书.pdf|p2"
+   ],
+   "cited": [
+    "RF-01_深沟球轴承规格书.pdf|p2"
+   ],
+   "retrieved_top5": [
+    "RF-01_深沟球轴承规格书.pdf|p2",
+    "RF-01_深沟球轴承规格书.pdf|p2",
+    "RF-01_深沟球轴承规格书.pdf|p3",
+    "RF-01_深沟球轴承规格书.pdf|p2",
+    "RF-01_深沟球轴承规格书.pdf|p2"
+   ],
+   "warnings": [],
+   "total_ms": 2313.9,
+   "cost_usd": 0.000292632,
+   "tokens": {
+    "bailian": {
+     "input": 18,
+     "output": 0,
+     "cached": 0,
+     "calls": 1
+    },
+    "deepseek": {
+     "input": 930,
+     "output": 73,
+     "cached": 256,
+     "calls": 1
+    }
+   },
+   "hit5": true,
+   "citation_ok": true,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "C3",
+   "category": "口语提问",
+   "role": "销售",
+   "question": "2.5平方的BV线外径多粗？",
+   "expect": "answer",
+   "status": "answered",
+   "answer": "BV 2.5mm² 电线的平均外径为 3.9mm（蓝色、黄绿色、红色规格均为 3.9mm）[1][2][3]。",
+   "sources": [
+    "RF-04_BV单芯铜线规格书.pdf|p2"
+   ],
+   "cited": [
+    "RF-04_BV单芯铜线规格书.pdf|p2",
+    "RF-04_BV单芯铜线规格书.pdf|p2",
+    "RF-04_BV单芯铜线规格书.pdf|p2"
+   ],
+   "retrieved_top5": [
+    "RF-04_BV单芯铜线规格书.pdf|p2",
+    "RF-04_BV单芯铜线规格书.pdf|p2",
+    "RF-04_BV单芯铜线规格书.pdf|p2",
+    "瑞丰价目表_2026Q4.xlsx|价目表!r89",
+    "瑞丰价目表_2026Q4.xlsx|价目表!r88"
+   ],
+   "warnings": [],
+   "total_ms": 2552.8,
+   "cost_usd": 0.00035197199999999993,
+   "tokens": {
+    "bailian": {
+     "input": 13,
+     "output": 0,
+     "cached": 0,
+     "calls": 1
+    },
+    "deepseek": {
+     "input": 965,
+     "output": 114,
+     "cached": 256,
+     "calls": 1
+    }
+   },
+   "hit5": true,
+   "citation_ok": true,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "C4",
+   "category": "口语提问",
+   "role": "客服",
+   "question": "氟胶O型圈耐温能到多少度",
+   "expect": "answer",
+   "status": "answered",
+   "answer": "氟胶（FKM）O 型圈的使用温度范围为 -20~+200℃ [3]；同尺寸时 FKM 可替代 NBR，耐温从 100℃ 提高到 200℃，但 -20℃ 以下不建议使用 [1]。",
+   "sources": [
+    "RF-12_O型密封圈规格书.pdf|p2",
+    "RF-12_O型密封圈规格书.pdf|p3"
+   ],
+   "cited": [
+    "RF-12_O型密封圈规格书.pdf|p3",
+    "RF-12_O型密封圈规格书.pdf|p2"
+   ],
+   "retrieved_top5": [
+    "RF-12_O型密封圈规格书.pdf|p3",
+    "RF-12_O型密封圈规格书.pdf|p1",
+    "RF-12_O型密封圈规格书.pdf|p2",
+    "RF-12_O型密封圈规格书.pdf|p2",
+    "RF-12_O型密封圈规格书.pdf|p2"
+   ],
+   "warnings": [],
+   "total_ms": 2497.4,
+   "cost_usd": 0.00042149999999999995,
+   "tokens": {
+    "bailian": {
+     "input": 12,
+     "output": 0,
+     "cached": 0,
+     "calls": 1
+    },
+    "deepseek": {
+     "input": 829,
+     "output": 206,
+     "cached": 256,
+     "calls": 1
+    }
+   },
+   "hit5": true,
+   "citation_ok": true,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "C5",
+   "category": "口语提问",
+   "role": "客服",
+   "question": "扎带户外用选什么颜色的好？",
+   "expect": "answer",
+   "status": "answered",
+   "answer": "户外使用建议选黑色，因为黑色添加了炭黑、抗紫外线，适合户外 [1][2]；白色扎带长期日晒会变脆，不建议户外使用 [1]。",
+   "sources": [
+    "RF-13_尼龙扎带规格书.pdf|p1",
+    "RF-13_尼龙扎带规格书.pdf|p3"
+   ],
+   "cited": [
+    "RF-13_尼龙扎带规格书.pdf|p3",
+    "RF-13_尼龙扎带规格书.pdf|p1"
+   ],
+   "retrieved_top5": [
+    "RF-13_尼龙扎带规格书.pdf|p3",
+    "RF-13_尼龙扎带规格书.pdf|p1",
+    "RF-13_尼龙扎带规格书.pdf|p2",
+    "RF-13_尼龙扎带规格书.pdf|p2",
+    "RF-13_尼龙扎带规格书.pdf|p2"
+   ],
+   "warnings": [],
+   "total_ms": 2799.2,
+   "cost_usd": 0.000281556,
+   "tokens": {
+    "bailian": {
+     "input": 10,
+     "output": 0,
+     "cached": 0,
+     "calls": 1
+    },
+    "deepseek": {
+     "input": 803,
+     "output": 96,
+     "cached": 256,
+     "calls": 1
+    }
+   },
+   "hit5": true,
+   "citation_ok": true,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "C6",
+   "category": "口语提问",
+   "role": "销售",
+   "question": "球阀能不能拿来调节流量？",
+   "expect": "answer",
+   "status": "answered",
+   "answer": "球阀只能全开或全关，不可用于节流，因此不能用来调节流量。[1]",
+   "sources": [
+    "RF-19_不锈钢球阀规格书.pdf|p3"
+   ],
+   "cited": [
+    "RF-19_不锈钢球阀规格书.pdf|p3"
+   ],
+   "retrieved_top5": [
+    "RF-19_不锈钢球阀规格书.pdf|p3",
+    "RF-19_不锈钢球阀规格书.pdf|p2",
+    "RF-19_不锈钢球阀规格书.pdf|p2",
+    "RF-19_不锈钢球阀规格书.pdf|p1",
+    "RF-19_不锈钢球阀规格书.pdf|p2"
+   ],
+   "warnings": [],
+   "total_ms": 1877.2,
+   "cost_usd": 0.00025291200000000005,
+   "tokens": {
+    "bailian": {
+     "input": 8,
+     "output": 0,
+     "cached": 0,
+     "calls": 1
+    },
+    "deepseek": {
+     "input": 816,
+     "output": 69,
+     "cached": 256,
+     "calls": 1
+    }
+   },
+   "hit5": true,
+   "citation_ok": true,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "D1",
+   "category": "价格（销售）",
+   "role": "销售",
+   "question": "6204-2RS 目录价多少钱？",
+   "expect": "answer",
+   "status": "answered",
+   "answer": "6204-2RS 目录含税单价为 11.4 元/件 [1]；税率 13% [1]；起订量 1 件，标准交期现货 [1]。",
+   "sources": [
+    "瑞丰价目表_2026Q4.xlsx|价目表!r13"
+   ],
+   "cited": [
+    "瑞丰价目表_2026Q4.xlsx|价目表!r13"
+   ],
+   "retrieved_top5": [
+    "瑞丰价目表_2026Q4.xlsx|价目表!r13",
+    "RF-01_深沟球轴承规格书.pdf|p2",
+    "瑞丰价目表_2026Q4.xlsx|价目表!r9",
+    "瑞丰价目表_2026Q4.xlsx|价目表!r19",
+    "瑞丰价目表_2026Q4.xlsx|价目表!r17"
+   ],
+   "warnings": [],
+   "total_ms": 3204.6,
+   "cost_usd": 0.00030837599999999996,
+   "tokens": {
+    "bailian": {
+     "input": 14,
+     "output": 0,
+     "cached": 0,
+     "calls": 1
+    },
+    "deepseek": {
+     "input": 898,
+     "output": 63,
+     "cached": 128,
+     "calls": 1
+    }
+   },
+   "hit5": true,
+   "citation_ok": true,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "D2",
+   "category": "价格（销售）",
+   "role": "销售",
+   "question": "YE3 3kW 4极电机的标准交期是几天？",
+   "expect": "answer",
+   "status": "refused",
+   "answer": "目录资料中没有交期方面的信息；资料仅包含 YE3 系列电机的型号、物料编码、功率、极数、转速、机座号、电流、效率等级和材质等规格参数。",
+   "sources": [
+    "瑞丰价目表_2026Q4.xlsx|价目表!r183"
+   ],
+   "cited": [],
+   "retrieved_top5": [
+    "RF-09_三相异步电机规格书.pdf|p2",
+    "RF-09_三相异步电机规格书.pdf|p2",
+    "RF-09_三相异步电机规格书.pdf|p2",
+    "RF-09_三相异步电机规格书.pdf|p2",
+    "RF-09_三相异步电机规格书.pdf|p2"
+   ],
+   "warnings": [],
+   "total_ms": 2814.8,
+   "cost_usd": 0.00031266,
+   "tokens": {
+    "bailian": {
+     "input": 17,
+     "output": 0,
+     "cached": 0,
+     "calls": 1
+    },
+    "deepseek": {
+     "input": 961,
+     "output": 82,
+     "cached": 256,
+     "calls": 1
+    }
+   },
+   "hit5": false,
+   "citation_ok": false,
+   "reason": "期望回答，实际拒答",
+   "correct": false
+  },
+  {
+   "id": "D3",
+   "category": "价格（销售）",
+   "role": "销售",
+   "question": "M8×20 螺钉一箱多少钱，一箱多少个？",
+   "expect": "answer",
+   "status": "answered",
+   "answer": "M8×20 12.9级内六角圆柱头螺钉一箱目录含税单价为 112 元 [1]；包装为 100件/箱 [1][2]。",
+   "sources": [
+    "瑞丰价目表_2026Q4.xlsx|价目表!r126"
+   ],
+   "cited": [
+    "瑞丰价目表_2026Q4.xlsx|价目表!r126",
+    "RF-06_内六角圆柱头螺钉规格书.pdf|p2"
+   ],
+   "retrieved_top5": [
+    "瑞丰价目表_2026Q4.xlsx|价目表!r126",
+    "RF-06_内六角圆柱头螺钉规格书.pdf|p2",
+    "瑞丰价目表_2026Q4.xlsx|价目表!r125",
+    "瑞丰价目表_2026Q4.xlsx|价目表!r124",
+    "瑞丰价目表_2026Q4.xlsx|价目表!r127"
+   ],
+   "warnings": [],
+   "total_ms": 2090.8,
+   "cost_usd": 0.00042213600000000004,
+   "tokens": {
+    "bailian": {
+     "input": 19,
+     "output": 0,
+     "cached": 0,
+     "calls": 1
+    },
+    "deepseek": {
+     "input": 948,
+     "output": 145,
+     "cached": 128,
+     "calls": 1
+    }
+   },
+   "hit5": true,
+   "citation_ok": true,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "D4",
+   "category": "价格（销售）",
+   "role": "销售",
+   "question": "订单不满多少钱要收运费？收多少？",
+   "expect": "answer",
+   "status": "answered",
+   "answer": "单笔订单含税金额满3000元免运费[1][2]；不满3000元的华东地区订单收取运费15元[1][2]，其他地区按实际运费结算[1]。",
+   "sources": [
+    "常见问题FAQ.md|Q4",
+    "瑞丰价目表_2026Q4.xlsx|价格政策!r5"
+   ],
+   "cited": [
+    "常见问题FAQ.md|Q4",
+    "瑞丰价目表_2026Q4.xlsx|价格政策!r5"
+   ],
+   "retrieved_top5": [
+    "常见问题FAQ.md|Q4",
+    "瑞丰价目表_2026Q4.xlsx|价格政策!r5",
+    "常见问题FAQ.md|Q15",
+    "常见问题FAQ.md|Q16",
+    "常见问题FAQ.md|Q9"
+   ],
+   "warnings": [],
+   "total_ms": 2684.0,
+   "cost_usd": 0.000387096,
+   "tokens": {
+    "bailian": {
+     "input": 11,
+     "output": 0,
+     "cached": 0,
+     "calls": 1
+    },
+    "deepseek": {
+     "input": 708,
+     "output": 239,
+     "cached": 384,
+     "calls": 1
+    }
+   },
+   "hit5": true,
+   "citation_ok": true,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "E1",
+   "category": "FAQ",
+   "role": "客服",
+   "question": "下午五点下的现货单今天能发吗？",
+   "expect": "answer",
+   "status": "answered",
+   "answer": "现货物料需在工作日 16:00 前确认订单才可当天发货，16:00 以后确认的订单次日发货；下午五点下单已超过 16:00，因此当天不能发货，将于次日发货。[1]",
+   "sources": [
+    "常见问题FAQ.md|Q2"
+   ],
+   "cited": [
+    "常见问题FAQ.md|Q2"
+   ],
+   "retrieved_top5": [
+    "常见问题FAQ.md|Q2",
+    "常见问题FAQ.md|Q1",
+    "常见问题FAQ.md|Q14",
+    "常见问题FAQ.md|Q16",
+    "常见问题FAQ.md|Q9"
+   ],
+   "warnings": [],
+   "total_ms": 2753.5,
+   "cost_usd": 0.00031333199999999993,
+   "tokens": {
+    "bailian": {
+     "input": 12,
+     "output": 0,
+     "cached": 0,
+     "calls": 1
+    },
+    "deepseek": {
+     "input": 679,
+     "output": 122,
+     "cached": 128,
+     "calls": 1
+    }
+   },
+   "hit5": true,
+   "citation_ok": true,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "E2",
+   "category": "FAQ",
+   "role": "客服",
+   "question": "买的导轨切割过了还能退吗？",
+   "expect": "answer",
+   "status": "answered",
+   "answer": "不能退。产品未使用、包装完好的，自签收之日起 15 天内可以退换，但定制切割的导轨不予退换 [1]。",
+   "sources": [
+    "常见问题FAQ.md|Q6"
+   ],
+   "cited": [
+    "常见问题FAQ.md|Q6"
+   ],
+   "retrieved_top5": [
+    "常见问题FAQ.md|Q6",
+    "常见问题FAQ.md|Q12",
+    "RF-15_直线导轨规格书.pdf|p3",
+    "RF-15_直线导轨规格书.pdf|p1",
+    "RF-15_直线导轨规格书.pdf|p1"
+   ],
+   "warnings": [],
+   "total_ms": 2216.2,
+   "cost_usd": 0.00024165599999999998,
+   "tokens": {
+    "bailian": {
+     "input": 10,
+     "output": 0,
+     "cached": 0,
+     "calls": 1
+    },
+    "deepseek": {
+     "input": 710,
+     "output": 86,
+     "cached": 256,
+     "calls": 1
+    }
+   },
+   "hit5": true,
+   "citation_ok": true,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "E3",
+   "category": "FAQ",
+   "role": "客服",
+   "question": "能开增值税专用发票吗？税率多少？",
+   "expect": "answer",
+   "status": "answered",
+   "answer": "可以开具 13% 增值税专用发票或普通发票；发票随货寄出，或开具电子发票。[1]",
+   "sources": [
+    "常见问题FAQ.md|Q5",
+    "瑞丰价目表_2026Q4.xlsx|价格政策!r2"
+   ],
+   "cited": [
+    "常见问题FAQ.md|Q5"
+   ],
+   "retrieved_top5": [
+    "常见问题FAQ.md|Q5",
+    "常见问题FAQ.md|Q16",
+    "常见问题FAQ.md|Q12",
+    "常见问题FAQ.md|Q11",
+    "常见问题FAQ.md|Q15"
+   ],
+   "warnings": [],
+   "total_ms": 3529.5,
+   "cost_usd": 0.00024516,
+   "tokens": {
+    "bailian": {
+     "input": 11,
+     "output": 0,
+     "cached": 0,
+     "calls": 1
+    },
+    "deepseek": {
+     "input": 668,
+     "output": 68,
+     "cached": 128,
+     "calls": 1
+    }
+   },
+   "hit5": true,
+   "citation_ok": true,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "E4",
+   "category": "FAQ",
+   "role": "客服",
+   "question": "可以申请免费样品吗？有什么条件？",
+   "expect": "answer",
+   "status": "answered",
+   "answer": "可以申请免费样品，每个型号限 1 件（按箱销售的物料提供 1 小包）[1]；运费由客户承担 [1]。样品申请设有单价门槛，具体金额属于价格信息，客服端不展示，建议向销售同事确认 [1]。",
+   "sources": [
+    "常见问题FAQ.md|Q9"
+   ],
+   "cited": [
+    "常见问题FAQ.md|Q9"
+   ],
+   "retrieved_top5": [
+    "常见问题FAQ.md|Q9",
+    "常见问题FAQ.md|Q11",
+    "常见问题FAQ.md|Q19",
+    "常见问题FAQ.md|Q16",
+    "常见问题FAQ.md|Q10"
+   ],
+   "warnings": [],
+   "total_ms": 2881.7,
+   "cost_usd": 0.00041925599999999996,
+   "tokens": {
+    "bailian": {
+     "input": 10,
+     "output": 0,
+     "cached": 0,
+     "calls": 1
+    },
+    "deepseek": {
+     "input": 654,
+     "output": 248,
+     "cached": 256,
+     "calls": 1
+    }
+   },
+   "hit5": true,
+   "citation_ok": true,
+   "reason": "缺少：200",
+   "correct": false
+  },
+  {
+   "id": "F1",
+   "category": "替代型号",
+   "role": "客服",
+   "question": "6205-2RS 缺货，有什么可以替代？",
+   "expect": "answer",
+   "status": "answered",
+   "answer": "可用 6205-ZZ（物料编码 1.01.0012）替代[2][3]。6205-ZZ 内径 25 mm、外径 52 mm、宽度 15 mm，与 6205-2RS 外形尺寸相同、密封形式不同，可以互相替代[2][3]。替代条件：粉尘大、有水汽的场合优先选 -2RS；高转速、干燥环境优先选 -ZZ[3]。6205-2RS 极限转速 8400 r/min，6205-ZZ 极限转速 13000 r/min[1][2]。",
+   "sources": [
+    "RF-01_深沟球轴承规格书.pdf|p2",
+    "RF-01_深沟球轴承规格书.pdf|p4"
+   ],
+   "cited": [
+    "RF-01_深沟球轴承规格书.pdf|p2",
+    "RF-01_深沟球轴承规格书.pdf|p2",
+    "RF-01_深沟球轴承规格书.pdf|p4"
+   ],
+   "retrieved_top5": [
+    "RF-01_深沟球轴承规格书.pdf|p4",
+    "RF-02_交流接触器规格书.pdf|p3",
+    "RF-01_深沟球轴承规格书.pdf|p2",
+    "RF-20_圆筒形熔断器规格书.pdf|p3",
+    "RF-15_直线导轨规格书.pdf|p3"
+   ],
+   "warnings": [],
+   "total_ms": 3957.7,
+   "cost_usd": 0.000755724,
+   "tokens": {
+    "bailian": {
+     "input": 16,
+     "output": 0,
+     "cached": 0,
+     "calls": 1
+    },
+    "deepseek": {
+     "input": 1049,
+     "output": 492,
+     "cached": 512,
+     "calls": 1
+    }
+   },
+   "hit5": true,
+   "citation_ok": true,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "F2",
+   "category": "替代型号",
+   "role": "客服",
+   "question": "25×3 的 NBR O型圈耐温不够，换哪个型号？",
+   "expect": "answer",
+   "status": "answered",
+   "answer": "可换 25×3 FKM（物料编码 6.02.0010），内径 25mm、线径 3mm，使用温度 -20~+200℃ [2]。同尺寸时 FKM 可以替代 NBR，耐温从 100℃ 提高到 200℃ [3]；但 FKM 低温性能较差，-20℃ 以下不建议使用 [3]。原 25×3 NBR 的使用温度为 -30~+100℃ [1]。",
+   "sources": [
+    "RF-12_O型密封圈规格书.pdf|p2",
+    "RF-12_O型密封圈规格书.pdf|p3"
+   ],
+   "cited": [
+    "RF-12_O型密封圈规格书.pdf|p2",
+    "RF-12_O型密封圈规格书.pdf|p2",
+    "RF-12_O型密封圈规格书.pdf|p3"
+   ],
+   "retrieved_top5": [
+    "RF-12_O型密封圈规格书.pdf|p2",
+    "RF-12_O型密封圈规格书.pdf|p3",
+    "RF-12_O型密封圈规格书.pdf|p2",
+    "RF-12_O型密封圈规格书.pdf|p2",
+    "RF-12_O型密封圈规格书.pdf|p2"
+   ],
+   "warnings": [],
+   "total_ms": 3309.0,
+   "cost_usd": 0.000619008,
+   "tokens": {
+    "bailian": {
+     "input": 19,
+     "output": 0,
+     "cached": 0,
+     "calls": 1
+    },
+    "deepseek": {
+     "input": 1034,
+     "output": 413,
+     "cached": 640,
+     "calls": 1
+    }
+   },
+   "hit5": true,
+   "citation_ok": true,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "F3",
+   "category": "替代型号",
+   "role": "销售",
+   "question": "CJX2-1810 线圈AC220V 没货了，用什么代替？",
+   "expect": "answer",
+   "status": "answered",
+   "answer": "可用 CJX2-2510 线圈AC220V 替代（物料编码 1.02.0007）[2][3]。替代条件：线圈电压同为 AC220V，且额定电流大一档；按规则不可用小一档替代[3]。该型号额定电流 Ie 为 25A，AC-3 可控电机 11kW[2]。",
+   "sources": [
+    "RF-02_交流接触器规格书.pdf|p2",
+    "RF-02_交流接触器规格书.pdf|p3"
+   ],
+   "cited": [
+    "RF-02_交流接触器规格书.pdf|p2",
+    "RF-02_交流接触器规格书.pdf|p3"
+   ],
+   "retrieved_top5": [
+    "RF-02_交流接触器规格书.pdf|p3",
+    "RF-02_交流接触器规格书.pdf|p2",
+    "RF-02_交流接触器规格书.pdf|p2",
+    "RF-02_交流接触器规格书.pdf|p2",
+    "RF-02_交流接触器规格书.pdf|p2"
+   ],
+   "warnings": [],
+   "total_ms": 3883.7,
+   "cost_usd": 0.00068106,
+   "tokens": {
+    "bailian": {
+     "input": 29,
+     "output": 0,
+     "cached": 0,
+     "calls": 1
+    },
+    "deepseek": {
+     "input": 1001,
+     "output": 441,
+     "cached": 512,
+     "calls": 1
+    }
+   },
+   "hit5": true,
+   "citation_ok": true,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "F4",
+   "category": "替代型号",
+   "role": "客服",
+   "question": "DN32 的 304 球阀要用在海水管路，换哪个？",
+   "expect": "answer",
+   "status": "answered",
+   "answer": "应改用 DN32 316 不锈钢球阀（物料编码 9.01.0008）：该型号公称通径 DN32、连接螺纹 G1-1/4、公称压力 4.0MPa、阀座密封 PTFE、适用温度 -20~+180℃ [2]；DN32 的 316 型号与 304 型号通径和螺纹相同，区别在于阀体材质不同，而 316 耐氯离子和酸性介质的能力更好 [2][3]；选型说明还要求：海水、含盐介质请选 316 [3]。",
+   "sources": [
+    "RF-19_不锈钢球阀规格书.pdf|p2",
+    "RF-19_不锈钢球阀规格书.pdf|p3"
+   ],
+   "cited": [
+    "RF-19_不锈钢球阀规格书.pdf|p2",
+    "RF-19_不锈钢球阀规格书.pdf|p3"
+   ],
+   "retrieved_top5": [
+    "RF-19_不锈钢球阀规格书.pdf|p3",
+    "RF-19_不锈钢球阀规格书.pdf|p2",
+    "RF-19_不锈钢球阀规格书.pdf|p1",
+    "RF-19_不锈钢球阀规格书.pdf|p2",
+    "RF-19_不锈钢球阀规格书.pdf|p2"
+   ],
+   "warnings": [],
+   "total_ms": 4472.8,
+   "cost_usd": 0.000380556,
+   "tokens": {
+    "bailian": {
+     "input": 22,
+     "output": 0,
+     "cached": 0,
+     "calls": 1
+    },
+    "deepseek": {
+     "input": 901,
+     "output": 216,
+     "cached": 512,
+     "calls": 1
+    }
+   },
+   "hit5": true,
+   "citation_ok": true,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "G1",
+   "category": "筛选（材质+价格区间）",
+   "role": "销售",
+   "question": "有哪些 316 材质的球阀？",
+   "expect": "answer",
+   "status": "answered",
+   "answer": "符合条件的有 4 款 316 不锈钢内螺纹两片式球阀：\n1）DN15 316，物料编码 9.01.0002，连接螺纹 G1/2，公称压力 6.4MPa，阀座密封 PTFE，适用温度 -20~+180℃，目录含税单价 95.1 元[1][7]；\n2）DN20 316，物料编码 9.01.0004，连接螺纹 G3/4，公称压力 6.4MPa，阀座密封 PTFE，适用温度 -20~+180℃，目录含税单价 106 元[4][5]；\n3）DN25 316，物料编码 9.01.0006，连接螺纹 G1，公称压力 6.4MPa，阀座密封 PTFE，适用温度 -20~+180℃，目录含税单价 126.4 元[2][6]；\n4）DN32 316，物料编码 9.01.0008，连接螺纹 G1-1/4，公称压力 4.0MPa，阀座密封 PTFE，适用温度 -20~+180℃，目录含税单价 149.6 元[3][8]。\n以上价格均为含税目录价（税率 13%），起订量 1 件，标准交期为现货[5][6][7][8]。",
+   "sources": [
+    "RF-19_不锈钢球阀规格书.pdf|p2",
+    "瑞丰价目表_2026Q4.xlsx|价目表!r285",
+    "瑞丰价目表_2026Q4.xlsx|价目表!r287",
+    "瑞丰价目表_2026Q4.xlsx|价目表!r289",
+    "瑞丰价目表_2026Q4.xlsx|价目表!r291"
+   ],
+   "cited": [
+    "RF-19_不锈钢球阀规格书.pdf|p2",
+    "RF-19_不锈钢球阀规格书.pdf|p2",
+    "RF-19_不锈钢球阀规格书.pdf|p2",
+    "RF-19_不锈钢球阀规格书.pdf|p2",
+    "瑞丰价目表_2026Q4.xlsx|价目表!r287",
+    "瑞丰价目表_2026Q4.xlsx|价目表!r289",
+    "瑞丰价目表_2026Q4.xlsx|价目表!r285",
+    "瑞丰价目表_2026Q4.xlsx|价目表!r291"
+   ],
+   "retrieved_top5": [
+    "RF-19_不锈钢球阀规格书.pdf|p2",
+    "RF-19_不锈钢球阀规格书.pdf|p2",
+    "RF-19_不锈钢球阀规格书.pdf|p2",
+    "RF-19_不锈钢球阀规格书.pdf|p2",
+    "瑞丰价目表_2026Q4.xlsx|价目表!r287"
+   ],
+   "warnings": [],
+   "total_ms": 4744.1,
+   "cost_usd": 0.0008186039999999999,
+   "tokens": {
+    "bailian": {
+     "input": 13,
+     "output": 0,
+     "cached": 0,
+     "calls": 1
+    },
+    "deepseek": {
+     "input": 1223,
+     "output": 407,
+     "cached": 128,
+     "calls": 1
+    }
+   },
+   "hit5": true,
+   "citation_ok": true,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "G2",
+   "category": "筛选（尺寸）",
+   "role": "客服",
+   "question": "列出 M6 的内六角螺钉有哪些长度",
+   "expect": "answer",
+   "status": "answered",
+   "answer": "M6 内六角圆柱头螺钉（12.9 级）的长度有 10 mm [2]、16 mm [1]、20 mm [3]、25 mm [4]、30 mm [6]、40 mm [5]。",
+   "sources": [
+    "RF-06_内六角圆柱头螺钉规格书.pdf|p2"
+   ],
+   "cited": [
+    "RF-06_内六角圆柱头螺钉规格书.pdf|p2",
+    "RF-06_内六角圆柱头螺钉规格书.pdf|p2",
+    "RF-06_内六角圆柱头螺钉规格书.pdf|p2",
+    "RF-06_内六角圆柱头螺钉规格书.pdf|p2",
+    "RF-06_内六角圆柱头螺钉规格书.pdf|p2",
+    "RF-06_内六角圆柱头螺钉规格书.pdf|p2"
+   ],
+   "retrieved_top5": [
+    "RF-06_内六角圆柱头螺钉规格书.pdf|p2",
+    "RF-06_内六角圆柱头螺钉规格书.pdf|p2",
+    "RF-06_内六角圆柱头螺钉规格书.pdf|p2",
+    "RF-06_内六角圆柱头螺钉规格书.pdf|p2",
+    "RF-06_内六角圆柱头螺钉规格书.pdf|p2"
+   ],
+   "warnings": [],
+   "total_ms": 2983.9,
+   "cost_usd": 0.000608832,
+   "tokens": {
+    "bailian": {
+     "input": 12,
+     "output": 0,
+     "cached": 0,
+     "calls": 1
+    },
+    "deepseek": {
+     "input": 1216,
+     "output": 234,
+     "cached": 128,
+     "calls": 1
+    }
+   },
+   "hit5": true,
+   "citation_ok": true,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "G3",
+   "category": "筛选（材质）",
+   "role": "客服",
+   "question": "有哪些 FKM 材质的 O型圈？",
+   "expect": "answer",
+   "status": "answered",
+   "answer": "目录中 FKM 氟橡胶材质的 O 型密封圈共 8 个型号，具体如下：25×3 FKM，内径 25 mm、线径 3 mm，硬度 75 Shore A，使用温度 -20~+200 ℃，包装 50件/箱 [1]；50×3.5 FKM，内径 50 mm、线径 3.5 mm，硬度 75 Shore A，使用温度 -20~+200 ℃，包装 50件/箱 [2]；30×3 FKM，内径 30 mm、线径 3 mm，硬度 75 Shore A，使用温度 -20~+200 ℃，包装 50件/箱 [3]；40×3.5 FKM，内径 40 mm、线径 3.5 mm，硬度 75 Shore A，使用温度 -20~+200 ℃，包装 50件/箱 [4]；10×2 FKM，内径 10 mm、线径 2 mm，硬度 75 Shore A，使用温度 -20~+200 ℃，包装 50件/箱 [5]；12×2 FKM，内径 12 mm、线径 2 mm，硬度 75 Shore A，使用温度 -20~+200 ℃，包装 50件/箱 [6]；20×2.5 FKM，内径 20 mm、线径 2.5 mm，硬度 75 Shore A，使用温度 -20~+200 ℃，包装 50件/箱 [7]；15×2.5 FKM，内径 15 mm、线径 2.5 mm，硬度 75 Shore A，使用温度 -20~+200 ℃，包装 50件/箱 [8]。",
+   "sources": [
+    "RF-12_O型密封圈规格书.pdf|p2"
+   ],
+   "cited": [
+    "RF-12_O型密封圈规格书.pdf|p2",
+    "RF-12_O型密封圈规格书.pdf|p2",
+    "RF-12_O型密封圈规格书.pdf|p2",
+    "RF-12_O型密封圈规格书.pdf|p2",
+    "RF-12_O型密封圈规格书.pdf|p2",
+    "RF-12_O型密封圈规格书.pdf|p2",
+    "RF-12_O型密封圈规格书.pdf|p2",
+    "RF-12_O型密封圈规格书.pdf|p2"
+   ],
+   "retrieved_top5": [
+    "RF-12_O型密封圈规格书.pdf|p2",
+    "RF-12_O型密封圈规格书.pdf|p2",
+    "RF-12_O型密封圈规格书.pdf|p2",
+    "RF-12_O型密封圈规格书.pdf|p2",
+    "RF-12_O型密封圈规格书.pdf|p2"
+   ],
+   "warnings": [],
+   "total_ms": 3579.9,
+   "cost_usd": 0.0008424,
+   "tokens": {
+    "bailian": {
+     "input": 12,
+     "output": 0,
+     "cached": 0,
+     "calls": 1
+    },
+    "deepseek": {
+     "input": 1212,
+     "output": 461,
+     "cached": 256,
+     "calls": 1
+    }
+   },
+   "hit5": true,
+   "citation_ok": true,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "H1",
+   "category": "报价草稿",
+   "role": "销售",
+   "question": "给沪东衡砺报个价：6204-2RS 200个，M8×20内六角螺钉 5箱",
+   "expect": "answer",
+   "status": "quote",
+   "answer": "报价草稿 Q-20261118-F3A531（客户：沪东衡砺设备维修有限公司）\n1. 1.01.0009 深沟球轴承 6204-2RS × 200件 @ ¥10.80（协议价）= ¥2,160.00\n2. 3.01.0021 内六角圆柱头螺钉 M8×20 12.9级 × 5箱 @ ¥106.00（协议价）= ¥530.00\n含税合计 ¥2,690.00（不含税 ¥2,380.53，税率 13%）\n注意：含税合计不满 3,000 元，华东地区另收运费 15 元（价格政策第 4 条）\n这是草稿，需销售确认后再发给客户；价格依据为客户协议价（ERP 主数据）或 2026Q4 目录价。",
+   "sources": [],
+   "cited": [],
+   "retrieved_top5": [],
+   "warnings": [],
+   "total_ms": 2849.0,
+   "cost_usd": 0.000392904,
+   "tokens": {
+    "deepseek": {
+     "input": 526,
+     "output": 290,
+     "cached": 384,
+     "calls": 1
+    }
+   },
+   "hit5": null,
+   "citation_ok": null,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "H2",
+   "category": "报价草稿",
+   "role": "销售",
+   "question": "甬港澄远要 PC6-01 接头 30 个和 6205-ZZ 100 个，出个报价草稿",
+   "expect": "answer",
+   "status": "quote",
+   "answer": "报价草稿 Q-20261118-696ED9（客户：甬港澄远机械配件厂）\n1. 4.03.0002 快插直通接头 PC6-01 × 3箱 @ ¥34.30（协议价）= ¥102.90\n2. 1.01.0012 深沟球轴承 6205-ZZ × 100件 @ ¥11.30（协议价）= ¥1,130.00\n含税合计 ¥1,232.90（不含税 ¥1,091.06，税率 13%）\n注意：含税合计不满 3,000 元，华东地区另收运费 15 元（价格政策第 4 条）\n这是草稿，需销售确认后再发给客户；价格依据为客户协议价（ERP 主数据）或 2026Q4 目录价。",
+   "sources": [],
+   "cited": [],
+   "retrieved_top5": [],
+   "warnings": [],
+   "total_ms": 1949.3,
+   "cost_usd": 0.000364704,
+   "tokens": {
+    "deepseek": {
+     "input": 528,
+     "output": 266,
+     "cached": 384,
+     "calls": 1
+    }
+   },
+   "hit5": null,
+   "citation_ok": null,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "H3",
+   "category": "报价草稿",
+   "role": "销售",
+   "question": "苏州晨岚汇报价：YE3 3kW 4极电机 2台，DN25 316 球阀 10个",
+   "expect": "answer",
+   "status": "quote",
+   "answer": "报价草稿 Q-20261118-525833（客户：苏州晨岚汇自动化设备有限公司）\n1. 5.01.0010 三相异步电机 YE3 3kW 4P × 2台 @ ¥1,523.80（目录价）= ¥3,047.60\n2. 9.01.0006 不锈钢球阀 DN25 316 × 10件 @ ¥126.40（目录价）= ¥1,264.00\n含税合计 ¥4,311.60（不含税 ¥3,815.58，税率 13%）\n这是草稿，需销售确认后再发给客户；价格依据为客户协议价（ERP 主数据）或 2026Q4 目录价。",
+   "sources": [],
+   "cited": [
+    "瑞丰价目表_2026Q4.xlsx|价目表!r183",
+    "瑞丰价目表_2026Q4.xlsx|价目表!r289"
+   ],
+   "retrieved_top5": [],
+   "warnings": [],
+   "total_ms": 2302.4,
+   "cost_usd": 0.000466104,
+   "tokens": {
+    "deepseek": {
+     "input": 526,
+     "output": 351,
+     "cached": 384,
+     "calls": 1
+    }
+   },
+   "hit5": null,
+   "citation_ok": null,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "I1",
+   "category": "权限（客服问价）",
+   "role": "客服",
+   "question": "6204-ZZ 多少钱一个？",
+   "expect": "deny",
+   "status": "denied",
+   "answer": "当前角色（客服）无权查看价格信息，请联系对接销售。",
+   "sources": [],
+   "cited": [],
+   "retrieved_top5": [],
+   "warnings": [],
+   "total_ms": 0,
+   "cost_usd": 0,
+   "tokens": {},
+   "hit5": null,
+   "citation_ok": null,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "I2",
+   "category": "权限（客服报价）",
+   "role": "客服",
+   "question": "帮我给沪东衡砺出个 6204-2RS 100个的报价",
+   "expect": "deny",
+   "status": "denied",
+   "answer": "当前角色（客服）无权生成报价，请联系对接销售。",
+   "sources": [],
+   "cited": [],
+   "retrieved_top5": [],
+   "warnings": [],
+   "total_ms": 0,
+   "cost_usd": 0,
+   "tokens": {},
+   "hit5": null,
+   "citation_ok": null,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "I3",
+   "category": "权限（客服问价）",
+   "role": "客服",
+   "question": "DN25 的 304 和 316 球阀差价多少？",
+   "expect": "deny",
+   "status": "denied",
+   "answer": "当前角色（客服）无权查看价格信息，请联系对接销售。",
+   "sources": [],
+   "cited": [],
+   "retrieved_top5": [],
+   "warnings": [],
+   "total_ms": 0,
+   "cost_usd": 0,
+   "tokens": {},
+   "hit5": null,
+   "citation_ok": null,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "J1",
+   "category": "目录外（应拒答）",
+   "role": "客服",
+   "question": "6204-2RS 的额定动载荷是多少？",
+   "expect": "refuse",
+   "status": "refused",
+   "answer": "目录资料中没有额定动载荷方面的信息；现有资料只给出了 6204-2RS 的内径、外径、宽度、密封形式、材质、极限转速和重量等参数。",
+   "sources": [],
+   "cited": [],
+   "retrieved_top5": [
+    "RF-01_深沟球轴承规格书.pdf|p2",
+    "RF-01_深沟球轴承规格书.pdf|p1",
+    "常见问题FAQ.md|Q15",
+    "RF-07_标准气缸规格书.pdf|p3",
+    "RF-01_深沟球轴承规格书.pdf|p3"
+   ],
+   "warnings": [],
+   "total_ms": 2821.7,
+   "cost_usd": 0.000308388,
+   "tokens": {
+    "bailian": {
+     "input": 16,
+     "output": 0,
+     "cached": 0,
+     "calls": 1
+    },
+    "deepseek": {
+     "input": 827,
+     "output": 112,
+     "cached": 256,
+     "calls": 1
+    }
+   },
+   "hit5": null,
+   "citation_ok": null,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "J2",
+   "category": "目录外（应拒答）",
+   "role": "销售",
+   "question": "有没有 SKF 或者 NSK 的原装轴承？",
+   "expect": "refuse",
+   "status": "refused",
+   "answer": "目录资料中没有品牌（SKF、NSK 等原装进口品牌）方面的信息；资料里只有瑞丰机电 62/63 系列深沟球轴承的产品规格，例如 6210-2RS 的材质为 GCr15 轴承钢。",
+   "sources": [],
+   "cited": [],
+   "retrieved_top5": [
+    "RF-01_深沟球轴承规格书.pdf|p4",
+    "RF-01_深沟球轴承规格书.pdf|p4",
+    "RF-01_深沟球轴承规格书.pdf|p4",
+    "RF-01_深沟球轴承规格书.pdf|p1",
+    "RF-01_深沟球轴承规格书.pdf|p2"
+   ],
+   "warnings": [],
+   "total_ms": 1989.1,
+   "cost_usd": 0.00037925999999999997,
+   "tokens": {
+    "bailian": {
+     "input": 11,
+     "output": 0,
+     "cached": 0,
+     "calls": 1
+    },
+    "deepseek": {
+     "input": 923,
+     "output": 116,
+     "cached": 128,
+     "calls": 1
+    }
+   },
+   "hit5": null,
+   "citation_ok": null,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "J3",
+   "category": "目录外（应拒答）",
+   "role": "客服",
+   "question": "YE3 7.5kW 电机运行噪声多少分贝？",
+   "expect": "refuse",
+   "status": "refused",
+   "answer": "目录资料中没有电机运行噪声（分贝）方面的信息；现有资料仅包含 YE3 系列电机的功率、极数、转速、机座号、额定电流、效率等级和材质等参数。",
+   "sources": [],
+   "cited": [],
+   "retrieved_top5": [
+    "RF-09_三相异步电机规格书.pdf|p2",
+    "RF-09_三相异步电机规格书.pdf|p2",
+    "RF-09_三相异步电机规格书.pdf|p2",
+    "RF-09_三相异步电机规格书.pdf|p2",
+    "RF-09_三相异步电机规格书.pdf|p3"
+   ],
+   "warnings": [],
+   "total_ms": 1936.7,
+   "cost_usd": 0.00035839199999999997,
+   "tokens": {
+    "bailian": {
+     "input": 17,
+     "output": 0,
+     "cached": 0,
+     "calls": 1
+    },
+    "deepseek": {
+     "input": 944,
+     "output": 93,
+     "cached": 128,
+     "calls": 1
+    }
+   },
+   "hit5": null,
+   "citation_ok": null,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "J4",
+   "category": "目录外（应拒答）",
+   "role": "销售",
+   "question": "DN65 的不锈钢球阀多少钱？",
+   "expect": "refuse",
+   "status": "refused",
+   "answer": "目录资料中没有 DN65 不锈钢球阀的信息，也没有价格数据；现有资料仅列出 DN50、DN25、DN15 等规格。",
+   "sources": [],
+   "cited": [],
+   "retrieved_top5": [
+    "RF-19_不锈钢球阀规格书.pdf|p2",
+    "RF-19_不锈钢球阀规格书.pdf|p2",
+    "RF-19_不锈钢球阀规格书.pdf|p2",
+    "RF-19_不锈钢球阀规格书.pdf|p2",
+    "RF-19_不锈钢球阀规格书.pdf|p2"
+   ],
+   "warnings": [],
+   "total_ms": 1981.0,
+   "cost_usd": 0.000342288,
+   "tokens": {
+    "bailian": {
+     "input": 10,
+     "output": 0,
+     "cached": 0,
+     "calls": 1
+    },
+    "deepseek": {
+     "input": 852,
+     "output": 103,
+     "cached": 128,
+     "calls": 1
+    }
+   },
+   "hit5": null,
+   "citation_ok": null,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "J5",
+   "category": "目录外（应拒答）",
+   "role": "客服",
+   "question": "FV 变频器的防护等级是 IP 多少？",
+   "expect": "refuse",
+   "status": "refused",
+   "answer": "目录资料中没有 FV 变频器防护等级（IP 等级）方面的信息；资料里只有输入电压、额定输出电流、过载能力等规格参数。",
+   "sources": [],
+   "cited": [],
+   "retrieved_top5": [
+    "RF-10_通用变频器规格书.pdf|p1",
+    "RF-10_通用变频器规格书.pdf|p1",
+    "RF-10_通用变频器规格书.pdf|p2",
+    "RF-10_通用变频器规格书.pdf|p2",
+    "RF-10_通用变频器规格书.pdf|p2"
+   ],
+   "warnings": [],
+   "total_ms": 2319.0,
+   "cost_usd": 0.00031571999999999997,
+   "tokens": {
+    "bailian": {
+     "input": 16,
+     "output": 0,
+     "cached": 0,
+     "calls": 1
+    },
+    "deepseek": {
+     "input": 826,
+     "output": 87,
+     "cached": 128,
+     "calls": 1
+    }
+   },
+   "hit5": null,
+   "citation_ok": null,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "J6",
+   "category": "目录外（应拒答）",
+   "role": "客服",
+   "question": "明天宁波会下雨吗？",
+   "expect": "refuse",
+   "status": "refused",
+   "answer": "目录资料中没有天气信息，无法回答宁波明天是否下雨；资料只涉及产品规格与下单、样品、送货等常见问题。",
+   "sources": [],
+   "cited": [],
+   "retrieved_top5": [
+    "常见问题FAQ.md|Q19",
+    "常见问题FAQ.md|Q1",
+    "常见问题FAQ.md|Q16",
+    "常见问题FAQ.md|Q9",
+    "RF-13_尼龙扎带规格书.pdf|p3"
+   ],
+   "warnings": [],
+   "total_ms": 2436.1,
+   "cost_usd": 0.00023497199999999996,
+   "tokens": {
+    "bailian": {
+     "input": 7,
+     "output": 0,
+     "cached": 0,
+     "calls": 1
+    },
+    "deepseek": {
+     "input": 659,
+     "output": 62,
+     "cached": 128,
+     "calls": 1
+    }
+   },
+   "hit5": null,
+   "citation_ok": null,
+   "reason": "",
+   "correct": true
+  },
+  {
+   "id": "J7",
+   "category": "目录外（应拒答）",
+   "role": "销售",
+   "question": "气缸能用在食品车间吗，有没有食品级认证？",
+   "expect": "refuse",
+   "status": "refused",
+   "answer": "目录资料中没有关于食品级认证的信息；资料只给出了 SC 系列气缸的材质（铝合金缸筒）、工作介质（经过滤的压缩空气）和使用压力等参数，未涉及食品车间适用性或相关认证。",
+   "sources": [],
+   "cited": [],
+   "retrieved_top5": [
+    "RF-07_标准气缸规格书.pdf|p3",
+    "RF-07_标准气缸规格书.pdf|p3",
+    "RF-07_标准气缸规格书.pdf|p1",
+    "RF-07_标准气缸规格书.pdf|p1",
+    "RF-07_标准气缸规格书.pdf|p2"
+   ],
+   "warnings": [],
+   "total_ms": 3016.7,
+   "cost_usd": 0.00032404799999999996,
+   "tokens": {
+    "bailian": {
+     "input": 15,
+     "output": 0,
+     "cached": 0,
+     "calls": 1
+    },
+    "deepseek": {
+     "input": 798,
+     "output": 101,
+     "cached": 128,
+     "calls": 1
+    }
+   },
+   "hit5": null,
+   "citation_ok": null,
+   "reason": "",
+   "correct": true
+  }
+ ]
+}

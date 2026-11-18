@@ -1,0 +1,136 @@
+{
+ "source": "live",
+ "endpoint": "https://api.deepseek.com/chat/completions",
+ "model": "deepseek-flash",
+ "request_sha256": "0c0bda9c1e49db4f5142fae894da34d80b8441c38398e1db11f328e90f84a002",
+ "request": {
+  "model": "deepseek-flash",
+  "messages": [
+   {
+    "role": "system",
+    "content": "从销售同事的消息里提取报价请求，只输出一个 JSON 对象。只提取消息里写明的内容：customer 为客户名称原文（没写则 null）；items 每行包括 product（型号/规格原文，保留原写法，如“6204-2RS”“M8×20”“DN25 316 球阀”）、quantity（数字）、unit（原文单位，如 个、箱、台；没写则 null）、target_price（客户要求的单价；没写则 null）。不要换算单位，不要补全型号。\nJSON Schema:\n{\"$defs\": {\"QuoteItemRequest\": {\"properties\": {\"product\": {\"description\": \"型号/规格原文，如 6204-2RS、M8×20、DN25 316 球阀\", \"minLength\": 1, \"title\": \"Product\", \"type\": \"string\"}, \"quantity\": {\"exclusiveMinimum\": 0, \"title\": \"Quantity\", \"type\": \"number\"}, \"unit\": {\"anyOf\": [{\"type\": \"string\"}, {\"type\": \"null\"}], \"default\": null, \"description\": \"原文单位，如 个、箱、台；没有写则 null\", \"title\": \"Unit\"}, \"target_price\": {\"anyOf\": [{\"exclusiveMinimum\": 0, \"type\": \"number\"}, {\"type\": \"null\"}], \"default\": null, \"description\": \"客户要求的单价；没有写则 null\", \"title\": \"Target Price\"}}, \"required\": [\"product\", \"quantity\"], \"title\": \"QuoteItemRequest\", \"type\": \"object\"}}, \"properties\": {\"customer\": {\"anyOf\": [{\"type\": \"string\"}, {\"type\": \"null\"}], \"default\": null, \"description\": \"客户名称原文；没有写则 null\", \"title\": \"Customer\"}, \"items\": {\"items\": {\"$ref\": \"#/$defs/QuoteItemRequest\"}, \"minItems\": 1, \"title\": \"Items\", \"type\": \"array\"}}, \"required\": [\"items\"], \"title\": \"QuoteRequest\", \"type\": \"object\"}"
+   },
+   {
+    "role": "user",
+    "content": "苏州晨岚汇报价：YE3 3kW 4极电机 2台，DN25 316 球阀 10个"
+   }
+  ],
+  "temperature": 0,
+  "response_format": {
+   "type": "json_object"
+  }
+ },
+ "calls": [
+  {
+   "recorded_at": "2026-11-18T08:18:28+00:00",
+   "run": "bm25",
+   "latency_ms": 2537.0,
+   "response": {
+    "id": "4e5db1b9-77ee-43a1-ab5f-f31b2b95ed93",
+    "object": "chat.completion",
+    "created": 1794989906,
+    "model": "deepseek-flash",
+    "choices": [
+     {
+      "index": 0,
+      "message": {
+       "role": "assistant",
+       "content": "{\"customer\":\"苏州晨岚汇\",\"items\":[{\"product\":\"YE3 3kW 4极电机\",\"quantity\":2,\"unit\":\"台\",\"target_price\":null},{\"product\":\"DN25 316 球阀\",\"quantity\":10,\"unit\":\"个\",\"target_price\":null}]}",
+       "reasoning_content": "我们需要回答用户。需要从销售同事消息提取报价请求，只输出JSON对象。消息：\"苏州晨岚汇报价：YE3 3kW 4极电机 2台，DN25 316 球阀 10个\"\n\n需要提取 customer 原文：苏州晨岚汇？ 客户名称原文？ 消息开头\"苏州晨岚汇报价\" 可能是客户名\"苏州晨岚汇\"？ 需要解析。 \"苏州晨岚汇报价：\" 其中\"汇报价\"可能是\"汇\"作为客户名结尾？ 让我们看：苏州晨岚汇报价 — 可能是\"苏州晨岚汇\" 报价。客户名称原文是\"苏州晨岚汇\"。但也可能客户叫\"苏州晨岚\"，\"汇报价\"是动词？ 原文没有标点，写法\"苏州晨岚汇报价：\" 这有歧义。通常销售消息格式：\"苏州晨岚汇报价：...\" 客户名称可能是\"苏州晨岚汇\"，\"报价\"是动作。 需要提取 customer 为客户名称原文（没写则 null）。 应该提取\"苏州晨岚汇\"？ 需要判断。 文本\"苏州晨岚汇报价：\" 可以切分为\"苏州晨岚汇 报价：\" 因为客户名\"苏州晨岚汇\"（三个字+汇）比较像公司名。 也可能是\"苏州晨岚 汇报价\" 但\"汇报价\"不自然，应是\"报价\"不是\"汇报价\"。 所以 customer = \"苏州晨岚汇\"。 items: product \"YE3 3kW 4极电机\", quantity 2, unit \"台\", target_price null; product \"DN25 316 球阀\", quantity 10, unit \"个\", target_price null. 只输出JSON。确保数字。 no markdown."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+     }
+    ],
+    "usage": {
+     "prompt_tokens": 526,
+     "completion_tokens": 437,
+     "total_tokens": 963,
+     "prompt_tokens_details": {
+      "cached_tokens": 256
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 376
+     },
+     "prompt_cache_hit_tokens": 256,
+     "prompt_cache_miss_tokens": 270
+    },
+    "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
+   }
+  },
+  {
+   "recorded_at": "2026-11-18T08:20:30+00:00",
+   "run": "hybrid",
+   "latency_ms": 2292.5,
+   "response": {
+    "id": "8e8a222b-3e48-4361-9ea9-fad90ea66831",
+    "object": "chat.completion",
+    "created": 1794990029,
+    "model": "deepseek-flash",
+    "choices": [
+     {
+      "index": 0,
+      "message": {
+       "role": "assistant",
+       "content": "{\"customer\":\"苏州晨岚汇\",\"items\":[{\"product\":\"YE3 3kW 4极电机\",\"quantity\":2,\"unit\":\"台\",\"target_price\":null},{\"product\":\"DN25 316 球阀\",\"quantity\":10,\"unit\":\"个\",\"target_price\":null}]}",
+       "reasoning_content": "我们需要回答用户：从销售同事消息提取报价请求，只输出一个JSON对象。消息：\"苏州晨岚汇报价：YE3 3kW 4极电机 2台，DN25 316 球阀 10个\" 需要提取 customer 为客户名称原文。这里\"苏州晨岚汇\"可能是客户名称？ 文本：\"苏州晨岚汇报价：\" 可以理解为客户是\"苏州晨岚汇\"? 需要小心： \"苏州晨岚汇报价：...\" 这是销售同事消息，客户名称可能是\"苏州晨岚汇\"？ 句子结构：客户名 + \"报价：\"。原文 \"苏州晨岚汇报价：\" 其中 \"苏州晨岚汇\" 是客户名称？ 其实是\"苏州晨岚汇\" 后面\"报价\"。 因此 customer = \"苏州晨岚汇\"。items: \"YE3 3kW 4极电机 2台\" product 原文 \"YE3 3kW 4极电机\", quantity 2, unit \"台\", target_price null. 第二个 \"DN25 316 球阀 10个\" product \"DN25 316 球阀\", quantity 10, unit \"个\", target_price null. 输出 JSON only. Need ensure valid schema: items min 1. JSON object. No markdown. Use Chinese. Target_price null. Quantity numbers. Customer string. Let's craft."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+     }
+    ],
+    "usage": {
+     "prompt_tokens": 526,
+     "completion_tokens": 351,
+     "total_tokens": 877,
+     "prompt_tokens_details": {
+      "cached_tokens": 384
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 290
+     },
+     "prompt_cache_hit_tokens": 384,
+     "prompt_cache_miss_tokens": 142
+    },
+    "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
+   }
+  },
+  {
+   "recorded_at": "2026-11-18T08:22:42+00:00",
+   "run": "hybrid_rerank",
+   "latency_ms": 1963.7,
+   "response": {
+    "id": "938ace34-8394-4935-ab0f-fc21f72bfacc",
+    "object": "chat.completion",
+    "created": 1794990161,
+    "model": "deepseek-flash",
+    "choices": [
+     {
+      "index": 0,
+      "message": {
+       "role": "assistant",
+       "content": "{\"customer\":\"苏州晨岚汇\",\"items\":[{\"product\":\"YE3 3kW 4极电机\",\"quantity\":2,\"unit\":\"台\",\"target_price\":null},{\"product\":\"DN25 316 球阀\",\"quantity\":10,\"unit\":\"个\",\"target_price\":null}]}",
+       "reasoning_content": "我们需要回答提取JSON。消息：\"苏州晨岚汇报价：YE3 3kW 4极电机 2台，DN25 316 球阀 10个\"。客户名称原文是\"苏州晨岚汇\"？需要解析： \"苏州晨岚汇报价：\" 其中\"苏州晨岚汇\"可能是客户名称？ 句子是\"苏州晨岚汇报价：...\" 可能客户叫\"苏州晨岚汇\"，\"报价：\"表示报价。需要提取customer为\"苏州晨岚汇\"？ 原文：\"苏州晨岚汇报价：YE3...\" 可以断为 \"苏州晨岚汇 报价：\"。客户名称原文=苏州晨岚汇。产品1 product \"YE3 3kW 4极电机\" quantity 2 unit \"台\" target null. 产品2 product \"DN25 316 球阀\" quantity 10 unit \"个\". JSON only. Ensure valid."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+     }
+    ],
+    "usage": {
+     "prompt_tokens": 526,
+     "completion_tokens": 253,
+     "total_tokens": 779,
+     "prompt_tokens_details": {
+      "cached_tokens": 384
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 192
+     },
+     "prompt_cache_hit_tokens": 384,
+     "prompt_cache_miss_tokens": 142
+    },
+    "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
+   }
+  }
+ ]
+}

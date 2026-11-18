@@ -1,0 +1,62 @@
+{
+ "source": "live",
+ "endpoint": "https://api.deepseek.com/chat/completions",
+ "model": "deepseek-flash",
+ "request_sha256": "5354b67ffa4b407ff3d75ec873dfb944057749a6e1b04168d339f151c8ff21c9",
+ "request": {
+  "model": "deepseek-flash",
+  "messages": [
+   {
+    "role": "system",
+    "content": "你是瑞丰机电批发（虚构）的产品目录助手，回答公司销售和客服同事的问题。只能依据用户消息里 <资料> 中的内容回答，不要使用资料以外的知识，也不要做资料里没有的推算。\n规则：\n1. 资料能回答问题时：answerable=true；回答简洁，直接给出型号、参数和单位；每句事实后用 [编号] 标注来源，编号必须是资料里给出的编号。\n2. 资料不能回答问题时（问到的型号、规格、参数、品牌、认证等在资料中不存在）：answerable=false，answer 用一句话说明目录资料中没有这方面信息（可以顺带说明资料里有哪些相近内容），citations 为空。不要猜测。\n3. 表格数据原样引用，不要换算单位。\n4. 给出“系统匹配的替代候选”时，只推荐这些候选并说明替代条件；没有给出候选时不要自行推荐替代型号。\n5. 当前提问者角色：销售。可以回答价格；价目表中的价格是含税目录价（协议客户以协议价为准）。\n只输出一个 JSON 对象：{\"answerable\": true 或 false, \"answer\": \"回答正文\", \"citations\": [引用的编号]}"
+   },
+   {
+    "role": "user",
+    "content": "<资料>\n[1] 来源：RF-10_通用变频器规格书.pdf 第1页｜FV 系列通用变频器 产品规格书 › 1 产品概述\nFV 系列为三相 380V 输入的通用矢量变频器，功率 0.75~15kW，内置制动单元，支持 V/F 与无速度传感器矢量控制，标配 RS485 通讯口（Modbus-RTU）。\n\n[2] 来源：RF-10_通用变频器规格书.pdf 第2页｜FV 系列通用变频器 产品规格书 › 表1 FV 变频器规格参数\n型号 FV-7.5kW 380V；物料编码 5.02.0006；适配电机(kW) 7.5；输入电压 三相380V；额定输出电流(A) 17；过载能力 150% 60s；制动单元 内置；材质 阻燃塑料外壳\n\n[3] 来源：RF-10_通用变频器规格书.pdf 第2页｜FV 系列通用变频器 产品规格书 › 表1 FV 变频器规格参数\n型号 FV-5.5kW 380V；物料编码 5.02.0005；适配电机(kW) 5.5；输入电压 三相380V；额定输出电流(A) 13；过载能力 150% 60s；制动单元 内置；材质 阻燃塑料外壳\n\n[4] 来源：RF-10_通用变频器规格书.pdf 第2页｜FV 系列通用变频器 产品规格书 › 表1 FV 变频器规格参数\n型号 FV-11kW 380V；物料编码 5.02.0007；适配电机(kW) 11；输入电压 三相380V；额定输出电流(A) 25；过载能力 150% 60s；制动单元 内置；材质 钣金外壳\n\n[5] 来源：RF-10_通用变频器规格书.pdf 第2页｜FV 系列通用变频器 产品规格书 › 表1 FV 变频器规格参数\n型号 FV-15kW 380V；物料编码 5.02.0008；适配电机(kW) 15；输入电压 三相380V；额定输出电流(A) 32；过载能力 150% 60s；制动单元 内置；材质 钣金外壳\n</资料>\n\n问题：FV 变频器支持什么通讯协议？"
+   }
+  ],
+  "temperature": 0,
+  "response_format": {
+   "type": "json_object"
+  }
+ },
+ "calls": [
+  {
+   "recorded_at": "2026-11-18T08:19:10+00:00",
+   "run": "hybrid",
+   "latency_ms": 1206.1,
+   "response": {
+    "id": "bada6259-fb8e-4d09-9368-99fefd58d680",
+    "object": "chat.completion",
+    "created": 1794989950,
+    "model": "deepseek-flash",
+    "choices": [
+     {
+      "index": 0,
+      "message": {
+       "role": "assistant",
+       "content": "{\"answerable\": true, \"answer\": \"FV 系列通用变频器标配 RS485 通讯口，支持 Modbus-RTU 协议。[1]\", \"citations\": [\"1\"]}",
+       "reasoning_content": "资料[1]明确标配RS485通讯口（Modbus-RTU）。回答简洁，引用[1]。"
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+     }
+    ],
+    "usage": {
+     "prompt_tokens": 854,
+     "completion_tokens": 65,
+     "total_tokens": 919,
+     "prompt_tokens_details": {
+      "cached_tokens": 256
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 23
+     },
+     "prompt_cache_hit_tokens": 256,
+     "prompt_cache_miss_tokens": 598
+    },
+    "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
+   }
+  }
+ ]
+}

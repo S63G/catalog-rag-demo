@@ -1,0 +1,62 @@
+{
+ "source": "live",
+ "endpoint": "https://api.deepseek.com/chat/completions",
+ "model": "deepseek-flash",
+ "request_sha256": "c8a5f079cce404d72488de0db623f935260ac8a253074cfbf295557d2a073357",
+ "request": {
+  "model": "deepseek-flash",
+  "messages": [
+   {
+    "role": "system",
+    "content": "你是瑞丰机电批发（虚构）的产品目录助手，回答公司销售和客服同事的问题。只能依据用户消息里 <资料> 中的内容回答，不要使用资料以外的知识，也不要做资料里没有的推算。\n规则：\n1. 资料能回答问题时：answerable=true；回答简洁，直接给出型号、参数和单位；每句事实后用 [编号] 标注来源，编号必须是资料里给出的编号。\n2. 资料不能回答问题时（问到的型号、规格、参数、品牌、认证等在资料中不存在）：answerable=false，answer 用一句话说明目录资料中没有这方面信息（可以顺带说明资料里有哪些相近内容），citations 为空。不要猜测。\n3. 表格数据原样引用，不要换算单位。\n4. 给出“系统匹配的替代候选”时，只推荐这些候选并说明替代条件；没有给出候选时不要自行推荐替代型号。\n5. 当前提问者角色：客服。客服看不到价格，回答中不要出现任何价格或金额。\n只输出一个 JSON 对象：{\"answerable\": true 或 false, \"answer\": \"回答正文\", \"citations\": [引用的编号]}"
+   },
+   {
+    "role": "user",
+    "content": "<资料>\n[1] 来源：RF-06_内六角圆柱头螺钉规格书.pdf 第4页｜内六角圆柱头螺钉（12.9 级） 产品规格书 › 7 安装与使用注意事项\n· 推荐拧紧力矩（12.9 级，干燥）：M4 4.6N·m，M5 9N·m，M6 15.5N·m，M8 37N·m，M10 73N·m，M12 128N·m\n· 发黑件在潮湿环境中应涂防锈油\n· 使用对应规格的内六角扳手，避免滑丝\n\n[2] 来源：RF-18_导轨式接线端子规格书.pdf 第3页｜UK 系列导轨式接线端子 产品规格书 › 7 安装与使用注意事项\n· 剥线长度 8~10mm，多股线须压冷压端头\n· 螺钉拧紧力矩 0.6~1.5N·m（按规格）\n\n[3] 来源：RF-06_内六角圆柱头螺钉规格书.pdf 第2页｜内六角圆柱头螺钉（12.9 级） 产品规格书 › 表1 内六角圆柱头螺钉规格参数\n型号 M8×25 12.9级；物料编码 3.01.0022；螺纹规格 M8；螺距(mm) 1.25；长度L(mm) 25；头部直径dk(mm) 13；头部高度k(mm) 8；内六角对边s(mm) 6；材质 合金钢12.9级；表面处理 发黑；包装 100件/箱\n\n[4] 来源：RF-06_内六角圆柱头螺钉规格书.pdf 第2页｜内六角圆柱头螺钉（12.9 级） 产品规格书 › 表1 内六角圆柱头螺钉规格参数\n型号 M8×10 12.9级；物料编码 3.01.0019；螺纹规格 M8；螺距(mm) 1.25；长度L(mm) 10；头部直径dk(mm) 13；头部高度k(mm) 8；内六角对边s(mm) 6；材质 合金钢12.9级；表面处理 发黑；包装 100件/箱\n\n[5] 来源：RF-06_内六角圆柱头螺钉规格书.pdf 第2页｜内六角圆柱头螺钉（12.9 级） 产品规格书 › 表1 内六角圆柱头螺钉规格参数\n型号 M8×16 12.9级；物料编码 3.01.0020；螺纹规格 M8；螺距(mm) 1.25；长度L(mm) 16；头部直径dk(mm) 13；头部高度k(mm) 8；内六角对边s(mm) 6；材质 合金钢12.9级；表面处理 发黑；包装 100件/箱\n</资料>\n\n问题：M8 的 12.9 级内六角螺钉推荐拧紧力矩是多少？"
+   }
+  ],
+  "temperature": 0,
+  "response_format": {
+   "type": "json_object"
+  }
+ },
+ "calls": [
+  {
+   "recorded_at": "2026-11-18T08:17:44+00:00",
+   "run": "bm25",
+   "latency_ms": 1009.7,
+   "response": {
+    "id": "83a0ee16-b08b-4894-b204-cd32572ddde7",
+    "object": "chat.completion",
+    "created": 1794989864,
+    "model": "deepseek-flash",
+    "choices": [
+     {
+      "index": 0,
+      "message": {
+       "role": "assistant",
+       "content": "{\"answerable\": true, \"answer\": \"M8 的 12.9 级内六角圆柱头螺钉推荐拧紧力矩为 37N·m（干燥条件）[1]。\", \"citations\": [1]}",
+       "reasoning_content": "资料[1]给出M8 37N·m。回答简洁，引用[1]。注意角色客服，不给价格。answerable true。"
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+     }
+    ],
+    "usage": {
+     "prompt_tokens": 996,
+     "completion_tokens": 83,
+     "total_tokens": 1079,
+     "prompt_tokens_details": {
+      "cached_tokens": 128
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 31
+     },
+     "prompt_cache_hit_tokens": 128,
+     "prompt_cache_miss_tokens": 868
+    },
+    "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
+   }
+  }
+ ]
+}

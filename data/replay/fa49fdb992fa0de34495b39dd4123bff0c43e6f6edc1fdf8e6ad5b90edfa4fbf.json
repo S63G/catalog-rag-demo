@@ -1,0 +1,75 @@
+{
+ "source": "live",
+ "endpoint": "https://dashscope.aliyuncs.com/api/v1/services/rerank/text-rerank/text-rerank",
+ "model": "gte-rerank-v2",
+ "request_sha256": "fa49fdb992fa0de34495b39dd4123bff0c43e6f6edc1fdf8e6ad5b90edfa4fbf",
+ "request": {
+  "model": "gte-rerank-v2",
+  "input": {
+   "query": "有哪些 FKM 材质的 O型圈？",
+   "documents": [
+    "O 型密封圈 产品规格书 › 表1 O 型密封圈规格参数\n型号 25×3 FKM；物料编码 6.02.0010；内径(mm) 25；线径(mm) 3；材质 FKM氟橡胶；硬度(Shore A) 75；使用温度(℃) -20~+200；包装 50件/箱",
+    "O 型密封圈 产品规格书 › 表1 O 型密封圈规格参数\n型号 50×3.5 FKM；物料编码 6.02.0016；内径(mm) 50；线径(mm) 3.5；材质 FKM氟橡胶；硬度(Shore A) 75；使用温度(℃) -20~+200；包装 50件/箱",
+    "O 型密封圈 产品规格书 › 表1 O 型密封圈规格参数\n型号 30×3 FKM；物料编码 6.02.0012；内径(mm) 30；线径(mm) 3；材质 FKM氟橡胶；硬度(Shore A) 75；使用温度(℃) -20~+200；包装 50件/箱",
+    "O 型密封圈 产品规格书 › 表1 O 型密封圈规格参数\n型号 40×3.5 FKM；物料编码 6.02.0014；内径(mm) 40；线径(mm) 3.5；材质 FKM氟橡胶；硬度(Shore A) 75；使用温度(℃) -20~+200；包装 50件/箱",
+    "O 型密封圈 产品规格书 › 表1 O 型密封圈规格参数\n型号 10×2 FKM；物料编码 6.02.0002；内径(mm) 10；线径(mm) 2；材质 FKM氟橡胶；硬度(Shore A) 75；使用温度(℃) -20~+200；包装 50件/箱",
+    "O 型密封圈 产品规格书 › 表1 O 型密封圈规格参数\n型号 12×2 FKM；物料编码 6.02.0004；内径(mm) 12；线径(mm) 2；材质 FKM氟橡胶；硬度(Shore A) 75；使用温度(℃) -20~+200；包装 50件/箱",
+    "O 型密封圈 产品规格书 › 表1 O 型密封圈规格参数\n型号 20×2.5 FKM；物料编码 6.02.0008；内径(mm) 20；线径(mm) 2.5；材质 FKM氟橡胶；硬度(Shore A) 75；使用温度(℃) -20~+200；包装 50件/箱",
+    "O 型密封圈 产品规格书 › 表1 O 型密封圈规格参数\n型号 15×2.5 FKM；物料编码 6.02.0006；内径(mm) 15；线径(mm) 2.5；材质 FKM氟橡胶；硬度(Shore A) 75；使用温度(℃) -20~+200；包装 50件/箱"
+   ]
+  },
+  "parameters": {
+   "top_n": 8,
+   "return_documents": false
+  }
+ },
+ "calls": [
+  {
+   "recorded_at": "2026-11-18T08:22:35+00:00",
+   "run": "hybrid_rerank",
+   "latency_ms": 3538.1,
+   "response": {
+    "output": {
+     "results": [
+      {
+       "index": 1,
+       "relevance_score": 0.7824888192880685
+      },
+      {
+       "index": 0,
+       "relevance_score": 0.7798242379715503
+      },
+      {
+       "index": 7,
+       "relevance_score": 0.7798242379715503
+      },
+      {
+       "index": 2,
+       "relevance_score": 0.7790576922102551
+      },
+      {
+       "index": 5,
+       "relevance_score": 0.7786735435177223
+      },
+      {
+       "index": 6,
+       "relevance_score": 0.7786735435177223
+      },
+      {
+       "index": 4,
+       "relevance_score": 0.7782888101494783
+      },
+      {
+       "index": 3,
+       "relevance_score": 0.7744091874342136
+      }
+     ]
+    },
+    "usage": {
+     "total_tokens": 832
+    },
+    "request_id": "909e7a06-a067-9d25-a892-95c2ec61c99f"
+   }
+  }
+ ]
+}

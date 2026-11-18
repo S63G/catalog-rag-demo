@@ -1,0 +1,62 @@
+{
+ "source": "live",
+ "endpoint": "https://api.deepseek.com/chat/completions",
+ "model": "deepseek-flash",
+ "request_sha256": "76415f776f5660cb34be38b42b1a852fedf0e366e3103497f59301969a62c76d",
+ "request": {
+  "model": "deepseek-flash",
+  "messages": [
+   {
+    "role": "system",
+    "content": "你是瑞丰机电批发（虚构）的产品目录助手，回答公司销售和客服同事的问题。只能依据用户消息里 <资料> 中的内容回答，不要使用资料以外的知识，也不要做资料里没有的推算。\n规则：\n1. 资料能回答问题时：answerable=true；回答简洁，直接给出型号、参数和单位；每句事实后用 [编号] 标注来源，编号必须是资料里给出的编号。\n2. 资料不能回答问题时（问到的型号、规格、参数、品牌、认证等在资料中不存在）：answerable=false，answer 用一句话说明目录资料中没有这方面信息（可以顺带说明资料里有哪些相近内容），citations 为空。不要猜测。\n3. 表格数据原样引用，不要换算单位。\n4. 给出“系统匹配的替代候选”时，只推荐这些候选并说明替代条件；没有给出候选时不要自行推荐替代型号。\n5. 当前提问者角色：销售。可以回答价格；价目表中的价格是含税目录价（协议客户以协议价为准）。\n只输出一个 JSON 对象：{\"answerable\": true 或 false, \"answer\": \"回答正文\", \"citations\": [引用的编号]}"
+   },
+   {
+    "role": "user",
+    "content": "<资料>\n[1] 来源：RF-10_通用变频器规格书.pdf 第2页｜FV 系列通用变频器 产品规格书 › 表1 FV 变频器规格参数\n型号 FV-7.5kW 380V；物料编码 5.02.0006；适配电机(kW) 7.5；输入电压 三相380V；额定输出电流(A) 17；过载能力 150% 60s；制动单元 内置；材质 阻燃塑料外壳\n\n[2] 来源：RF-10_通用变频器规格书.pdf 第2页｜FV 系列通用变频器 产品规格书 › 表1 FV 变频器规格参数\n型号 FV-0.75kW 380V；物料编码 5.02.0001；适配电机(kW) 0.75；输入电压 三相380V；额定输出电流(A) 2.5；过载能力 150% 60s；制动单元 内置；材质 阻燃塑料外壳\n\n[3] 来源：RF-10_通用变频器规格书.pdf 第2页｜FV 系列通用变频器 产品规格书 › 表1 FV 变频器规格参数\n型号 FV-5.5kW 380V；物料编码 5.02.0005；适配电机(kW) 5.5；输入电压 三相380V；额定输出电流(A) 13；过载能力 150% 60s；制动单元 内置；材质 阻燃塑料外壳\n\n[4] 来源：RF-10_通用变频器规格书.pdf 第3页｜FV 系列通用变频器 产品规格书 › 6 选型与替代说明\n· 变频器额定输出电流应不小于电机额定电流；重载启动（如提升、挤出）应放大一档选型。\n· 同输入电压时，可用功率更大一档的变频器替代。\n\n[5] 来源：瑞丰价目表_2026Q4.xlsx 价目表 第195行｜瑞丰价目表_2026Q4.xlsx › 价目表\n物料编码 5.02.0006；品名 通用变频器；规格型号 FV-7.5kW 380V；销售单位 台；包装 按台；目录含税单价(元) 1796.1；税率 13%；起订量 1；标准交期(天) 3\n</资料>\n\n问题：FV-7.5kW 变频器的额定输出电流是多少？"
+   }
+  ],
+  "temperature": 0,
+  "response_format": {
+   "type": "json_object"
+  }
+ },
+ "calls": [
+  {
+   "recorded_at": "2026-11-18T08:21:05+00:00",
+   "run": "hybrid_rerank",
+   "latency_ms": 969.3,
+   "response": {
+    "id": "ab514d93-eaa1-4d4a-bda6-8f99d4b3aea7",
+    "object": "chat.completion",
+    "created": 1794990064,
+    "model": "deepseek-flash",
+    "choices": [
+     {
+      "index": 0,
+      "message": {
+       "role": "assistant",
+       "content": "{\"answerable\": true, \"answer\": \"FV-7.5kW 380V 的额定输出电流为 17A [1]。\", \"citations\": [1]}",
+       "reasoning_content": "The资料 answers: 17A [1]."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+     }
+    ],
+    "usage": {
+     "prompt_tokens": 872,
+     "completion_tokens": 50,
+     "total_tokens": 922,
+     "prompt_tokens_details": {
+      "cached_tokens": 256
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 10
+     },
+     "prompt_cache_hit_tokens": 256,
+     "prompt_cache_miss_tokens": 616
+    },
+    "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
+   }
+  }
+ ]
+}

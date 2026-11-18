@@ -1,0 +1,62 @@
+{
+ "source": "live",
+ "endpoint": "https://api.deepseek.com/chat/completions",
+ "model": "deepseek-flash",
+ "request_sha256": "e0eb11b746b9ead38a3889d1028112e8cf62fa612199b90b0581e5c150d9aa35",
+ "request": {
+  "model": "deepseek-flash",
+  "messages": [
+   {
+    "role": "system",
+    "content": "你是瑞丰机电批发（虚构）的产品目录助手，回答公司销售和客服同事的问题。只能依据用户消息里 <资料> 中的内容回答，不要使用资料以外的知识，也不要做资料里没有的推算。\n规则：\n1. 资料能回答问题时：answerable=true；回答简洁，直接给出型号、参数和单位；每句事实后用 [编号] 标注来源，编号必须是资料里给出的编号。\n2. 资料不能回答问题时（问到的型号、规格、参数、品牌、认证等在资料中不存在）：answerable=false，answer 用一句话说明目录资料中没有这方面信息（可以顺带说明资料里有哪些相近内容），citations 为空。不要猜测。\n3. 表格数据原样引用，不要换算单位。\n4. 给出“系统匹配的替代候选”时，只推荐这些候选并说明替代条件；没有给出候选时不要自行推荐替代型号。\n5. 当前提问者角色：客服。客服看不到价格，回答中不要出现任何价格或金额。\n只输出一个 JSON 对象：{\"answerable\": true 或 false, \"answer\": \"回答正文\", \"citations\": [引用的编号]}"
+   },
+   {
+    "role": "user",
+    "content": "<资料>\n[1] 来源：RF-01_深沟球轴承规格书.pdf 第1页｜深沟球轴承 62/63 系列 产品规格书 › 2 主要特点\n· 精度等级 P0，径向游隙 C0\n· 保持架：钢板冲压浪形保持架\n· 润滑：锂基润滑脂，填充量约为内部空间的 30%\n· -2RS 工作温度 -20~+110℃；-ZZ 工作温度 -30~+120℃\n\n[2] 来源：RF-01_深沟球轴承规格书.pdf 第2页｜深沟球轴承 62/63 系列 产品规格书 › 表1 深沟球轴承规格参数\n型号 6203-2RS；物料编码 1.01.0007；内径d(mm) 17；外径D(mm) 40；宽度B(mm) 12；密封形式 双面胶封；材质 GCr15轴承钢；极限转速(r/min) 11400；重量(kg) 0.058\n\n[3] 来源：RF-01_深沟球轴承规格书.pdf 第2页｜深沟球轴承 62/63 系列 产品规格书 › 表1 深沟球轴承规格参数\n型号 6303-2RS；物料编码 1.01.0029；内径d(mm) 17；外径D(mm) 47；宽度B(mm) 14；密封形式 双面胶封；材质 GCr15轴承钢；极限转速(r/min) 10100；重量(kg) 0.099\n\n[4] 来源：RF-01_深沟球轴承规格书.pdf 第2页｜深沟球轴承 62/63 系列 产品规格书 › 表1 深沟球轴承规格参数\n型号 6210-2RS；物料编码 1.01.0021；内径d(mm) 50；外径D(mm) 90；宽度B(mm) 20；密封形式 双面胶封；材质 GCr15轴承钢；极限转速(r/min) 4600；重量(kg) 0.414\n\n[5] 来源：RF-01_深沟球轴承规格书.pdf 第2页｜深沟球轴承 62/63 系列 产品规格书 › 表1 深沟球轴承规格参数\n型号 6208-2RS；物料编码 1.01.0017；内径d(mm) 40；外径D(mm) 80；宽度B(mm) 18；密封形式 双面胶封；材质 GCr15轴承钢；极限转速(r/min) 5400；重量(kg) 0.320\n</资料>\n\n问题：深沟球轴承 2RS 的工作温度范围是多少？"
+   }
+  ],
+  "temperature": 0,
+  "response_format": {
+   "type": "json_object"
+  }
+ },
+ "calls": [
+  {
+   "recorded_at": "2026-11-18T08:21:13+00:00",
+   "run": "hybrid_rerank",
+   "latency_ms": 926.4,
+   "response": {
+    "id": "6d34a458-eb2c-415f-b17c-6360d72e4c0b",
+    "object": "chat.completion",
+    "created": 1794990073,
+    "model": "deepseek-flash",
+    "choices": [
+     {
+      "index": 0,
+      "message": {
+       "role": "assistant",
+       "content": "{\"answerable\": true, \"answer\": \"-2RS 的工作温度范围为 -20~+110℃ [1]。\", \"citations\": [1]}",
+       "reasoning_content": "用户问 -2RS 工作温度范围。资料[1]：-2RS 工作温度 -20~+110℃。可以回答。citations [1]。注意不要出现价格。"
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+     }
+    ],
+    "usage": {
+     "prompt_tokens": 921,
+     "completion_tokens": 75,
+     "total_tokens": 996,
+     "prompt_tokens_details": {
+      "cached_tokens": 256
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 41
+     },
+     "prompt_cache_hit_tokens": 256,
+     "prompt_cache_miss_tokens": 665
+    },
+    "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
+   }
+  }
+ ]
+}

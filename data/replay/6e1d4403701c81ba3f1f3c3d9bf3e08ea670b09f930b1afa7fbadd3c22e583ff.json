@@ -1,0 +1,62 @@
+{
+ "source": "live",
+ "endpoint": "https://api.deepseek.com/chat/completions",
+ "model": "deepseek-flash",
+ "request_sha256": "6e1d4403701c81ba3f1f3c3d9bf3e08ea670b09f930b1afa7fbadd3c22e583ff",
+ "request": {
+  "model": "deepseek-flash",
+  "messages": [
+   {
+    "role": "system",
+    "content": "你是瑞丰机电批发（虚构）的产品目录助手，回答公司销售和客服同事的问题。只能依据用户消息里 <资料> 中的内容回答，不要使用资料以外的知识，也不要做资料里没有的推算。\n规则：\n1. 资料能回答问题时：answerable=true；回答简洁，直接给出型号、参数和单位；每句事实后用 [编号] 标注来源，编号必须是资料里给出的编号。\n2. 资料不能回答问题时（问到的型号、规格、参数、品牌、认证等在资料中不存在）：answerable=false，answer 用一句话说明目录资料中没有这方面信息（可以顺带说明资料里有哪些相近内容），citations 为空。不要猜测。\n3. 表格数据原样引用，不要换算单位。\n4. 给出“系统匹配的替代候选”时，只推荐这些候选并说明替代条件；没有给出候选时不要自行推荐替代型号。\n5. 当前提问者角色：销售。可以回答价格；价目表中的价格是含税目录价（协议客户以协议价为准）。\n只输出一个 JSON 对象：{\"answerable\": true 或 false, \"answer\": \"回答正文\", \"citations\": [引用的编号]}"
+   },
+   {
+    "role": "user",
+    "content": "<资料>\n[1] 来源：常见问题FAQ.md Q17｜瑞丰机电批发（虚构） 常见问题（FAQ） › Q17\n问：包装是什么样的？\n答：轴承、开关类为单个纸盒包装，螺钉、O 型圈、扎带、接头、端子按箱包装，电线电缆、气管按卷包装。\n\n[2] 来源：RF-01_深沟球轴承规格书.pdf 第1页｜深沟球轴承 62/63 系列 产品规格书 › 1 产品概述\n62 系列为轻窄系列，63 系列为中窄系列，适用于中高转速、以径向载荷为主的场合。每个尺寸提供 -2RS（双面接触式橡胶密封）和 -ZZ（双面金属防尘盖）两种结构，出厂已填充锂基润滑脂，免维护。\n\n[3] 来源：RF-01_深沟球轴承规格书.pdf 第4页｜深沟球轴承 62/63 系列 产品规格书 › 8 质保与服务\n质保期：自发货之日起 12 个月。质保期内因材料或制造缺陷造成的损坏，免费更换同型号产品；因安装不当、超规格使用或人为损坏不在质保范围内。技术咨询：瑞丰机电批发（虚构） 技术部，工作日 8:30-17:30。\n\n[4] 来源：RF-01_深沟球轴承规格书.pdf 第2页｜深沟球轴承 62/63 系列 产品规格书 › 表1 深沟球轴承规格参数\n型号 6205-2RS；物料编码 1.01.0011；内径d(mm) 25；外径D(mm) 52；宽度B(mm) 15；密封形式 双面胶封；材质 GCr15轴承钢；极限转速(r/min) 8400；重量(kg) 0.115\n\n[5] 来源：RF-01_深沟球轴承规格书.pdf 第3页｜深沟球轴承 62/63 系列 产品规格书 › 表1 深沟球轴承规格参数\n型号 6307-ZZ；物料编码 1.01.0038；内径d(mm) 35；外径D(mm) 80；宽度B(mm) 21；密封形式 双面铁封；材质 GCr15轴承钢；极限转速(r/min) 8700；重量(kg) 0.402\n</资料>\n\n问题：有没有 SKF 或者 NSK 的原装轴承？"
+   }
+  ],
+  "temperature": 0,
+  "response_format": {
+   "type": "json_object"
+  }
+ },
+ "calls": [
+  {
+   "recorded_at": "2026-11-18T08:22:48+00:00",
+   "run": "hybrid_rerank",
+   "latency_ms": 1555.8,
+   "response": {
+    "id": "509f21b0-4d36-478f-8842-ce3ceeea9732",
+    "object": "chat.completion",
+    "created": 1794990167,
+    "model": "deepseek-flash",
+    "choices": [
+     {
+      "index": 0,
+      "message": {
+       "role": "assistant",
+       "content": "{\"answerable\": false, \"answer\": \"目录资料中没有 SKF、NSK 等品牌轴承的信息；资料中只有瑞丰机电批发的深沟球轴承 62、63 系列（如 6205-2RS、6307-ZZ）的产品规格。\", \"citations\": []}",
+       "reasoning_content": "资料中没有提到SKF或NSK品牌，只提到瑞丰自有型号。answerable=false。可以顺带说明资料里有深沟球轴承62/63系列型号。citations为空。"
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+     }
+    ],
+    "usage": {
+     "prompt_tokens": 863,
+     "completion_tokens": 108,
+     "total_tokens": 971,
+     "prompt_tokens_details": {
+      "cached_tokens": 128
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 41
+     },
+     "prompt_cache_hit_tokens": 128,
+     "prompt_cache_miss_tokens": 735
+    },
+    "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
+   }
+  }
+ ]
+}

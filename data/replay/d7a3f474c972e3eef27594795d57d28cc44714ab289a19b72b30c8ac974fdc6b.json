@@ -1,0 +1,62 @@
+{
+ "source": "live",
+ "endpoint": "https://api.deepseek.com/chat/completions",
+ "model": "deepseek-flash",
+ "request_sha256": "d7a3f474c972e3eef27594795d57d28cc44714ab289a19b72b30c8ac974fdc6b",
+ "request": {
+  "model": "deepseek-flash",
+  "messages": [
+   {
+    "role": "system",
+    "content": "你是瑞丰机电批发（虚构）的产品目录助手，回答公司销售和客服同事的问题。只能依据用户消息里 <资料> 中的内容回答，不要使用资料以外的知识，也不要做资料里没有的推算。\n规则：\n1. 资料能回答问题时：answerable=true；回答简洁，直接给出型号、参数和单位；每句事实后用 [编号] 标注来源，编号必须是资料里给出的编号。\n2. 资料不能回答问题时（问到的型号、规格、参数、品牌、认证等在资料中不存在）：answerable=false，answer 用一句话说明目录资料中没有这方面信息（可以顺带说明资料里有哪些相近内容），citations 为空。不要猜测。\n3. 表格数据原样引用，不要换算单位。\n4. 给出“系统匹配的替代候选”时，只推荐这些候选并说明替代条件；没有给出候选时不要自行推荐替代型号。\n5. 当前提问者角色：销售。可以回答价格；价目表中的价格是含税目录价（协议客户以协议价为准）。\n只输出一个 JSON 对象：{\"answerable\": true 或 false, \"answer\": \"回答正文\", \"citations\": [引用的编号]}"
+   },
+   {
+    "role": "user",
+    "content": "<资料>\n[1] 来源：RF-02_交流接触器规格书.pdf 第2页｜CJX2 系列交流接触器 产品规格书 › 表1 CJX2 接触器规格参数\n型号 CJX2-1810 线圈AC220V；物料编码 1.02.0005；额定电流Ie(A) 18；AC-3可控电机(kW) 7.5；辅助触点 1NO；线圈电压 AC220V；材质 银合金触点；安装方式 35mm导轨/螺钉\n\n[2] 来源：RF-02_交流接触器规格书.pdf 第2页｜CJX2 系列交流接触器 产品规格书 › 表1 CJX2 接触器规格参数\n型号 CJX2-2510 线圈AC220V；物料编码 1.02.0007；额定电流Ie(A) 25；AC-3可控电机(kW) 11；辅助触点 1NO；线圈电压 AC220V；材质 银合金触点；安装方式 35mm导轨/螺钉\n\n[3] 来源：RF-02_交流接触器规格书.pdf 第3页｜CJX2 系列交流接触器 产品规格书 › 6 选型与替代说明\n· 线圈电压必须与控制回路电压一致，AC220V 与 AC380V 线圈不能互换使用。\n· 相同线圈电压时，可以用额定电流更大一档的型号替代（例如 CJX2-1810 可由 CJX2-2510 替代），不可用小一档替代。\n· 按电机功率选型：AC-3 可控电机功率应不小于电机额定功率。\n\n[4] 来源：RF-02_交流接触器规格书.pdf 第2页｜CJX2 系列交流接触器 产品规格书 › 表1 CJX2 接触器规格参数\n型号 CJX2-1810 线圈AC380V；物料编码 1.02.0006；额定电流Ie(A) 18；AC-3可控电机(kW) 7.5；辅助触点 1NO；线圈电压 AC380V；材质 银合金触点；安装方式 35mm导轨/螺钉\n\n[5] 来源：瑞丰价目表_2026Q4.xlsx 价目表 第49行｜瑞丰价目表_2026Q4.xlsx › 价目表\n物料编码 1.02.0005；品名 交流接触器；规格型号 CJX2-1810 线圈AC220V；销售单位 件；包装 按件；目录含税单价(元) 59.4；税率 13%；起订量 1；标准交期(天) 现货\n\n[6] 来源：RF-02_交流接触器规格书.pdf 第2页｜CJX2 系列交流接触器 产品规格书 › 表1 CJX2 接触器规格参数\n型号 CJX2-4011 线圈AC220V；物料编码 1.02.0011；额定电流Ie(A) 40；AC-3可控电机(kW) 18.5；辅助触点 1NO+1NC；线圈电压 AC220V；材质 银合金触点；安装方式 螺钉安装\n</资料>\n系统按规格书第 6 节替代规则为 CJX2-1810 线圈AC220V 匹配的替代候选：CJX2-2510 线圈AC220V（物料编码 1.02.0007）：线圈电压相同、额定电流大一档\n\n问题：CJX2-1810 线圈AC220V 没货了，用什么代替？"
+   }
+  ],
+  "temperature": 0,
+  "response_format": {
+   "type": "json_object"
+  }
+ },
+ "calls": [
+  {
+   "recorded_at": "2026-11-18T08:22:21+00:00",
+   "run": "hybrid_rerank",
+   "latency_ms": 3221.6,
+   "response": {
+    "id": "3c45868a-2749-4b00-a9cd-59c9f6015a16",
+    "object": "chat.completion",
+    "created": 1794990138,
+    "model": "deepseek-flash",
+    "choices": [
+     {
+      "index": 0,
+      "message": {
+       "role": "assistant",
+       "content": "{\"answerable\": true, \"answer\": \"可替代为 CJX2-2510 线圈AC220V（物料编码 1.02.0007）[3][2]。替代条件：线圈电压必须相同，且额定电流大一档的型号可替代小一档，不可用小一档替代 [3]；该候选额定电流 25A、AC-3 可控电机 11kW、辅助触点 1NO、线圈电压 AC220V [2]。AC220V 与 AC380V 线圈不能互换使用 [3]。\", \"citations\": [3, 2]}",
+       "reasoning_content": "We need answer JSON. Need use资料 only. Question sales asks substitute for CJX2-1810 AC220V out of stock. System matched candidate CJX2-2510 AC220V code 1.02.0007. Need state alternative candidate and conditions from [3], parameters perhaps [2]. Price? Not asked. Could mention if need price? no. Need answerable true. Citations [3],[2] maybe system candidate info is in user message but not numbered? It says system matched candidate with code; but citations must be from资料. [2] has model code etc. [3] rule. Need concise. Answer: 可替代为 CJX2-2510 线圈AC220V（物料编码1.02.0007）；替代条件：线圈电压相同且额定电流大一档，按规则可用大一档替代，不可小一档替代 [3]。该型号额定电流25A，AC-3可控电机11kW，辅助触点1NO，线圈AC220V [2]。Also ensure motor power? Since replacing larger OK if same coil; [3] says AC-3 controlled motor power not less than motor rated. Maybe mention. Also could note cannot interchange AC220V and AC380V [3]. Need citations [3][2]. JSON only."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+     }
+    ],
+    "usage": {
+     "prompt_tokens": 1118,
+     "completion_tokens": 399,
+     "total_tokens": 1517,
+     "prompt_tokens_details": {
+      "cached_tokens": 640
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 269
+     },
+     "prompt_cache_hit_tokens": 640,
+     "prompt_cache_miss_tokens": 478
+    },
+    "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
+   }
+  }
+ ]
+}

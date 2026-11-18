@@ -1,0 +1,62 @@
+{
+ "source": "live",
+ "endpoint": "https://api.deepseek.com/chat/completions",
+ "model": "deepseek-flash",
+ "request_sha256": "24f44ce94b37db2f79a1a6ca682ccc116bf7efbf42748835bc98c7e17034504b",
+ "request": {
+  "model": "deepseek-flash",
+  "messages": [
+   {
+    "role": "system",
+    "content": "你是瑞丰机电批发（虚构）的产品目录助手，回答公司销售和客服同事的问题。只能依据用户消息里 <资料> 中的内容回答，不要使用资料以外的知识，也不要做资料里没有的推算。\n规则：\n1. 资料能回答问题时：answerable=true；回答简洁，直接给出型号、参数和单位；每句事实后用 [编号] 标注来源，编号必须是资料里给出的编号。\n2. 资料不能回答问题时（问到的型号、规格、参数、品牌、认证等在资料中不存在）：answerable=false，answer 用一句话说明目录资料中没有这方面信息（可以顺带说明资料里有哪些相近内容），citations 为空。不要猜测。\n3. 表格数据原样引用，不要换算单位。\n4. 给出“系统匹配的替代候选”时，只推荐这些候选并说明替代条件；没有给出候选时不要自行推荐替代型号。\n5. 当前提问者角色：客服。客服看不到价格，回答中不要出现任何价格或金额。\n只输出一个 JSON 对象：{\"answerable\": true 或 false, \"answer\": \"回答正文\", \"citations\": [引用的编号]}"
+   },
+   {
+    "role": "user",
+    "content": "<资料>\n[1] 来源：RF-07_标准气缸规格书.pdf 第3页｜SC 系列标准气缸 产品规格书 › 6 选型与替代说明\n· 相同缸径、行程更长的气缸可以安装替代，但需确认安装空间；缸径变化会改变输出力，不能直接替代。\n· 理论推力（0.5MPa）：缸径 32 约 402N，40 约 628N，50 约 982N，63 约 1559N。\n\n[2] 来源：RF-07_标准气缸规格书.pdf 第2页｜SC 系列标准气缸 产品规格书 › 表1 SC 气缸规格参数\n型号 SC50×50；物料编码 4.01.0009；缸径(mm) 50；行程(mm) 50；接管螺纹 G1/4；活塞杆螺纹 M16×1.5；使用压力(MPa) 0.1~0.9；材质 铝合金缸筒；磁性开关 标配磁环\n\n[3] 来源：RF-07_标准气缸规格书.pdf 第2页｜SC 系列标准气缸 产品规格书 › 表1 SC 气缸规格参数\n型号 SC40×50；物料编码 4.01.0005；缸径(mm) 40；行程(mm) 50；接管螺纹 G1/4；活塞杆螺纹 M12×1.25；使用压力(MPa) 0.1~0.9；材质 铝合金缸筒；磁性开关 标配磁环\n\n[4] 来源：RF-07_标准气缸规格书.pdf 第2页｜SC 系列标准气缸 产品规格书 › 表1 SC 气缸规格参数\n型号 SC32×50；物料编码 4.01.0001；缸径(mm) 32；行程(mm) 50；接管螺纹 G1/8；活塞杆螺纹 M10×1.25；使用压力(MPa) 0.1~0.9；材质 铝合金缸筒；磁性开关 标配磁环\n\n[5] 来源：RF-07_标准气缸规格书.pdf 第2页｜SC 系列标准气缸 产品规格书 › 表1 SC 气缸规格参数\n型号 SC63×50；物料编码 4.01.0013；缸径(mm) 63；行程(mm) 50；接管螺纹 G3/8；活塞杆螺纹 M16×1.5；使用压力(MPa) 0.1~0.9；材质 铝合金缸筒；磁性开关 标配磁环\n</资料>\n\n问题：缸径 50 的 SC 气缸在 0.5MPa 下理论推力大约多少？"
+   }
+  ],
+  "temperature": 0,
+  "response_format": {
+   "type": "json_object"
+  }
+ },
+ "calls": [
+  {
+   "recorded_at": "2026-11-18T08:17:43+00:00",
+   "run": "bm25",
+   "latency_ms": 1310.8,
+   "response": {
+    "id": "eca41b8e-4aef-4589-9e24-52088eaf4ebe",
+    "object": "chat.completion",
+    "created": 1794989862,
+    "model": "deepseek-flash",
+    "choices": [
+     {
+      "index": 0,
+      "message": {
+       "role": "assistant",
+       "content": "{\"answerable\": true, \"answer\": \"缸径 50 的 SC 气缸在 0.5MPa 下理论推力约 982N。[1]\", \"citations\": [1]}",
+       "reasoning_content": "We need answer based on [1]: 缸径50约982N. answerable true. Only cite [1]. Also maybe no price. concise. JSON only."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+     }
+    ],
+    "usage": {
+     "prompt_tokens": 891,
+     "completion_tokens": 79,
+     "total_tokens": 970,
+     "prompt_tokens_details": {
+      "cached_tokens": 128
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 35
+     },
+     "prompt_cache_hit_tokens": 128,
+     "prompt_cache_miss_tokens": 763
+    },
+    "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
+   }
+  }
+ ]
+}

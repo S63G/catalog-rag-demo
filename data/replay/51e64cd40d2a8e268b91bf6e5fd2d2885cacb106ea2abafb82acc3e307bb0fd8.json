@@ -1,0 +1,62 @@
+{
+ "source": "live",
+ "endpoint": "https://api.deepseek.com/chat/completions",
+ "model": "deepseek-flash",
+ "request_sha256": "51e64cd40d2a8e268b91bf6e5fd2d2885cacb106ea2abafb82acc3e307bb0fd8",
+ "request": {
+  "model": "deepseek-flash",
+  "messages": [
+   {
+    "role": "system",
+    "content": "你是瑞丰机电批发（虚构）的产品目录助手，回答公司销售和客服同事的问题。只能依据用户消息里 <资料> 中的内容回答，不要使用资料以外的知识，也不要做资料里没有的推算。\n规则：\n1. 资料能回答问题时：answerable=true；回答简洁，直接给出型号、参数和单位；每句事实后用 [编号] 标注来源，编号必须是资料里给出的编号。\n2. 资料不能回答问题时（问到的型号、规格、参数、品牌、认证等在资料中不存在）：answerable=false，answer 用一句话说明目录资料中没有这方面信息（可以顺带说明资料里有哪些相近内容），citations 为空。不要猜测。\n3. 表格数据原样引用，不要换算单位。\n4. 给出“系统匹配的替代候选”时，只推荐这些候选并说明替代条件；没有给出候选时不要自行推荐替代型号。\n5. 当前提问者角色：销售。可以回答价格；价目表中的价格是含税目录价（协议客户以协议价为准）。\n只输出一个 JSON 对象：{\"answerable\": true 或 false, \"answer\": \"回答正文\", \"citations\": [引用的编号]}"
+   },
+   {
+    "role": "user",
+    "content": "<资料>\n[1] 来源：RF-02_交流接触器规格书.pdf 第2页｜CJX2 系列交流接触器 产品规格书 › 表1 CJX2 接触器规格参数\n型号 CJX2-1810 线圈AC220V；物料编码 1.02.0005；额定电流Ie(A) 18；AC-3可控电机(kW) 7.5；辅助触点 1NO；线圈电压 AC220V；材质 银合金触点；安装方式 35mm导轨/螺钉\n\n[2] 来源：RF-02_交流接触器规格书.pdf 第2页｜CJX2 系列交流接触器 产品规格书 › 表1 CJX2 接触器规格参数\n型号 CJX2-2510 线圈AC220V；物料编码 1.02.0007；额定电流Ie(A) 25；AC-3可控电机(kW) 11；辅助触点 1NO；线圈电压 AC220V；材质 银合金触点；安装方式 35mm导轨/螺钉\n\n[3] 来源：RF-02_交流接触器规格书.pdf 第3页｜CJX2 系列交流接触器 产品规格书 › 6 选型与替代说明\n· 线圈电压必须与控制回路电压一致，AC220V 与 AC380V 线圈不能互换使用。\n· 相同线圈电压时，可以用额定电流更大一档的型号替代（例如 CJX2-1810 可由 CJX2-2510 替代），不可用小一档替代。\n· 按电机功率选型：AC-3 可控电机功率应不小于电机额定功率。\n\n[4] 来源：RF-02_交流接触器规格书.pdf 第2页｜CJX2 系列交流接触器 产品规格书 › 表1 CJX2 接触器规格参数\n型号 CJX2-1810 线圈AC380V；物料编码 1.02.0006；额定电流Ie(A) 18；AC-3可控电机(kW) 7.5；辅助触点 1NO；线圈电压 AC380V；材质 银合金触点；安装方式 35mm导轨/螺钉\n\n[5] 来源：RF-02_交流接触器规格书.pdf 第2页｜CJX2 系列交流接触器 产品规格书 › 表1 CJX2 接触器规格参数\n型号 CJX2-1210 线圈AC220V；物料编码 1.02.0003；额定电流Ie(A) 12；AC-3可控电机(kW) 5.5；辅助触点 1NO；线圈电压 AC220V；材质 银合金触点；安装方式 35mm导轨/螺钉\n</资料>\n系统按规格书第 6 节替代规则为 CJX2-1810 线圈AC220V 匹配的替代候选：CJX2-2510 线圈AC220V（物料编码 1.02.0007）：线圈电压相同、额定电流大一档\n\n问题：CJX2-1810 线圈AC220V 没货了，用什么代替？"
+   }
+  ],
+  "temperature": 0,
+  "response_format": {
+   "type": "json_object"
+  }
+ },
+ "calls": [
+  {
+   "recorded_at": "2026-11-18T08:20:08+00:00",
+   "run": "hybrid",
+   "latency_ms": 2915.1,
+   "response": {
+    "id": "3f4bd308-5b8c-43e6-9344-a2fdff18686c",
+    "object": "chat.completion",
+    "created": 1794990006,
+    "model": "deepseek-flash",
+    "choices": [
+     {
+      "index": 0,
+      "message": {
+       "role": "assistant",
+       "content": "{\"answerable\": true, \"answer\": \"可用 CJX2-2510 线圈AC220V 替代（物料编码 1.02.0007）[2][3]。替代条件：线圈电压同为 AC220V，且额定电流大一档；按规则不可用小一档替代[3]。该型号额定电流 Ie 为 25A，AC-3 可控电机 11kW[2]。\", \"citations\": [2, 3]}",
+       "reasoning_content": "We have资料 with CJX2-1810 AC220V [1], and替代规则 [3]: same coil voltage, can use one step larger rated current, e.g. CJX2-1810 by CJX2-2510. System matched candidate: CJX2-2510 AC220V (1.02.0007). Need answer: use CJX2-2510 线圈AC220V, material code 1.02.0007, rated current 25A, AC-3 11kW. Condition: same coil voltage AC220V, rated current one step larger. Also price? No price in资料, don't mention. Answerable true. Cite [3] and [2]. Maybe [1] to identify original. Keep concise. Must every fact sentence cite. JSON only.\n\nNeed be careful \"只推荐这些候选\" - candidate is CJX2-2510 AC220V. State alternative condition. citations [3],[2]. Could cite [1] original. Answer in Chinese.\n\nUse exact table data: 额定电流Ie(A) 25；AC-3可控电机(kW) 11；辅助触点 1NO；线圈电压 AC220V；物料编码 1.02.0007. No need all. Need condition: 线圈电压必须一致，相同线圈电压时可用额定电流更大一档替代，不可用小一档 [3]. Candidate CJX2-2510 线圈AC220V 物料编码 1.02.0007，额定电流Ie 25A，AC-3可控电机11kW [2]. Good.\n\nJSON object."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+     }
+    ],
+    "usage": {
+     "prompt_tokens": 1001,
+     "completion_tokens": 441,
+     "total_tokens": 1442,
+     "prompt_tokens_details": {
+      "cached_tokens": 512
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 339
+     },
+     "prompt_cache_hit_tokens": 512,
+     "prompt_cache_miss_tokens": 489
+    },
+    "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
+   }
+  }
+ ]
+}

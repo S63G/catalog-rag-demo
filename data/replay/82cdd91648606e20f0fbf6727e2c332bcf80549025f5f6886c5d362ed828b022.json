@@ -1,0 +1,62 @@
+{
+ "source": "live",
+ "endpoint": "https://api.deepseek.com/chat/completions",
+ "model": "deepseek-flash",
+ "request_sha256": "82cdd91648606e20f0fbf6727e2c332bcf80549025f5f6886c5d362ed828b022",
+ "request": {
+  "model": "deepseek-flash",
+  "messages": [
+   {
+    "role": "system",
+    "content": "你是瑞丰机电批发（虚构）的产品目录助手，回答公司销售和客服同事的问题。只能依据用户消息里 <资料> 中的内容回答，不要使用资料以外的知识，也不要做资料里没有的推算。\n规则：\n1. 资料能回答问题时：answerable=true；回答简洁，直接给出型号、参数和单位；每句事实后用 [编号] 标注来源，编号必须是资料里给出的编号。\n2. 资料不能回答问题时（问到的型号、规格、参数、品牌、认证等在资料中不存在）：answerable=false，answer 用一句话说明目录资料中没有这方面信息（可以顺带说明资料里有哪些相近内容），citations 为空。不要猜测。\n3. 表格数据原样引用，不要换算单位。\n4. 给出“系统匹配的替代候选”时，只推荐这些候选并说明替代条件；没有给出候选时不要自行推荐替代型号。\n5. 当前提问者角色：客服。客服看不到价格，回答中不要出现任何价格或金额。\n只输出一个 JSON 对象：{\"answerable\": true 或 false, \"answer\": \"回答正文\", \"citations\": [引用的编号]}"
+   },
+   {
+    "role": "user",
+    "content": "<资料>\n[1] 来源：RF-16_电感式接近开关规格书.pdf 第1页｜LJ 系列电感式接近开关 产品规格书 › 1 产品概述\nLJ 系列为圆柱形电感式接近开关，检测金属物体。型号尾缀表示输出：BX=NPN 常开，AX=NPN 常闭，BY=PNP 常开，AY=PNP 常闭。M12 检测距离 4mm，M18 检测距离 8mm（以 Q235 钢为标准检测体）。\n\n[2] 来源：RF-16_电感式接近开关规格书.pdf 第3页｜LJ 系列电感式接近开关 产品规格书 › 6 选型与替代说明\n· NPN 与 PNP 输出不能互换，必须与 PLC 输入类型一致（漏型/源型）。\n· 检测铝、铜等非铁金属时检测距离会明显缩短，约为标称值的 40%~50%。\n· 同螺纹规格、同输出类型时，常开与常闭不能直接替代，需修改程序逻辑。\n\n[3] 来源：RF-16_电感式接近开关规格书.pdf 第2页｜LJ 系列电感式接近开关 产品规格书 › 表1 LJ 接近开关规格参数\n型号 LJ18A3-8-Z/BY；物料编码 8.02.0007；螺纹规格 M18；检测距离(mm) 8；输出类型 PNP；输出状态 常开；工作电压 DC6~36V；材质 镀镍黄铜外壳；安装方式 非埋入式\n\n[4] 来源：RF-16_电感式接近开关规格书.pdf 第2页｜LJ 系列电感式接近开关 产品规格书 › 表1 LJ 接近开关规格参数\n型号 LJ18A3-8-Z/BX；物料编码 8.02.0005；螺纹规格 M18；检测距离(mm) 8；输出类型 NPN；输出状态 常开；工作电压 DC6~36V；材质 镀镍黄铜外壳；安装方式 非埋入式\n\n[5] 来源：RF-16_电感式接近开关规格书.pdf 第2页｜LJ 系列电感式接近开关 产品规格书 › 表1 LJ 接近开关规格参数\n型号 LJ18A3-8-Z/AY；物料编码 8.02.0008；螺纹规格 M18；检测距离(mm) 8；输出类型 PNP；输出状态 常闭；工作电压 DC6~36V；材质 镀镍黄铜外壳；安装方式 非埋入式\n</资料>\n\n问题：那个18的接近开关，PNP常开的，能感应多远？"
+   }
+  ],
+  "temperature": 0,
+  "response_format": {
+   "type": "json_object"
+  }
+ },
+ "calls": [
+  {
+   "recorded_at": "2026-11-18T08:19:22+00:00",
+   "run": "hybrid",
+   "latency_ms": 1476.7,
+   "response": {
+    "id": "7161563d-517d-4720-bcee-4aec7f0b388b",
+    "object": "chat.completion",
+    "created": 1794989962,
+    "model": "deepseek-flash",
+    "choices": [
+     {
+      "index": 0,
+      "message": {
+       "role": "assistant",
+       "content": "{\"answerable\": true, \"answer\": \"LJ18A3-8-Z/BY 为 M18 螺纹规格、PNP 常开输出的电感式接近开关，检测距离为 8mm，检测距离以 Q235 钢为标准检测体 [1][3]。该型号工作电压为 DC6~36V，采用镀镍黄铜外壳，安装方式为非埋入式 [3]。若检测铝、铜等非铁金属，检测距离会明显缩短，约为标称值的 40%~50% [2]。\", \"citations\": [1, 3, 2]}",
+       "reasoning_content": "资料中有 LJ18A3-8-Z/BY，M18，PNP 常开，检测距离 8mm。回答。"
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+     }
+    ],
+    "usage": {
+     "prompt_tokens": 903,
+     "completion_tokens": 160,
+     "total_tokens": 1063,
+     "prompt_tokens_details": {
+      "cached_tokens": 256
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 29
+     },
+     "prompt_cache_hit_tokens": 256,
+     "prompt_cache_miss_tokens": 647
+    },
+    "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
+   }
+  }
+ ]
+}

@@ -1,0 +1,62 @@
+{
+ "source": "live",
+ "endpoint": "https://api.deepseek.com/chat/completions",
+ "model": "deepseek-flash",
+ "request_sha256": "2686b58776014cd7d95521f0dad138f5dd36e0017dafbab3f50e29958effa061",
+ "request": {
+  "model": "deepseek-flash",
+  "messages": [
+   {
+    "role": "system",
+    "content": "你是瑞丰机电批发（虚构）的产品目录助手，回答公司销售和客服同事的问题。只能依据用户消息里 <资料> 中的内容回答，不要使用资料以外的知识，也不要做资料里没有的推算。\n规则：\n1. 资料能回答问题时：answerable=true；回答简洁，直接给出型号、参数和单位；每句事实后用 [编号] 标注来源，编号必须是资料里给出的编号。\n2. 资料不能回答问题时（问到的型号、规格、参数、品牌、认证等在资料中不存在）：answerable=false，answer 用一句话说明目录资料中没有这方面信息（可以顺带说明资料里有哪些相近内容），citations 为空。不要猜测。\n3. 表格数据原样引用，不要换算单位。\n4. 给出“系统匹配的替代候选”时，只推荐这些候选并说明替代条件；没有给出候选时不要自行推荐替代型号。\n5. 当前提问者角色：客服。客服看不到价格，回答中不要出现任何价格或金额。\n只输出一个 JSON 对象：{\"answerable\": true 或 false, \"answer\": \"回答正文\", \"citations\": [引用的编号]}"
+   },
+   {
+    "role": "user",
+    "content": "<资料>\n[1] 来源：常见问题FAQ.md Q15｜瑞丰机电批发（虚构） 常见问题（FAQ） › Q15\n问：最小起订量是多少？\n答：目录内物料起订量均为 1 个销售单位：按件、台、卷销售的为 1 件/台/卷，按箱销售的为 1 箱。\n\n[2] 来源：RF-07_标准气缸规格书.pdf 第3页｜SC 系列标准气缸 产品规格书 › 7 安装与使用注意事项\n· 安装时活塞杆不得承受径向载荷\n· 接管前吹净管路杂质\n· 磁性开关安装在缸筒槽内，用螺丝刀轻压固定\n\n[3] 来源：RF-01_深沟球轴承规格书.pdf 第1页｜深沟球轴承 62/63 系列 产品规格书 › 1 产品概述\n62 系列为轻窄系列，63 系列为中窄系列，适用于中高转速、以径向载荷为主的场合。每个尺寸提供 -2RS（双面接触式橡胶密封）和 -ZZ（双面金属防尘盖）两种结构，出厂已填充锂基润滑脂，免维护。\n\n[4] 来源：常见问题FAQ.md Q7｜瑞丰机电批发（虚构） 常见问题（FAQ） › Q7\n问：质保期是多久？\n答：质保期按品类不同，在各产品规格书第 8 节“质保与服务”中注明，自发货之日起计算。\n\n[5] 来源：RF-10_通用变频器规格书.pdf 第3页｜FV 系列通用变频器 产品规格书 › 6 选型与替代说明\n· 变频器额定输出电流应不小于电机额定电流；重载启动（如提升、挤出）应放大一档选型。\n· 同输入电压时，可用功率更大一档的变频器替代。\n</资料>\n\n问题：6204-2RS 的额定动载荷是多少？"
+   }
+  ],
+  "temperature": 0,
+  "response_format": {
+   "type": "json_object"
+  }
+ },
+ "calls": [
+  {
+   "recorded_at": "2026-11-18T08:18:30+00:00",
+   "run": "bm25",
+   "latency_ms": 1810.4,
+   "response": {
+    "id": "3b115db8-851d-4e06-b4a2-2d05f9052d8a",
+    "object": "chat.completion",
+    "created": 1794989909,
+    "model": "deepseek-flash",
+    "choices": [
+     {
+      "index": 0,
+      "message": {
+       "role": "assistant",
+       "content": "{\"answerable\": false, \"answer\": \"目录资料中没有 6204-2RS 的额定动载荷数据；现有资料仅说明 62 系列为轻窄系列、每个尺寸提供 -2RS 和 -ZZ 两种结构，未给出具体载荷参数。\", \"citations\": []}",
+       "reasoning_content": "The question asks about 6204-2RS rated dynamic load. The资料 [3] only describes series generally, no specific load ratings. So answerable=false.\n\nBut also there's no price. Answer: 目录资料中没有6204-2RS的具体额定动载荷数据；资料仅说明62系列为轻窄系列... citations empty."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+     }
+    ],
+    "usage": {
+     "prompt_tokens": 739,
+     "completion_tokens": 138,
+     "total_tokens": 877,
+     "prompt_tokens_details": {
+      "cached_tokens": 256
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 71
+     },
+     "prompt_cache_hit_tokens": 256,
+     "prompt_cache_miss_tokens": 483
+    },
+    "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
+   }
+  }
+ ]
+}

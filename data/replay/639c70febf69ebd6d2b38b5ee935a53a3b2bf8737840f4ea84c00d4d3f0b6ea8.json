@@ -1,0 +1,62 @@
+{
+ "source": "live",
+ "endpoint": "https://api.deepseek.com/chat/completions",
+ "model": "deepseek-flash",
+ "request_sha256": "639c70febf69ebd6d2b38b5ee935a53a3b2bf8737840f4ea84c00d4d3f0b6ea8",
+ "request": {
+  "model": "deepseek-flash",
+  "messages": [
+   {
+    "role": "system",
+    "content": "你是瑞丰机电批发（虚构）的产品目录助手，回答公司销售和客服同事的问题。只能依据用户消息里 <资料> 中的内容回答，不要使用资料以外的知识，也不要做资料里没有的推算。\n规则：\n1. 资料能回答问题时：answerable=true；回答简洁，直接给出型号、参数和单位；每句事实后用 [编号] 标注来源，编号必须是资料里给出的编号。\n2. 资料不能回答问题时（问到的型号、规格、参数、品牌、认证等在资料中不存在）：answerable=false，answer 用一句话说明目录资料中没有这方面信息（可以顺带说明资料里有哪些相近内容），citations 为空。不要猜测。\n3. 表格数据原样引用，不要换算单位。\n4. 给出“系统匹配的替代候选”时，只推荐这些候选并说明替代条件；没有给出候选时不要自行推荐替代型号。\n5. 当前提问者角色：客服。客服看不到价格，回答中不要出现任何价格或金额。\n只输出一个 JSON 对象：{\"answerable\": true 或 false, \"answer\": \"回答正文\", \"citations\": [引用的编号]}"
+   },
+   {
+    "role": "user",
+    "content": "<资料>\n[1] 来源：RF-01_深沟球轴承规格书.pdf 第2页｜深沟球轴承 62/63 系列 产品规格书 › 表1 深沟球轴承规格参数\n型号 6205-2RS；物料编码 1.01.0011；内径d(mm) 25；外径D(mm) 52；宽度B(mm) 15；密封形式 双面胶封；材质 GCr15轴承钢；极限转速(r/min) 8400；重量(kg) 0.115\n\n[2] 来源：RF-01_深沟球轴承规格书.pdf 第2页｜深沟球轴承 62/63 系列 产品规格书 › 表1 深沟球轴承规格参数\n型号 6205-ZZ；物料编码 1.01.0012；内径d(mm) 25；外径D(mm) 52；宽度B(mm) 15；密封形式 双面铁封；材质 GCr15轴承钢；极限转速(r/min) 13000；重量(kg) 0.115\n\n[3] 来源：RF-01_深沟球轴承规格书.pdf 第4页｜深沟球轴承 62/63 系列 产品规格书 › 6 选型与替代说明\n· 同一尺寸代号的 -2RS 与 -ZZ 外形尺寸完全相同，可以互相替代；-2RS 防水防尘更好，但极限转速约为 -ZZ 的 65%。\n· 62 系列与 63 系列即使内径相同，外径和宽度也不同，不能互相替代。\n· 粉尘大、有水汽的场合优先选 -2RS；高转速、干燥环境优先选 -ZZ。\n\n[4] 来源：RF-01_深沟球轴承规格书.pdf 第2页｜深沟球轴承 62/63 系列 产品规格书 › 表1 深沟球轴承规格参数\n型号 6204-2RS；物料编码 1.01.0009；内径d(mm) 20；外径D(mm) 47；宽度B(mm) 14；密封形式 双面胶封；材质 GCr15轴承钢；极限转速(r/min) 9700；重量(kg) 0.094\n\n[5] 来源：RF-01_深沟球轴承规格书.pdf 第2页｜深沟球轴承 62/63 系列 产品规格书 › 表1 深沟球轴承规格参数\n型号 6201-2RS；物料编码 1.01.0003；内径d(mm) 12；外径D(mm) 32；宽度B(mm) 10；密封形式 双面胶封；材质 GCr15轴承钢；极限转速(r/min) 14800；重量(kg) 0.033\n\n[6] 来源：RF-01_深沟球轴承规格书.pdf 第2页｜深沟球轴承 62/63 系列 产品规格书 › 表1 深沟球轴承规格参数\n型号 6202-2RS；物料编码 1.01.0005；内径d(mm) 15；外径D(mm) 35；宽度B(mm) 11；密封形式 双面胶封；材质 GCr15轴承钢；极限转速(r/min) 13000；重量(kg) 0.041\n</资料>\n系统按规格书第 6 节替代规则为 6205-2RS 匹配的替代候选：6205-ZZ（物料编码 1.01.0012）：外形尺寸相同、密封形式不同，可互换\n\n问题：6205-2RS 缺货，有什么可以替代？"
+   }
+  ],
+  "temperature": 0,
+  "response_format": {
+   "type": "json_object"
+  }
+ },
+ "calls": [
+  {
+   "recorded_at": "2026-11-18T08:22:14+00:00",
+   "run": "hybrid_rerank",
+   "latency_ms": 4826.6,
+   "response": {
+    "id": "8cf60f82-4323-42e0-81de-540c09ffb22e",
+    "object": "chat.completion",
+    "created": 1794990130,
+    "model": "deepseek-flash",
+    "choices": [
+     {
+      "index": 0,
+      "message": {
+       "role": "assistant",
+       "content": "{\"answerable\": true, \"answer\": \"可用 6205-ZZ（物料编码 1.01.0012）替代：内径 25 mm、外径 52 mm、宽度 15 mm，双面铁封，极限转速 13000 r/min [2]；它与 6205-2RS 外形尺寸完全相同，可以互相替代 [3]。替代条件是：高转速、干燥环境优先选 -ZZ；粉尘大、有水汽的场合 -2RS 防水防尘更好 [3]。6205-2RS 的极限转速为 8400 r/min [1]。\", \"citations\": [1, 2, 3]}",
+       "reasoning_content": "We need answer as JSON. Need use资料 and given candidate. Customer service no price. Need answerable true. Need concise with citations. Question: 6205-2RS缺货，有什么替代？ System matched candidate 6205-ZZ code 1.01.0012, same dimensions, different seal, interchangeable. Need mention conditions from [3]: same size code -2RS and -ZZ dimensions identical can replace; -2RS water/dust better, limit speed ~65% of -ZZ; dust/water prefer -2RS, high speed dry prefer -ZZ. Since original 6205-2RS缺货 and candidate 6205-ZZ. Need maybe mention if工况高转速干燥 suitable; if粉尘水汽 maybe -2RS better so substitute condition. Need not price. citations [1][2][3] or [2][3]. Must quote units parameters? Answer direct model, params and units. Include candidate 6205-ZZ, material code, inner diameter 25mm outer 52mm width 15mm, double iron seal, limit speed 13000 r/min. Also original 6205-2RS limit speed 8400 r/min. Need mention外形尺寸相同可互换. Citation per sentence facts after each. The candidate given by system maybe cite [1][2][3]. Need answerable true.\n\nNeed output only JSON object. Ensure citations numbers only in资料. Final. \nNeed maybe \"可用 6205-ZZ（物料编码 1.01.0012）替代：内径25 mm、外径52 mm、宽度15 mm，双面铁封，极限转速13000 r/min [2]；与6205-2RS外形尺寸完全相同，可互相替代 [3]。其极限转速高于6205-2RS的8400 r/min [1]；若工况为高转速、干燥环境可优先选-ZZ，粉尘大、有水汽场合则-2RS更合适 [3]。\" This is concise. Need include \"替代条件\" as per rule 4. Good. Citation after each fact. Note \"其极限转速高于\" derives from data comparing but allowed? It's direct parameters; not unsupported. Fine.\n\nNeed no price. JSON valid. \nUse citations [2,3,1]? Fine. \nAnswer maybe not too long. Ensure all factual sentences cite. \nPotential issue: \"6205-ZZ 极限转速高于...\" maybe comparison not necessary. Include candidate. \nNeed mention \"系统匹配的替代候选\" only recommend this. Good.\nFinal."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+     }
+    ],
+    "usage": {
+     "prompt_tokens": 1118,
+     "completion_tokens": 675,
+     "total_tokens": 1793,
+     "prompt_tokens_details": {
+      "cached_tokens": 512
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 531
+     },
+     "prompt_cache_hit_tokens": 512,
+     "prompt_cache_miss_tokens": 606
+    },
+    "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
+   }
+  }
+ ]
+}

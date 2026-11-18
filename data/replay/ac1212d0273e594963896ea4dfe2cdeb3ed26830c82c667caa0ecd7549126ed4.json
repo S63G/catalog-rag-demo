@@ -1,0 +1,62 @@
+{
+ "source": "live",
+ "endpoint": "https://api.deepseek.com/chat/completions",
+ "model": "deepseek-flash",
+ "request_sha256": "ac1212d0273e594963896ea4dfe2cdeb3ed26830c82c667caa0ecd7549126ed4",
+ "request": {
+  "model": "deepseek-flash",
+  "messages": [
+   {
+    "role": "system",
+    "content": "你是瑞丰机电批发（虚构）的产品目录助手，回答公司销售和客服同事的问题。只能依据用户消息里 <资料> 中的内容回答，不要使用资料以外的知识，也不要做资料里没有的推算。\n规则：\n1. 资料能回答问题时：answerable=true；回答简洁，直接给出型号、参数和单位；每句事实后用 [编号] 标注来源，编号必须是资料里给出的编号。\n2. 资料不能回答问题时（问到的型号、规格、参数、品牌、认证等在资料中不存在）：answerable=false，answer 用一句话说明目录资料中没有这方面信息（可以顺带说明资料里有哪些相近内容），citations 为空。不要猜测。\n3. 表格数据原样引用，不要换算单位。\n4. 给出“系统匹配的替代候选”时，只推荐这些候选并说明替代条件；没有给出候选时不要自行推荐替代型号。\n5. 当前提问者角色：客服。客服看不到价格，回答中不要出现任何价格或金额。\n只输出一个 JSON 对象：{\"answerable\": true 或 false, \"answer\": \"回答正文\", \"citations\": [引用的编号]}"
+   },
+   {
+    "role": "user",
+    "content": "<资料>\n[1] 来源：RF-01_深沟球轴承规格书.pdf 第2页｜深沟球轴承 62/63 系列 产品规格书 › 表1 深沟球轴承规格参数\n型号 6204-2RS；物料编码 1.01.0009；内径d(mm) 20；外径D(mm) 47；宽度B(mm) 14；密封形式 双面胶封；材质 GCr15轴承钢；极限转速(r/min) 9700；重量(kg) 0.094\n\n[2] 来源：RF-01_深沟球轴承规格书.pdf 第4页｜深沟球轴承 62/63 系列 产品规格书 › 6 选型与替代说明\n· 同一尺寸代号的 -2RS 与 -ZZ 外形尺寸完全相同，可以互相替代；-2RS 防水防尘更好，但极限转速约为 -ZZ 的 65%。\n· 62 系列与 63 系列即使内径相同，外径和宽度也不同，不能互相替代。\n· 粉尘大、有水汽的场合优先选 -2RS；高转速、干燥环境优先选 -ZZ。\n\n[3] 来源：RF-01_深沟球轴承规格书.pdf 第2页｜深沟球轴承 62/63 系列 产品规格书 › 表1 深沟球轴承规格参数\n型号 6203-2RS；物料编码 1.01.0007；内径d(mm) 17；外径D(mm) 40；宽度B(mm) 12；密封形式 双面胶封；材质 GCr15轴承钢；极限转速(r/min) 11400；重量(kg) 0.058\n\n[4] 来源：RF-01_深沟球轴承规格书.pdf 第3页｜深沟球轴承 62/63 系列 产品规格书 › 表1 深沟球轴承规格参数\n型号 6304-2RS；物料编码 1.01.0031；内径d(mm) 20；外径D(mm) 52；宽度B(mm) 15；密封形式 双面胶封；材质 GCr15轴承钢；极限转速(r/min) 9000；重量(kg) 0.128\n\n[5] 来源：RF-01_深沟球轴承规格书.pdf 第2页｜深沟球轴承 62/63 系列 产品规格书 › 表1 深沟球轴承规格参数\n型号 6206-2RS；物料编码 1.01.0013；内径d(mm) 30；外径D(mm) 62；宽度B(mm) 16；密封形式 双面胶封；材质 GCr15轴承钢；极限转速(r/min) 7100；重量(kg) 0.174\n</资料>\n\n问题：6204-2RS 的外径和宽度是多少？"
+   }
+  ],
+  "temperature": 0,
+  "response_format": {
+   "type": "json_object"
+  }
+ },
+ "calls": [
+  {
+   "recorded_at": "2026-11-18T08:18:40+00:00",
+   "run": "hybrid",
+   "latency_ms": 1076.4,
+   "response": {
+    "id": "36c77893-a0dc-4854-80a4-06a623318bab",
+    "object": "chat.completion",
+    "created": 1794989920,
+    "model": "deepseek-flash",
+    "choices": [
+     {
+      "index": 0,
+      "message": {
+       "role": "assistant",
+       "content": "{\"answerable\": true, \"answer\": \"6204-2RS 的外径 D 为 47 mm [1]；宽度 B 为 14 mm [1]。\", \"citations\": [1]}",
+       "reasoning_content": "Answer directly from [1]."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+     }
+    ],
+    "usage": {
+     "prompt_tokens": 946,
+     "completion_tokens": 53,
+     "total_tokens": 999,
+     "prompt_tokens_details": {
+      "cached_tokens": 128
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 6
+     },
+     "prompt_cache_hit_tokens": 128,
+     "prompt_cache_miss_tokens": 818
+    },
+    "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
+   }
+  }
+ ]
+}
