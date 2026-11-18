@@ -22,21 +22,21 @@
  },
  "calls": [
   {
-   "recorded_at": "2026-11-18T08:22:48+00:00",
-   "run": "hybrid_rerank",
-   "latency_ms": 1555.8,
+   "recorded_at": "2026-11-18T15:07:05+00:00",
+   "run": "hybrid_rerank/deepseek-flash",
+   "latency_ms": 1399.1,
    "response": {
-    "id": "509f21b0-4d36-478f-8842-ce3ceeea9732",
+    "id": "57c9be17-187b-4b3f-8264-d03720018de2",
     "object": "chat.completion",
-    "created": 1794990167,
+    "created": 1795014424,
     "model": "deepseek-flash",
     "choices": [
      {
       "index": 0,
       "message": {
        "role": "assistant",
-       "content": "{\"answerable\": false, \"answer\": \"目录资料中没有 SKF、NSK 等品牌轴承的信息；资料中只有瑞丰机电批发的深沟球轴承 62、63 系列（如 6205-2RS、6307-ZZ）的产品规格。\", \"citations\": []}",
-       "reasoning_content": "资料中没有提到SKF或NSK品牌，只提到瑞丰自有型号。answerable=false。可以顺带说明资料里有深沟球轴承62/63系列型号。citations为空。"
+       "content": "{\"answerable\": false, \"answer\": \"目录资料中没有 SKF、NSK 等品牌轴承的信息，也没有原装进口轴承的相关内容；资料里只有瑞丰机电批发（虚构）自有规格的深沟球轴承 62/63 系列（如 6205-2RS、6307-ZZ）的型号与参数。\", \"citations\": []}",
+       "reasoning_content": "The question asks about SKF or NSK brand bearings. The material doesn't mention brands like SKF or NSK. So answerable=false."
       },
       "logprobs": null,
       "finish_reason": "stop"
@@ -44,16 +44,16 @@
     ],
     "usage": {
      "prompt_tokens": 863,
-     "completion_tokens": 108,
-     "total_tokens": 971,
+     "completion_tokens": 112,
+     "total_tokens": 975,
      "prompt_tokens_details": {
-      "cached_tokens": 128
+      "cached_tokens": 640
      },
      "completion_tokens_details": {
-      "reasoning_tokens": 41
+      "reasoning_tokens": 30
      },
-     "prompt_cache_hit_tokens": 128,
-     "prompt_cache_miss_tokens": 735
+     "prompt_cache_hit_tokens": 640,
+     "prompt_cache_miss_tokens": 223
     },
     "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
    }

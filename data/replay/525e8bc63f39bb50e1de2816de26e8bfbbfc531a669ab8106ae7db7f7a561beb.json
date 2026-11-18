@@ -23,7 +23,7 @@
  "calls": [
   {
    "recorded_at": "2026-11-18T08:17:42+00:00",
-   "run": "bm25",
+   "run": "bm25/deepseek-flash",
    "latency_ms": 1202.0,
    "response": {
     "id": "dd3c80e8-381a-4a63-8bfb-8c70e0bc3267",

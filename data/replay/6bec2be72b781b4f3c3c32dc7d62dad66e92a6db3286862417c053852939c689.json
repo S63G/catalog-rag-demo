@@ -22,21 +22,21 @@
  },
  "calls": [
   {
-   "recorded_at": "2026-11-18T08:22:50+00:00",
-   "run": "hybrid_rerank",
-   "latency_ms": 1324.2,
+   "recorded_at": "2026-11-18T15:07:10+00:00",
+   "run": "hybrid_rerank/deepseek-flash",
+   "latency_ms": 1377.5,
    "response": {
-    "id": "838b6c50-ae04-49e5-84df-2d78ac9a803e",
+    "id": "c4873a06-293d-4ac5-b494-e9404fffe58b",
     "object": "chat.completion",
-    "created": 1794990170,
+    "created": 1795014429,
     "model": "deepseek-flash",
     "choices": [
      {
       "index": 0,
       "message": {
        "role": "assistant",
-       "content": "{\"answerable\": false, \"answer\": \"目录资料中没有 YE3 7.5kW 电机的运行噪声数据；资料仅列出该功率 2P、4P 型号的转速、机座号、额定电流和效率等级等信息，未涉及噪声分贝值。\", \"citations\": []}",
-       "reasoning_content": "资料只有功率、极数、转速、机座号、电流、效率等级、材质，没有噪声参数。应 answerable=false。可提及资料中有 YE3 7.5kW 2P/4P 的转速、电流等信息，但没有噪声数据。citations为空。"
+       "content": "{\"answerable\": false, \"answer\": \"目录资料中没有 YE3 7.5kW 电机的运行噪声（分贝）信息；资料仅提供了该功率 2P、4P 型号的功率、转速、机座号、额定电流、效率等级等参数。\", \"citations\": []}",
+       "reasoning_content": "资料中没有噪声信息。应回答 answerable=false。可提及资料里有 YE3 7.5kW 2P 和 4P 的功率、转速、电流等参数，但没有噪声。citations 为空。"
       },
       "logprobs": null,
       "finish_reason": "stop"
@@ -44,16 +44,16 @@
     ],
     "usage": {
      "prompt_tokens": 961,
-     "completion_tokens": 130,
-     "total_tokens": 1091,
+     "completion_tokens": 117,
+     "total_tokens": 1078,
      "prompt_tokens_details": {
-      "cached_tokens": 384
+      "cached_tokens": 768
      },
      "completion_tokens_details": {
-      "reasoning_tokens": 61
+      "reasoning_tokens": 48
      },
-     "prompt_cache_hit_tokens": 384,
-     "prompt_cache_miss_tokens": 577
+     "prompt_cache_hit_tokens": 768,
+     "prompt_cache_miss_tokens": 193
     },
     "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
    }

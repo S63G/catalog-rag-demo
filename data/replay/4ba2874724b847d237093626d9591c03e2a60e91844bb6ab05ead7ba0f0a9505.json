@@ -22,21 +22,21 @@
  },
  "calls": [
   {
-   "recorded_at": "2026-11-18T08:21:43+00:00",
-   "run": "hybrid_rerank",
-   "latency_ms": 1588.7,
+   "recorded_at": "2026-11-18T15:06:01+00:00",
+   "run": "hybrid_rerank/deepseek-flash",
+   "latency_ms": 1241.7,
    "response": {
-    "id": "f43943bf-6098-4d98-ac17-7b9861ee221b",
+    "id": "a8a10603-ac42-4aa0-9596-7b8772cea50f",
     "object": "chat.completion",
-    "created": 1794990103,
+    "created": 1795014360,
     "model": "deepseek-flash",
     "choices": [
      {
       "index": 0,
       "message": {
        "role": "assistant",
-       "content": "{\"answerable\": true, \"answer\": \"户外使用请选黑色 [1]；白色扎带长期日晒会变脆 [1]。黑色扎带添加炭黑，抗紫外线，适合户外 [2]。\", \"citations\": [1, 2]}",
-       "reasoning_content": "资料[1]说明户外使用请选黑色，白色长期日晒会变脆；[2]黑色添加炭黑抗紫外线适合户外。回答。"
+       "content": "{\"answerable\": true, \"answer\": \"户外使用请选黑色扎带；白色扎带长期日晒会变脆 [1]。黑色扎带添加炭黑，具有抗紫外线性能，适合户外使用 [2]。\", \"citations\": [1, 2]}",
+       "reasoning_content": "Answer from [1] and [2]: black for outdoor, white becomes brittle under sunlight; black with carbon black, UV resistant."
       },
       "logprobs": null,
       "finish_reason": "stop"
@@ -44,16 +44,16 @@
     ],
     "usage": {
      "prompt_tokens": 803,
-     "completion_tokens": 91,
-     "total_tokens": 894,
+     "completion_tokens": 87,
+     "total_tokens": 890,
      "prompt_tokens_details": {
-      "cached_tokens": 384
+      "cached_tokens": 640
      },
      "completion_tokens_details": {
-      "reasoning_tokens": 33
+      "reasoning_tokens": 27
      },
-     "prompt_cache_hit_tokens": 384,
-     "prompt_cache_miss_tokens": 419
+     "prompt_cache_hit_tokens": 640,
+     "prompt_cache_miss_tokens": 163
     },
     "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
    }

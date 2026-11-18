@@ -22,13 +22,13 @@
  },
  "calls": [
   {
-   "recorded_at": "2026-11-18T08:21:11+00:00",
-   "run": "hybrid_rerank",
-   "latency_ms": 1420.0,
+   "recorded_at": "2026-11-18T15:05:30+00:00",
+   "run": "hybrid_rerank/deepseek-flash",
+   "latency_ms": 1172.3,
    "response": {
-    "id": "c94344da-b2e6-41b1-869f-399016040f9d",
+    "id": "375f7dbc-1f56-4c73-90cb-b5c0b631947b",
     "object": "chat.completion",
-    "created": 1794990071,
+    "created": 1795014329,
     "model": "deepseek-flash",
     "choices": [
      {
@@ -36,7 +36,7 @@
       "message": {
        "role": "assistant",
        "content": "{\"answerable\": true, \"answer\": \"HGR25 导轨的宽度为 23mm，高度为 22mm [1][2]。\", \"citations\": [1, 2]}",
-       "reasoning_content": "资料中有HGR25 L500和L1000，宽度23mm，高度22mm。引用[1][2]，或[1]即可。两者一致，可引用[1][2]。"
+       "reasoning_content": "回答：HGR25 L500 和 L1000 导轨宽度23mm，高度22mm。引用[1][2]。两者参数一致。简洁。"
       },
       "logprobs": null,
       "finish_reason": "stop"
@@ -44,16 +44,16 @@
     ],
     "usage": {
      "prompt_tokens": 830,
-     "completion_tokens": 86,
-     "total_tokens": 916,
+     "completion_tokens": 78,
+     "total_tokens": 908,
      "prompt_tokens_details": {
-      "cached_tokens": 256
+      "cached_tokens": 640
      },
      "completion_tokens_details": {
-      "reasoning_tokens": 42
+      "reasoning_tokens": 34
      },
-     "prompt_cache_hit_tokens": 256,
-     "prompt_cache_miss_tokens": 574
+     "prompt_cache_hit_tokens": 640,
+     "prompt_cache_miss_tokens": 190
     },
     "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
    }

@@ -22,21 +22,21 @@
  },
  "calls": [
   {
-   "recorded_at": "2026-11-18T08:22:54+00:00",
-   "run": "hybrid_rerank",
-   "latency_ms": 1014.6,
+   "recorded_at": "2026-11-18T15:07:12+00:00",
+   "run": "hybrid_rerank/deepseek-flash",
+   "latency_ms": 1179.0,
    "response": {
-    "id": "c484da95-fe62-4e24-91c6-8c4938b3fbf1",
+    "id": "88fd937d-3103-4467-9e12-9e7321faadc5",
     "object": "chat.completion",
-    "created": 1794990174,
+    "created": 1795014432,
     "model": "deepseek-flash",
     "choices": [
      {
       "index": 0,
       "message": {
        "role": "assistant",
-       "content": "{\"answerable\": false, \"answer\": \"目录资料中没有 DN65 不锈钢球阀的价格信息；现有资料仅包含 DN20、DN25、DN32、DN50 等规格的不锈钢球阀价格。\", \"citations\": []}",
-       "reasoning_content": "The资料 only has DN20, DN25, DN32, DN50. DN65 not available. answerable=false."
+       "content": "{\"answerable\": false, \"answer\": \"目录资料中没有 DN65 不锈钢球阀的价格信息；现有相近规格为 DN50 316（223.2 元/件）、DN32 316（149.6 元/件）、DN25 316（126.4 元/件）、DN25 304（88.7 元/件）和 DN20 304（73.2 元/件）。\", \"citations\": []}",
+       "reasoning_content": "The catalog has DN20, DN25, DN32, DN50. No DN65. So answerable=false."
       },
       "logprobs": null,
       "finish_reason": "stop"
@@ -44,16 +44,16 @@
     ],
     "usage": {
      "prompt_tokens": 875,
-     "completion_tokens": 79,
-     "total_tokens": 954,
+     "completion_tokens": 124,
+     "total_tokens": 999,
      "prompt_tokens_details": {
-      "cached_tokens": 128
+      "cached_tokens": 640
      },
      "completion_tokens_details": {
-      "reasoning_tokens": 25
+      "reasoning_tokens": 24
      },
-     "prompt_cache_hit_tokens": 128,
-     "prompt_cache_miss_tokens": 747
+     "prompt_cache_hit_tokens": 640,
+     "prompt_cache_miss_tokens": 235
     },
     "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
    }

@@ -22,21 +22,21 @@
  },
  "calls": [
   {
-   "recorded_at": "2026-11-18T08:21:53+00:00",
-   "run": "hybrid_rerank",
-   "latency_ms": 2094.2,
+   "recorded_at": "2026-11-18T15:06:10+00:00",
+   "run": "hybrid_rerank/deepseek-flash",
+   "latency_ms": 1240.4,
    "response": {
-    "id": "91dbe0b0-b794-4552-91c9-754062b1d40a",
+    "id": "114f0169-aebb-4a26-b44c-7d3783f8a680",
     "object": "chat.completion",
-    "created": 1794990112,
+    "created": 1795014370,
     "model": "deepseek-flash",
     "choices": [
      {
       "index": 0,
       "message": {
        "role": "assistant",
-       "content": "{\"answerable\": true, \"answer\": \"M8×20 12.9级内六角圆柱头螺钉的目录含税单价为112元/箱[1]；包装为100件/箱[1][2]。\", \"citations\": [1, 2]}",
-       "reasoning_content": "We need answer in JSON only. Need use citations [1][2]. Price 112 yuan per box, packaging 100件/箱. Answerable true. Concise, each fact citation. \"目录含税单价为112元/箱[1]；包装为100件/箱[1][2]。\" Need maybe tax info? Question price and quantity. Include unit. Price 含税目录价. Could mention 13% tax? Not necessary but price is含税. \"M8×20 12.9级内六角圆柱头螺钉目录含税单价112元/箱[1]；一箱100件[1][2]。\" citations [1,2]. Ensure JSON."
+       "content": "{\"answerable\": true, \"answer\": \"M8×20 12.9级内六角圆柱头螺钉目录含税单价为112元/箱[1]；包装为100件/箱[1][2]。\", \"citations\": [1, 2]}",
+       "reasoning_content": "We need answer based on [1] and [2]. Price 112 yuan, 100 pieces/box. Include citations per fact. answerable true. Must output JSON only."
       },
       "logprobs": null,
       "finish_reason": "stop"
@@ -44,16 +44,16 @@
     ],
     "usage": {
      "prompt_tokens": 948,
-     "completion_tokens": 210,
-     "total_tokens": 1158,
+     "completion_tokens": 98,
+     "total_tokens": 1046,
      "prompt_tokens_details": {
-      "cached_tokens": 384
+      "cached_tokens": 768
      },
      "completion_tokens_details": {
-      "reasoning_tokens": 148
+      "reasoning_tokens": 37
      },
-     "prompt_cache_hit_tokens": 384,
-     "prompt_cache_miss_tokens": 564
+     "prompt_cache_hit_tokens": 768,
+     "prompt_cache_miss_tokens": 180
     },
     "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
    }

@@ -22,21 +22,21 @@
  },
  "calls": [
   {
-   "recorded_at": "2026-11-18T08:21:37+00:00",
-   "run": "hybrid_rerank",
-   "latency_ms": 1654.8,
+   "recorded_at": "2026-11-18T15:05:55+00:00",
+   "run": "hybrid_rerank/deepseek-flash",
+   "latency_ms": 1735.5,
    "response": {
-    "id": "e6c5640e-b43d-43ef-80d6-532111b34a86",
+    "id": "0d61b202-2a87-418a-b71b-65f7dd5bd4c5",
     "object": "chat.completion",
-    "created": 1794990096,
+    "created": 1795014354,
     "model": "deepseek-flash",
     "choices": [
      {
       "index": 0,
       "message": {
        "role": "assistant",
-       "content": "{\"answerable\":true,\"answer\":\"2.5mm² BV 电线的平均外径为 3.9mm；黄绿、红、蓝三种颜色规格均为 3.9mm。[1][2][3]\",\"citations\":[1,2,3]}",
-       "reasoning_content": "We need answer. Need include model parameters. Asked 2.5平方 BV线外径多粗. Data shows 2.5mm2 variants all average outer diameter 3.9 mm. Need concise, cite [1][2][3] maybe all. Answerable true. Mention 2.5mm² BV 线平均外径 3.9mm [1][2][3]. Could mention colors. Need JSON only."
+       "content": "{\"answerable\": true, \"answer\": \"2.5mm² 的 BV 电线，其平均外径为 3.9mm [1][2][3]。该规格有黄绿色、红色、蓝色三种颜色，绝缘厚度均为 0.8mm，导体结构均为 1/1.78 [1][2][3]。\", \"citations\": [1, 2, 3]}",
+       "reasoning_content": "用户问2.5平方BV线外径。资料[1][2][3]显示平均外径3.9mm。回答简洁，标注引用。"
       },
       "logprobs": null,
       "finish_reason": "stop"
@@ -44,16 +44,16 @@
     ],
     "usage": {
      "prompt_tokens": 987,
-     "completion_tokens": 152,
-     "total_tokens": 1139,
+     "completion_tokens": 124,
+     "total_tokens": 1111,
      "prompt_tokens_details": {
-      "cached_tokens": 128
+      "cached_tokens": 768
      },
      "completion_tokens_details": {
-      "reasoning_tokens": 92
+      "reasoning_tokens": 34
      },
-     "prompt_cache_hit_tokens": 128,
-     "prompt_cache_miss_tokens": 859
+     "prompt_cache_hit_tokens": 768,
+     "prompt_cache_miss_tokens": 219
     },
     "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
    }

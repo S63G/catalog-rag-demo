@@ -1,0 +1,54 @@
+{
+ "source": "live",
+ "endpoint": "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
+ "model": "qwen-plus",
+ "request_sha256": "42664b2fa590c2ebc22955dab3f0afa5b12470f49d83788348a130602d65c6a2",
+ "request": {
+  "model": "qwen-plus",
+  "messages": [
+   {
+    "role": "system",
+    "content": "你是瑞丰机电批发（虚构）的产品目录助手，回答公司销售和客服同事的问题。只能依据用户消息里 <资料> 中的内容回答，不要使用资料以外的知识，也不要做资料里没有的推算。\n规则：\n1. 资料能回答问题时：answerable=true；回答简洁，直接给出型号、参数和单位；每句事实后用 [编号] 标注来源，编号必须是资料里给出的编号。\n2. 资料不能回答问题时（问到的型号、规格、参数、品牌、认证等在资料中不存在）：answerable=false，answer 用一句话说明目录资料中没有这方面信息（可以顺带说明资料里有哪些相近内容），citations 为空。不要猜测。\n3. 表格数据原样引用，不要换算单位。\n4. 给出“系统匹配的替代候选”时，只推荐这些候选并说明替代条件；没有给出候选时不要自行推荐替代型号。\n5. 当前提问者角色：销售。可以回答价格；价目表中的价格是含税目录价（协议客户以协议价为准）。\n只输出一个 JSON 对象：{\"answerable\": true 或 false, \"answer\": \"回答正文\", \"citations\": [引用的编号]}"
+   },
+   {
+    "role": "user",
+    "content": "<资料>\n[1] 来源：RF-08_PU气管与快插接头规格书.pdf 第3页｜PU 气管与快插直通接头 产品规格书 › 7 安装与使用注意事项\n· 切管请用专用切管刀，切口垂直\n· 拔管时先按下释放环\n· 温度升高时最高使用压力下降，60℃ 时约为 0.5MPa\n\n[2] 来源：RF-08_PU气管与快插接头规格书.pdf 第1页｜PU 气管与快插直通接头 产品规格书 › 2 主要特点\n· 气管最高使用压力 0.8MPa（20℃）\n· 气管使用温度 -20~+60℃\n· 接头使用压力 0~0.9MPa，带螺纹密封胶\n· 气管外径与接头适用管径必须一致\n\n[3] 来源：RF-08_PU气管与快插接头规格书.pdf 第2页｜PU 气管与快插直通接头 产品规格书 › 表1 PU 气管规格参数\n型号 6×4 透明 100m；物料编码 4.02.0004；外径(mm) 6；内径(mm) 4；颜色 透明；最高使用压力(MPa) 0.8；最小弯曲半径(mm) 15；材质 聚氨酯PU；每卷(m) 100\n\n[4] 来源：RF-08_PU气管与快插接头规格书.pdf 第2页｜PU 气管与快插直通接头 产品规格书 › 表1 PU 气管规格参数\n型号 6×4 蓝色 100m；物料编码 4.02.0003；外径(mm) 6；内径(mm) 4；颜色 蓝色；最高使用压力(MPa) 0.8；最小弯曲半径(mm) 15；材质 聚氨酯PU；每卷(m) 100\n\n[5] 来源：RF-08_PU气管与快插接头规格书.pdf 第2页｜PU 气管与快插直通接头 产品规格书 › 表1 PU 气管规格参数\n型号 10×6.5 透明 100m；物料编码 4.02.0008；外径(mm) 10；内径(mm) 6.5；颜色 透明；最高使用压力(MPa) 0.8；最小弯曲半径(mm) 27；材质 聚氨酯PU；每卷(m) 100\n</资料>\n\n问题：PU 气管在 60℃ 时最高使用压力是多少？"
+   }
+  ],
+  "temperature": 0,
+  "response_format": {
+   "type": "json_object"
+  }
+ },
+ "calls": [
+  {
+   "recorded_at": "2026-11-18T15:08:34+00:00",
+   "run": "hybrid_rerank/qwen-plus",
+   "latency_ms": 1833.6,
+   "response": {
+    "model": "qwen-plus",
+    "id": "chatcmpl-68b55e73-faf7-9328-aea0-e72d4fa42e81",
+    "choices": [
+     {
+      "message": {
+       "content": "{\"answerable\": true, \"answer\": \"PU 气管在 60℃ 时最高使用压力约为 0.5MPa。\", \"citations\": [1]}",
+       "role": "assistant"
+      },
+      "index": 0,
+      "finish_reason": "stop"
+     }
+    ],
+    "created": 1795014513,
+    "object": "chat.completion",
+    "usage": {
+     "total_tokens": 1000,
+     "completion_tokens": 41,
+     "prompt_tokens": 959,
+     "prompt_tokens_details": {
+      "cached_tokens": 0
+     }
+    }
+   }
+  }
+ ]
+}

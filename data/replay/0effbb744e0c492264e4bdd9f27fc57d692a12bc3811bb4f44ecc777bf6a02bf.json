@@ -22,21 +22,21 @@
  },
  "calls": [
   {
-   "recorded_at": "2026-11-18T08:21:34+00:00",
-   "run": "hybrid_rerank",
-   "latency_ms": 1020.9,
+   "recorded_at": "2026-11-18T15:05:51+00:00",
+   "run": "hybrid_rerank/deepseek-flash",
+   "latency_ms": 1085.6,
    "response": {
-    "id": "cc602a63-95b1-4dbd-ace5-d1680f4c060d",
+    "id": "4e4ef7b1-0f8e-4f5f-99e0-b61806cd005f",
     "object": "chat.completion",
-    "created": 1794990094,
+    "created": 1795014351,
     "model": "deepseek-flash",
     "choices": [
      {
       "index": 0,
       "message": {
        "role": "assistant",
-       "content": "{\"answerable\": true, \"answer\": \"6205-2RS 为双面胶封，极限转速 8400 r/min [1]。\", \"citations\": [1]}",
-       "reasoning_content": "用户问6205带胶封的极限转速。资料[1]是6205-2RS，双面胶封，极限转速8400 r/min。回答answerable=true。客服不显示价格。引用[1]。"
+       "content": "{\"answerable\": true, \"answer\": \"6205-2RS 为双面胶封，极限转速为 8400 r/min [1]。\", \"citations\": [1]}",
+       "reasoning_content": "We need answer based on资料. Asked 6205 带胶封 = 6205-2RS. 极限转速 8400 r/min. Citation [1]. Need JSON only. Answer concise fact after sentence cite. No price. Answerable true."
       },
       "logprobs": null,
       "finish_reason": "stop"
@@ -44,16 +44,16 @@
     ],
     "usage": {
      "prompt_tokens": 929,
-     "completion_tokens": 89,
-     "total_tokens": 1018,
+     "completion_tokens": 96,
+     "total_tokens": 1025,
      "prompt_tokens_details": {
-      "cached_tokens": 384
+      "cached_tokens": 768
      },
      "completion_tokens_details": {
-      "reasoning_tokens": 48
+      "reasoning_tokens": 54
      },
-     "prompt_cache_hit_tokens": 384,
-     "prompt_cache_miss_tokens": 545
+     "prompt_cache_hit_tokens": 768,
+     "prompt_cache_miss_tokens": 161
     },
     "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
    }

@@ -23,7 +23,7 @@
  "calls": [
   {
    "recorded_at": "2026-11-18T08:18:25+00:00",
-   "run": "bm25",
+   "run": "bm25/deepseek-flash",
    "latency_ms": 1964.4,
    "response": {
     "id": "af4e9a60-13a5-4cf4-aa84-7f60b29981cf",
@@ -60,7 +60,7 @@
   },
   {
    "recorded_at": "2026-11-18T08:20:28+00:00",
-   "run": "hybrid",
+   "run": "hybrid/deepseek-flash",
    "latency_ms": 1940.0,
    "response": {
     "id": "850b4e6e-5bfb-4ef0-a8fc-801f3a1f06ea",
@@ -96,13 +96,13 @@
    }
   },
   {
-   "recorded_at": "2026-11-18T08:22:40+00:00",
-   "run": "hybrid_rerank",
-   "latency_ms": 2174.8,
+   "recorded_at": "2026-11-18T15:06:57+00:00",
+   "run": "hybrid_rerank/deepseek-flash",
+   "latency_ms": 1617.8,
    "response": {
-    "id": "e97ceba2-e784-422f-866d-52a169a354cf",
+    "id": "3a163a41-bf4c-442e-9814-395d1a1ceb2c",
     "object": "chat.completion",
-    "created": 1794990158,
+    "created": 1795014416,
     "model": "deepseek-flash",
     "choices": [
      {
@@ -110,7 +110,7 @@
       "message": {
        "role": "assistant",
        "content": "{\"customer\":\"甬港澄远\",\"items\":[{\"product\":\"PC6-01 接头\",\"quantity\":30,\"unit\":\"个\",\"target_price\":null},{\"product\":\"6205-ZZ\",\"quantity\":100,\"unit\":\"个\",\"target_price\":null}]}",
-       "reasoning_content": "我需要从销售同事的消息中提取报价请求，只输出一个 JSON 对象。\n\n消息：\"甬港澄远要 PC6-01 接头 30 个和 6205-ZZ 100 个，出个报价草稿\"\n\n提取：\n- customer: \"甬港澄远\"\n- items:\n  1. product: \"PC6-01 接头\", quantity: 30, unit: \"个\", target_price: null\n  2. product: \"6205-ZZ\", quantity: 100, unit: \"个\", target_price: null\n\n注意 product 要原文保留。消息里是\"PC6-01 接头\"和\"6205-ZZ\"。产品名称原文应该写\"PC6-01 接头\"还是只用\"PC6-01\"？消息中\"要 PC6-01 接头 30 个\"，产品是 PC6-01 接头。型号原文是 PC6-01，描述是接头。根据 schema，product 是型号/规格原文。我认为应保留\"PC6-01 接头\"，因为原文就是这样写的。不过也可以只写\"PC6-01\"。指令说\"product（型号/规格原文，保留原写法）\"。原文中产品表述是\"PC6-01 接头\"，保留原写法就包括接头。我选\"PC6-01 接头\"。\n\n第二个\"6205-ZZ 100 个\"。\n\n输出 JSON。"
+       "reasoning_content": "Need output JSON only. Customer 甬港澄远. Items: PC6-01 接头 30 个, 6205-ZZ 100 个. Product original: \"PC6-01 接头\" or product only \"PC6-01\"? Message says \"PC6-01 接头 30 个\" product is 型号/规格原文, probably \"PC6-01 接头\" includes descriptor. But \"6205-ZZ 100 个\". For consistency product \"PC6-01 接头\" and \"6205-ZZ\". Unit 个. target null. Need valid JSON."
       },
       "logprobs": null,
       "finish_reason": "stop"
@@ -118,13 +118,13 @@
     ],
     "usage": {
      "prompt_tokens": 528,
-     "completion_tokens": 355,
-     "total_tokens": 883,
+     "completion_tokens": 184,
+     "total_tokens": 712,
      "prompt_tokens_details": {
       "cached_tokens": 384
      },
      "completion_tokens_details": {
-      "reasoning_tokens": 300
+      "reasoning_tokens": 129
      },
      "prompt_cache_hit_tokens": 384,
      "prompt_cache_miss_tokens": 144

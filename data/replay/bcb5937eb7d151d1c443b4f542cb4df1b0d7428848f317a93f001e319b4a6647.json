@@ -22,21 +22,21 @@
  },
  "calls": [
   {
-   "recorded_at": "2026-11-18T08:21:41+00:00",
-   "run": "hybrid_rerank",
-   "latency_ms": 1996.4,
+   "recorded_at": "2026-11-18T15:05:58+00:00",
+   "run": "hybrid_rerank/deepseek-flash",
+   "latency_ms": 1813.2,
    "response": {
-    "id": "3d930489-6d42-4e52-9826-1e47fbfefd2f",
+    "id": "e7670129-e492-4b01-82f9-106ddbafaa0b",
     "object": "chat.completion",
-    "created": 1794990100,
+    "created": 1795014357,
     "model": "deepseek-flash",
     "choices": [
      {
       "index": 0,
       "message": {
        "role": "assistant",
-       "content": "{\"answerable\": true, \"answer\": \"FKM 氟橡胶 O 型圈的使用温度范围为 -20~+200℃[2][3][4][5]。同尺寸时 FKM 可以替代 NBR，耐温从 100℃ 提高到 200℃，但 FKM 低温性能较差，-20℃ 以下不建议使用[1]。\", \"citations\": [1, 2, 3, 4, 5]}",
-       "reasoning_content": "资料中FKM型号使用温度-20~+200℃，客服看不到价格。回答引用[2][3][4][5]等，或[1]说明FKM耐温从100提高到200。简洁。可引用[2]即可，但多个型号一致。用[1][2]说明。回答：FKM氟橡胶O型圈使用温度范围为-20~+200℃[2][3][4][5]；同尺寸FKM替代NBR时耐温从100℃提高到200℃，但-20℃以下不建议使用[1]。注意不出现价格。JSON。"
+       "content": "{\"answerable\":true,\"answer\":\"氟胶（FKM）O型圈的规格使用温度为 -20~+200℃ [2][3][4][5]；同尺寸时 FKM 可替代 NBR，耐温从 100℃ 提高到 200℃，但 -20℃ 以下不建议使用 [1]。\",\"citations\":[1,2,3,4,5]}",
+       "reasoning_content": "We need answer based on资料. Question: 氟胶O型圈耐温能到多少度。资料 shows FKM O rings 使用温度 -20~+200 ℃ [2][3][4][5], and [1] FKM耐温从100提高到200，低温-20以下不建议。 Need answerable true, concise, cite. No price. Could say 氟胶（FKM）O型圈使用温度为 -20~+200℃ [2][3][4][5]；同尺寸FKM可替代NBR，耐温从100℃提高到200℃，但-20℃以下不建议使用 [1]. Need citations [1][2] etc. Answer in Chinese. JSON only. Ensure no extra."
       },
       "logprobs": null,
       "finish_reason": "stop"
@@ -44,16 +44,16 @@
     ],
     "usage": {
      "prompt_tokens": 861,
-     "completion_tokens": 225,
-     "total_tokens": 1086,
+     "completion_tokens": 238,
+     "total_tokens": 1099,
      "prompt_tokens_details": {
-      "cached_tokens": 256
+      "cached_tokens": 640
      },
      "completion_tokens_details": {
-      "reasoning_tokens": 127
+      "reasoning_tokens": 154
      },
-     "prompt_cache_hit_tokens": 256,
-     "prompt_cache_miss_tokens": 605
+     "prompt_cache_hit_tokens": 640,
+     "prompt_cache_miss_tokens": 221
     },
     "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
    }

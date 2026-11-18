@@ -1,0 +1,54 @@
+{
+ "source": "live",
+ "endpoint": "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
+ "model": "qwen-plus",
+ "request_sha256": "93310a9825f72c13c1392aa1b54350c1fe1816c6ef9e49c40063359841333b39",
+ "request": {
+  "model": "qwen-plus",
+  "messages": [
+   {
+    "role": "system",
+    "content": "你是瑞丰机电批发（虚构）的产品目录助手，回答公司销售和客服同事的问题。只能依据用户消息里 <资料> 中的内容回答，不要使用资料以外的知识，也不要做资料里没有的推算。\n规则：\n1. 资料能回答问题时：answerable=true；回答简洁，直接给出型号、参数和单位；每句事实后用 [编号] 标注来源，编号必须是资料里给出的编号。\n2. 资料不能回答问题时（问到的型号、规格、参数、品牌、认证等在资料中不存在）：answerable=false，answer 用一句话说明目录资料中没有这方面信息（可以顺带说明资料里有哪些相近内容），citations 为空。不要猜测。\n3. 表格数据原样引用，不要换算单位。\n4. 给出“系统匹配的替代候选”时，只推荐这些候选并说明替代条件；没有给出候选时不要自行推荐替代型号。\n5. 当前提问者角色：客服。客服看不到价格，回答中不要出现任何价格或金额。\n只输出一个 JSON 对象：{\"answerable\": true 或 false, \"answer\": \"回答正文\", \"citations\": [引用的编号]}"
+   },
+   {
+    "role": "user",
+    "content": "<资料>\n[1] 来源：RF-09_三相异步电机规格书.pdf 第2页｜YE3 系列超高效三相异步电动机 产品规格书 › 表1 YE3 电机规格参数\n型号 YE3 7.5kW 2P；物料编码 5.01.0015；功率(kW) 7.5；极数 2P；同步转速(r/min) 3000；额定转速(r/min) 2920；机座号 132S2；额定电流(A) 14.3；效率等级 IE3；材质 铸铁机壳\n\n[2] 来源：RF-09_三相异步电机规格书.pdf 第2页｜YE3 系列超高效三相异步电动机 产品规格书 › 表1 YE3 电机规格参数\n型号 YE3 7.5kW 4P；物料编码 5.01.0016；功率(kW) 7.5；极数 4P；同步转速(r/min) 1500；额定转速(r/min) 1460；机座号 132M；额定电流(A) 15.2；效率等级 IE3；材质 铸铁机壳\n\n[3] 来源：RF-09_三相异步电机规格书.pdf 第2页｜YE3 系列超高效三相异步电动机 产品规格书 › 表1 YE3 电机规格参数\n型号 YE3 0.75kW 2P；物料编码 5.01.0001；功率(kW) 0.75；极数 2P；同步转速(r/min) 3000；额定转速(r/min) 2860；机座号 80M1；额定电流(A) 1.7；效率等级 IE3；材质 铸铁机壳\n\n[4] 来源：RF-09_三相异步电机规格书.pdf 第2页｜YE3 系列超高效三相异步电动机 产品规格书 › 表1 YE3 电机规格参数\n型号 YE3 5.5kW 4P；物料编码 5.01.0014；功率(kW) 5.5；极数 4P；同步转速(r/min) 1500；额定转速(r/min) 1450；机座号 132S；额定电流(A) 11.4；效率等级 IE3；材质 铸铁机壳\n\n[5] 来源：RF-09_三相异步电机规格书.pdf 第2页｜YE3 系列超高效三相异步电动机 产品规格书 › 表1 YE3 电机规格参数\n型号 YE3 5.5kW 2P；物料编码 5.01.0013；功率(kW) 5.5；极数 2P；同步转速(r/min) 3000；额定转速(r/min) 2910；机座号 132S1；额定电流(A) 10.7；效率等级 IE3；材质 铸铁机壳\n</资料>\n\n问题：YE3 7.5kW 电机运行噪声多少分贝？"
+   }
+  ],
+  "temperature": 0,
+  "response_format": {
+   "type": "json_object"
+  }
+ },
+ "calls": [
+  {
+   "recorded_at": "2026-11-18T15:10:14+00:00",
+   "run": "hybrid_rerank/qwen-plus",
+   "latency_ms": 2466.1,
+   "response": {
+    "model": "qwen-plus",
+    "id": "chatcmpl-c2f39dda-66d5-9fa6-8863-7b5f75cc7f76",
+    "choices": [
+     {
+      "message": {
+       "content": "{\"answerable\": false, \"answer\": \"目录资料中未提供YE3 7.5kW电机的运行噪声数据；资料仅包含型号、功率、极数、转速、机座号、电流、效率等级和材质等参数。\", \"citations\": []}",
+       "role": "assistant"
+      },
+      "index": 0,
+      "finish_reason": "stop"
+     }
+    ],
+    "created": 1795014613,
+    "object": "chat.completion",
+    "usage": {
+     "total_tokens": 1122,
+     "completion_tokens": 62,
+     "prompt_tokens": 1060,
+     "prompt_tokens_details": {
+      "cached_tokens": 256
+     }
+    }
+   }
+  }
+ ]
+}

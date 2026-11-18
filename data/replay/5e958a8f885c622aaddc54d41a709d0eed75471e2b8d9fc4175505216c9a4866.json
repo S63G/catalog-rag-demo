@@ -22,21 +22,21 @@
  },
  "calls": [
   {
-   "recorded_at": "2026-11-18T08:22:24+00:00",
-   "run": "hybrid_rerank",
-   "latency_ms": 1903.7,
+   "recorded_at": "2026-11-18T15:06:43+00:00",
+   "run": "hybrid_rerank/deepseek-flash",
+   "latency_ms": 2145.5,
    "response": {
-    "id": "1f06598e-d529-4acd-a440-1cf66de04bf1",
+    "id": "7592bfe5-055f-4095-99c4-52e5ae1b80d5",
     "object": "chat.completion",
-    "created": 1794990143,
+    "created": 1795014401,
     "model": "deepseek-flash",
     "choices": [
      {
       "index": 0,
       "message": {
        "role": "assistant",
-       "content": "{\"answerable\": true, \"answer\": \"请选用 DN32 316 不锈钢球阀，物料编码为 9.01.0008，公称通径为 DN32，连接螺纹为 G1-1/4，公称压力为 4.0MPa，材质为 316 不锈钢，阀座密封为 PTFE，适用温度为 -20~+180℃[2]。同通径下，316 可替代 304，耐氯离子和酸性介质更好；海水、含盐介质请选 316[3]。替代条件为通径和螺纹相同、阀体材质不同。\", \"citations\": [2, 3]}",
-       "reasoning_content": "Answer: 316 can replace 304, seawater requires 316. Candidate DN32 316, 物料编码 9.01.0008, 通径和螺纹相同、阀体材质不同。引用 [3][1][2]? Citation for seawater: [3]. Model params DN32 316 from [2]. Also [3] states 316 can substitute. Include condition: 通径和螺纹相同，阀体材质不同（from candidate info, which is in user message but not numbered... The candidate info comes from system, not with 编号. Rules say citations must be 编号 from 资料. I can cite [3] and [2]."
+       "content": "{\"answerable\": true, \"answer\": \"海水、含盐介质应选 316 材质［3］。按第 6 节替代规则，DN32 304 的替代候选为 DN32 316（物料编码 9.01.0008）：它与原型号通径和螺纹相同，只是阀体材质不同［3］；该型号的公称通径为 DN32，连接螺纹为 G1-1/4，公称压力为 4.0MPa，材质为 316 不锈钢，阀座密封为 PTFE，适用温度为 -20~+180℃［2］。替代条件：同通径时，316 可以替代 304［3］。\", \"citations\": [2, 3]}",
+       "reasoning_content": "资料说明海水、含盐介质请选 316 [3]。替代候选 DN32 316 物料编码 9.01.0008，通径和螺纹相同，阀体材质不同。客户客服，不能出现价格。\n\n回答要点：推荐 DN32 316（9.01.0008），DN32、G1-1/4、4.0MPa、316不锈钢、PTFE、-20~+180℃。引用 [3][2]。替代条件：同通径时316可替代304，海水含盐介质选316 [3]。\n\n注意不要出现价格。citations 列出 [2][3]。也可引 [1] 说明原型号？不需要。"
       },
       "logprobs": null,
       "finish_reason": "stop"
@@ -44,16 +44,16 @@
     ],
     "usage": {
      "prompt_tokens": 877,
-     "completion_tokens": 283,
-     "total_tokens": 1160,
+     "completion_tokens": 308,
+     "total_tokens": 1185,
      "prompt_tokens_details": {
-      "cached_tokens": 512
+      "cached_tokens": 640
      },
      "completion_tokens_details": {
-      "reasoning_tokens": 140
+      "reasoning_tokens": 146
      },
-     "prompt_cache_hit_tokens": 512,
-     "prompt_cache_miss_tokens": 365
+     "prompt_cache_hit_tokens": 640,
+     "prompt_cache_miss_tokens": 237
     },
     "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
    }

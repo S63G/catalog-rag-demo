@@ -22,21 +22,21 @@
  },
  "calls": [
   {
-   "recorded_at": "2026-11-18T08:21:09+00:00",
-   "run": "hybrid_rerank",
-   "latency_ms": 1265.4,
+   "recorded_at": "2026-11-18T15:05:28+00:00",
+   "run": "hybrid_rerank/deepseek-flash",
+   "latency_ms": 1057.9,
    "response": {
-    "id": "ebf5b174-8e23-4136-b324-857a1546dd76",
+    "id": "4c0c3eb2-9569-4264-b421-a2dd0aa9a3a9",
     "object": "chat.completion",
-    "created": 1794990068,
+    "created": 1795014327,
     "model": "deepseek-flash",
     "choices": [
      {
       "index": 0,
       "message": {
        "role": "assistant",
-       "content": "{\"answerable\": true, \"answer\": \"LJ12A3-4-Z/AX 的输出类型是 NPN，输出状态为常闭。[1]\", \"citations\": [1]}",
-       "reasoning_content": ""
+       "content": "{\"answerable\": true, \"answer\": \"LJ12A3-4-Z/AX 的输出类型为 NPN，输出状态为常闭 [1]。\", \"citations\": [1]}",
+       "reasoning_content": "The question asks about LJ12A3-4-Z/AX output type. From [1]: NPN, 常闭. Answerable."
       },
       "logprobs": null,
       "finish_reason": "stop"
@@ -44,16 +44,16 @@
     ],
     "usage": {
      "prompt_tokens": 888,
-     "completion_tokens": 43,
-     "total_tokens": 931,
+     "completion_tokens": 74,
+     "total_tokens": 962,
      "prompt_tokens_details": {
-      "cached_tokens": 256
+      "cached_tokens": 640
      },
      "completion_tokens_details": {
-      "reasoning_tokens": 0
+      "reasoning_tokens": 30
      },
-     "prompt_cache_hit_tokens": 256,
-     "prompt_cache_miss_tokens": 632
+     "prompt_cache_hit_tokens": 640,
+     "prompt_cache_miss_tokens": 248
     },
     "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
    }

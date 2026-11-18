@@ -23,7 +23,7 @@
  "calls": [
   {
    "recorded_at": "2026-11-18T08:18:28+00:00",
-   "run": "bm25",
+   "run": "bm25/deepseek-flash",
    "latency_ms": 2537.0,
    "response": {
     "id": "4e5db1b9-77ee-43a1-ab5f-f31b2b95ed93",
@@ -60,7 +60,7 @@
   },
   {
    "recorded_at": "2026-11-18T08:20:30+00:00",
-   "run": "hybrid",
+   "run": "hybrid/deepseek-flash",
    "latency_ms": 2292.5,
    "response": {
     "id": "8e8a222b-3e48-4361-9ea9-fad90ea66831",
@@ -96,13 +96,13 @@
    }
   },
   {
-   "recorded_at": "2026-11-18T08:22:42+00:00",
-   "run": "hybrid_rerank",
-   "latency_ms": 1963.7,
+   "recorded_at": "2026-11-18T15:06:59+00:00",
+   "run": "hybrid_rerank/deepseek-flash",
+   "latency_ms": 2287.9,
    "response": {
-    "id": "938ace34-8394-4935-ab0f-fc21f72bfacc",
+    "id": "8321172d-1dd5-4dc0-833c-d762a25b4540",
     "object": "chat.completion",
-    "created": 1794990161,
+    "created": 1795014418,
     "model": "deepseek-flash",
     "choices": [
      {
@@ -110,7 +110,7 @@
       "message": {
        "role": "assistant",
        "content": "{\"customer\":\"苏州晨岚汇\",\"items\":[{\"product\":\"YE3 3kW 4极电机\",\"quantity\":2,\"unit\":\"台\",\"target_price\":null},{\"product\":\"DN25 316 球阀\",\"quantity\":10,\"unit\":\"个\",\"target_price\":null}]}",
-       "reasoning_content": "我们需要回答提取JSON。消息：\"苏州晨岚汇报价：YE3 3kW 4极电机 2台，DN25 316 球阀 10个\"。客户名称原文是\"苏州晨岚汇\"？需要解析： \"苏州晨岚汇报价：\" 其中\"苏州晨岚汇\"可能是客户名称？ 句子是\"苏州晨岚汇报价：...\" 可能客户叫\"苏州晨岚汇\"，\"报价：\"表示报价。需要提取customer为\"苏州晨岚汇\"？ 原文：\"苏州晨岚汇报价：YE3...\" 可以断为 \"苏州晨岚汇 报价：\"。客户名称原文=苏州晨岚汇。产品1 product \"YE3 3kW 4极电机\" quantity 2 unit \"台\" target null. 产品2 product \"DN25 316 球阀\" quantity 10 unit \"个\". JSON only. Ensure valid."
+       "reasoning_content": "We need answer only JSON object extracting quote request. Need inspect message: \"苏州晨岚汇报价：YE3 3kW 4极电机 2台，DN25 316 球阀 10个\"\n\nNeed customer name original? \"苏州晨岚汇\" maybe customer? Phrase \"苏州晨岚汇报价：\" Could be company name 苏州晨岚汇? Let's parse Chinese: \"苏州晨岚汇报价：...\" It might be \"苏州晨岚汇报价\" meaning 苏州晨岚汇 requests quote? The customer name original might be \"苏州晨岚汇\" (Suzhou Chenlanhui). But \"汇报价\" can parse as \"汇 报价\" where 汇 maybe part of company name? Actually \"苏州晨岚汇\" maybe company, \"报价：\" quote. Text: 苏州晨岚汇报价：YE3... Could be \"苏州晨岚汇 报价：\" Customer = 苏州晨岚汇. Need decide. It says 从销售同事的消息里提取报价请求. Customer name original (没写 null). Message starts \"苏州晨岚汇报价：\". Could mean customer \"苏州晨岚汇\" requesting quote. The substring \"报价\" means quote; preceding \"苏州晨岚汇\" is customer. So customer \"苏州晨岚汇\". Need not include \"报价\". Items:\n1 product \"YE3 3kW 4极电机\", quantity 2, unit \"台\", target_price null.\n2 product \"DN25 316 球阀\", quantity 10, unit \"个\", target_price null.\n\nNeed output valid JSON object. Ensure numbers. No extra."
       },
       "logprobs": null,
       "finish_reason": "stop"
@@ -118,13 +118,13 @@
     ],
     "usage": {
      "prompt_tokens": 526,
-     "completion_tokens": 253,
-     "total_tokens": 779,
+     "completion_tokens": 397,
+     "total_tokens": 923,
      "prompt_tokens_details": {
       "cached_tokens": 384
      },
      "completion_tokens_details": {
-      "reasoning_tokens": 192
+      "reasoning_tokens": 336
      },
      "prompt_cache_hit_tokens": 384,
      "prompt_cache_miss_tokens": 142

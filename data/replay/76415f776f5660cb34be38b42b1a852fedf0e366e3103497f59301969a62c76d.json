@@ -22,21 +22,21 @@
  },
  "calls": [
   {
-   "recorded_at": "2026-11-18T08:21:05+00:00",
-   "run": "hybrid_rerank",
-   "latency_ms": 969.3,
+   "recorded_at": "2026-11-18T15:05:22+00:00",
+   "run": "hybrid_rerank/deepseek-flash",
+   "latency_ms": 1248.8,
    "response": {
-    "id": "ab514d93-eaa1-4d4a-bda6-8f99d4b3aea7",
+    "id": "cec8e85e-b608-4baa-97b3-426773f8449c",
     "object": "chat.completion",
-    "created": 1794990064,
+    "created": 1795014322,
     "model": "deepseek-flash",
     "choices": [
      {
       "index": 0,
       "message": {
        "role": "assistant",
-       "content": "{\"answerable\": true, \"answer\": \"FV-7.5kW 380V 的额定输出电流为 17A [1]。\", \"citations\": [1]}",
-       "reasoning_content": "The资料 answers: 17A [1]."
+       "content": "{\"answerable\": true, \"answer\": \"FV-7.5kW 380V 变频器的额定输出电流为 17A。[1]\", \"citations\": [1]}",
+       "reasoning_content": "We need answer in JSON. Need use资料. FV-7.5kW spec current 17A [1]. Also maybe price? Question only current. answerable true. concise citation [1]. Ensure JSON object only."
       },
       "logprobs": null,
       "finish_reason": "stop"
@@ -44,16 +44,16 @@
     ],
     "usage": {
      "prompt_tokens": 872,
-     "completion_tokens": 50,
-     "total_tokens": 922,
+     "completion_tokens": 87,
+     "total_tokens": 959,
      "prompt_tokens_details": {
-      "cached_tokens": 256
+      "cached_tokens": 640
      },
      "completion_tokens_details": {
-      "reasoning_tokens": 10
+      "reasoning_tokens": 47
      },
-     "prompt_cache_hit_tokens": 256,
-     "prompt_cache_miss_tokens": 616
+     "prompt_cache_hit_tokens": 640,
+     "prompt_cache_miss_tokens": 232
     },
     "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
    }

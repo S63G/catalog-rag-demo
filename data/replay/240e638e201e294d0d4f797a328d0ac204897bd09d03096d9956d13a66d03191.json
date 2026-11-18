@@ -1,0 +1,54 @@
+{
+ "source": "live",
+ "endpoint": "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
+ "model": "qwen-plus",
+ "request_sha256": "240e638e201e294d0d4f797a328d0ac204897bd09d03096d9956d13a66d03191",
+ "request": {
+  "model": "qwen-plus",
+  "messages": [
+   {
+    "role": "system",
+    "content": "从销售同事的消息里提取报价请求，只输出一个 JSON 对象。只提取消息里写明的内容：customer 为客户名称原文（没写则 null）；items 每行包括 product（型号/规格原文，保留原写法，如“6204-2RS”“M8×20”“DN25 316 球阀”）、quantity（数字）、unit（原文单位，如 个、箱、台；没写则 null）、target_price（客户要求的单价；没写则 null）。不要换算单位，不要补全型号。\nJSON Schema:\n{\"$defs\": {\"QuoteItemRequest\": {\"properties\": {\"product\": {\"description\": \"型号/规格原文，如 6204-2RS、M8×20、DN25 316 球阀\", \"minLength\": 1, \"title\": \"Product\", \"type\": \"string\"}, \"quantity\": {\"exclusiveMinimum\": 0, \"title\": \"Quantity\", \"type\": \"number\"}, \"unit\": {\"anyOf\": [{\"type\": \"string\"}, {\"type\": \"null\"}], \"default\": null, \"description\": \"原文单位，如 个、箱、台；没有写则 null\", \"title\": \"Unit\"}, \"target_price\": {\"anyOf\": [{\"exclusiveMinimum\": 0, \"type\": \"number\"}, {\"type\": \"null\"}], \"default\": null, \"description\": \"客户要求的单价；没有写则 null\", \"title\": \"Target Price\"}}, \"required\": [\"product\", \"quantity\"], \"title\": \"QuoteItemRequest\", \"type\": \"object\"}}, \"properties\": {\"customer\": {\"anyOf\": [{\"type\": \"string\"}, {\"type\": \"null\"}], \"default\": null, \"description\": \"客户名称原文；没有写则 null\", \"title\": \"Customer\"}, \"items\": {\"items\": {\"$ref\": \"#/$defs/QuoteItemRequest\"}, \"minItems\": 1, \"title\": \"Items\", \"type\": \"array\"}}, \"required\": [\"items\"], \"title\": \"QuoteRequest\", \"type\": \"object\"}"
+   },
+   {
+    "role": "user",
+    "content": "甬港澄远要 PC6-01 接头 30 个和 6205-ZZ 100 个，出个报价草稿"
+   }
+  ],
+  "temperature": 0,
+  "response_format": {
+   "type": "json_object"
+  }
+ },
+ "calls": [
+  {
+   "recorded_at": "2026-11-18T15:10:00+00:00",
+   "run": "hybrid_rerank/qwen-plus",
+   "latency_ms": 2856.4,
+   "response": {
+    "model": "qwen-plus",
+    "id": "chatcmpl-f0cc0e29-461d-9070-a665-2a7891348c37",
+    "choices": [
+     {
+      "message": {
+       "content": "{\"customer\":\"甬港澄远\",\"items\":[{\"product\":\"PC6-01 接头\",\"quantity\":30,\"unit\":\"个\",\"target_price\":null},{\"product\":\"6205-ZZ\",\"quantity\":100,\"unit\":\"个\",\"target_price\":null}]}",
+       "role": "assistant"
+      },
+      "index": 0,
+      "finish_reason": "stop"
+     }
+    ],
+    "created": 1795014599,
+    "object": "chat.completion",
+    "usage": {
+     "total_tokens": 574,
+     "completion_tokens": 60,
+     "prompt_tokens": 514,
+     "prompt_tokens_details": {
+      "cached_tokens": 0
+     }
+    }
+   }
+  }
+ ]
+}

@@ -70,8 +70,9 @@ class LiveTransport:
 class RecordingTransport:
     """Live calls, each appended to ``<folder>/<request sha256>.json`` for later replay.
 
-    ``run`` tags each call (the pipeline name), because two pipelines can send a byte-identical request — e.g. when
-    BM25 and hybrid retrieve the same five chunks — and replay must give each run its own recorded answer.
+    ``run`` tags each call ("<pipeline>/<answer model>"), because two runs can send a byte-identical request — BM25
+    and hybrid retrieving the same five chunks, or the same rerank call made in a DeepSeek and a qwen run — and replay
+    must give each run its own recorded response.
     """
 
     def __init__(self, inner: Transport, folder: Path, run: str = ""):

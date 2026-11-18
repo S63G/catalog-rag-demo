@@ -22,21 +22,21 @@
  },
  "calls": [
   {
-   "recorded_at": "2026-11-18T08:22:01+00:00",
-   "run": "hybrid_rerank",
-   "latency_ms": 1082.8,
+   "recorded_at": "2026-11-18T15:06:20+00:00",
+   "run": "hybrid_rerank/deepseek-flash",
+   "latency_ms": 1415.8,
    "response": {
-    "id": "70e29ec2-6187-4c07-aabb-313c68c7ef9c",
+    "id": "ab63a5c6-207f-4446-9b53-addd91c573e8",
     "object": "chat.completion",
-    "created": 1794990121,
+    "created": 1795014379,
     "model": "deepseek-flash",
     "choices": [
      {
       "index": 0,
       "message": {
        "role": "assistant",
-       "content": "{\"answerable\": true, \"answer\": \"不能退。定制切割的导轨不予退换[1]；导轨可按长度切割，属于非标加工[2]。\", \"citations\": [1, 2]}",
-       "reasoning_content": "资料[1]明确：定制切割的导轨不予退换。引用[1]。也可[2]提到导轨可按长度切割。回答简洁。answerable=true。"
+       "content": "{\"answerable\": true, \"answer\": \"不能退：定制切割的导轨不予退换 [1]；导轨本身可以按长度切割，但切割后不能退换 [2]。\", \"citations\": [1, 2]}",
+       "reasoning_content": "资料[1]明确：定制切割的导轨、电线电缆截断后不予退换。回答不能退，引用[1]。也可引用[2]说明导轨可按长度切割。保持简洁。"
       },
       "logprobs": null,
       "finish_reason": "stop"
@@ -44,16 +44,16 @@
     ],
     "usage": {
      "prompt_tokens": 765,
-     "completion_tokens": 83,
-     "total_tokens": 848,
+     "completion_tokens": 94,
+     "total_tokens": 859,
      "prompt_tokens_details": {
-      "cached_tokens": 384
+      "cached_tokens": 512
      },
      "completion_tokens_details": {
-      "reasoning_tokens": 35
+      "reasoning_tokens": 42
      },
-     "prompt_cache_hit_tokens": 384,
-     "prompt_cache_miss_tokens": 381
+     "prompt_cache_hit_tokens": 512,
+     "prompt_cache_miss_tokens": 253
     },
     "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
    }

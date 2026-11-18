@@ -1,0 +1,54 @@
+{
+ "source": "live",
+ "endpoint": "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
+ "model": "qwen-plus",
+ "request_sha256": "5a66f5fac253b1d53af05d82ee9b63b343b1429ba17ed59e6e5c80358f3df4ec",
+ "request": {
+  "model": "qwen-plus",
+  "messages": [
+   {
+    "role": "system",
+    "content": "你是瑞丰机电批发（虚构）的产品目录助手，回答公司销售和客服同事的问题。只能依据用户消息里 <资料> 中的内容回答，不要使用资料以外的知识，也不要做资料里没有的推算。\n规则：\n1. 资料能回答问题时：answerable=true；回答简洁，直接给出型号、参数和单位；每句事实后用 [编号] 标注来源，编号必须是资料里给出的编号。\n2. 资料不能回答问题时（问到的型号、规格、参数、品牌、认证等在资料中不存在）：answerable=false，answer 用一句话说明目录资料中没有这方面信息（可以顺带说明资料里有哪些相近内容），citations 为空。不要猜测。\n3. 表格数据原样引用，不要换算单位。\n4. 给出“系统匹配的替代候选”时，只推荐这些候选并说明替代条件；没有给出候选时不要自行推荐替代型号。\n5. 当前提问者角色：客服。客服看不到价格，回答中不要出现任何价格或金额。\n只输出一个 JSON 对象：{\"answerable\": true 或 false, \"answer\": \"回答正文\", \"citations\": [引用的编号]}"
+   },
+   {
+    "role": "user",
+    "content": "<资料>\n[1] 来源：RF-12_O型密封圈规格书.pdf 第3页｜O 型密封圈 产品规格书 › 6 选型与替代说明\n· 同尺寸时 FKM 可以替代 NBR（耐温从 100℃ 提高到 200℃），但 FKM 低温性能较差，-20℃ 以下不建议使用。\n· NBR 不能替代 FKM 用于 100℃ 以上或接触燃油、芳烃溶剂的场合。\n\n[2] 来源：RF-12_O型密封圈规格书.pdf 第2页｜O 型密封圈 产品规格书 › 表1 O 型密封圈规格参数\n型号 10×2 FKM；物料编码 6.02.0002；内径(mm) 10；线径(mm) 2；材质 FKM氟橡胶；硬度(Shore A) 75；使用温度(℃) -20~+200；包装 50件/箱\n\n[3] 来源：RF-12_O型密封圈规格书.pdf 第2页｜O 型密封圈 产品规格书 › 表1 O 型密封圈规格参数\n型号 12×2 FKM；物料编码 6.02.0004；内径(mm) 12；线径(mm) 2；材质 FKM氟橡胶；硬度(Shore A) 75；使用温度(℃) -20~+200；包装 50件/箱\n\n[4] 来源：RF-12_O型密封圈规格书.pdf 第2页｜O 型密封圈 产品规格书 › 表1 O 型密封圈规格参数\n型号 15×2.5 FKM；物料编码 6.02.0006；内径(mm) 15；线径(mm) 2.5；材质 FKM氟橡胶；硬度(Shore A) 75；使用温度(℃) -20~+200；包装 50件/箱\n\n[5] 来源：RF-12_O型密封圈规格书.pdf 第2页｜O 型密封圈 产品规格书 › 表1 O 型密封圈规格参数\n型号 50×3.5 FKM；物料编码 6.02.0016；内径(mm) 50；线径(mm) 3.5；材质 FKM氟橡胶；硬度(Shore A) 75；使用温度(℃) -20~+200；包装 50件/箱\n</资料>\n\n问题：氟胶O型圈耐温能到多少度"
+   }
+  ],
+  "temperature": 0,
+  "response_format": {
+   "type": "json_object"
+  }
+ },
+ "calls": [
+  {
+   "recorded_at": "2026-11-18T15:08:45+00:00",
+   "run": "hybrid_rerank/qwen-plus",
+   "latency_ms": 1742.5,
+   "response": {
+    "model": "qwen-plus",
+    "id": "chatcmpl-887e95b5-e399-9ac5-9254-6d300fa19256",
+    "choices": [
+     {
+      "message": {
+       "content": "{\"answerable\": true, \"answer\": \"氟胶O型圈使用温度为-20℃~+200℃ [2]。\", \"citations\": [2]}",
+       "role": "assistant"
+      },
+      "index": 0,
+      "finish_reason": "stop"
+     }
+    ],
+    "created": 1795014524,
+    "object": "chat.completion",
+    "usage": {
+     "total_tokens": 935,
+     "completion_tokens": 40,
+     "prompt_tokens": 895,
+     "prompt_tokens_details": {
+      "cached_tokens": 0
+     }
+    }
+   }
+  }
+ ]
+}

@@ -22,21 +22,21 @@
  },
  "calls": [
   {
-   "recorded_at": "2026-11-18T08:22:44+00:00",
-   "run": "hybrid_rerank",
-   "latency_ms": 1508.6,
+   "recorded_at": "2026-11-18T15:07:02+00:00",
+   "run": "hybrid_rerank/deepseek-flash",
+   "latency_ms": 1243.7,
    "response": {
-    "id": "56bf7275-70c3-4874-b68e-c7dbe493ee21",
+    "id": "4a8400da-9f99-4a7e-8609-b942acd1884c",
     "object": "chat.completion",
-    "created": 1794990164,
+    "created": 1795014422,
     "model": "deepseek-flash",
     "choices": [
      {
       "index": 0,
       "message": {
        "role": "assistant",
-       "content": "{\"answerable\": false, \"answer\": \"目录资料中没有 6204-2RS 额定动载荷方面的信息；资料中该型号仅列有内径 20mm、外径 47mm、宽度 14mm、极限转速 9700r/min、重量 0.094kg 等参数。\", \"citations\": []}",
-       "reasoning_content": "The资料 doesn't include dynamic load rating. Only dimensions, speed, weight. So answerable=false.\n\nNeed to mention no such info, maybe mention what's available (内径、外径、宽度、极限转速、重量)."
+       "content": "{\"answerable\": false, \"answer\": \"目录资料中没有 6204-2RS 的额定动载荷信息；资料中该型号仅列出了内径 20mm、外径 47mm、宽度 14mm、极限转速 9700r/min 等参数，不含额定动载荷。\", \"citations\": []}",
+       "reasoning_content": "The资料 doesn't include 额定动载荷. So answerable=false, mention only极限转速等有，但没有额定动载荷。"
       },
       "logprobs": null,
       "finish_reason": "stop"
@@ -44,16 +44,16 @@
     ],
     "usage": {
      "prompt_tokens": 930,
-     "completion_tokens": 123,
-     "total_tokens": 1053,
+     "completion_tokens": 100,
+     "total_tokens": 1030,
      "prompt_tokens_details": {
-      "cached_tokens": 640
+      "cached_tokens": 768
      },
      "completion_tokens_details": {
-      "reasoning_tokens": 47
+      "reasoning_tokens": 27
      },
-     "prompt_cache_hit_tokens": 640,
-     "prompt_cache_miss_tokens": 290
+     "prompt_cache_hit_tokens": 768,
+     "prompt_cache_miss_tokens": 162
     },
     "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
    }

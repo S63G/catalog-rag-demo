@@ -23,7 +23,7 @@
  "calls": [
   {
    "recorded_at": "2026-11-18T08:20:12+00:00",
-   "run": "hybrid",
+   "run": "hybrid/deepseek-flash",
    "latency_ms": 2063.1,
    "response": {
     "id": "33351bef-ab01-46ae-ae6e-8c44dc566e36",

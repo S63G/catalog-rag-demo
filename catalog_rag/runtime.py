@@ -12,10 +12,11 @@ from .retrieval import Retriever
 
 def _transports(settings: Settings) -> tuple[Transport | None, Transport]:
     """(transport for embeddings or None = cache only, transport for rerank + chat)."""
+    run = f"{settings.pipeline}/{settings.chat_model}"   # e.g. "hybrid_rerank/qwen-plus"
     if settings.mode == "replay":
-        return None, ReplayTransport(settings.replay_dir, settings.pipeline)
+        return None, ReplayTransport(settings.replay_dir, run)
     live = LiveTransport({"dashscope": settings.dashscope_api_key, "chat": settings.chat_api_key})
-    return live, (RecordingTransport(live, settings.replay_dir, settings.pipeline) if settings.record else live)
+    return live, (RecordingTransport(live, settings.replay_dir, run) if settings.record else live)
 
 
 def build_embedder(settings: Settings) -> EmbeddingClient:

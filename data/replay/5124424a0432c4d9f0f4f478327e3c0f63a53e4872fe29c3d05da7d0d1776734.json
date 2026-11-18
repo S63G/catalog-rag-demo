@@ -25,15 +25,15 @@
  },
  "calls": [
   {
-   "recorded_at": "2026-11-18T08:22:24+00:00",
-   "run": "hybrid_rerank",
-   "latency_ms": 719.4,
+   "recorded_at": "2026-11-18T15:06:44+00:00",
+   "run": "hybrid_rerank/deepseek-flash",
+   "latency_ms": 982.5,
    "response": {
     "output": {
      "results": [
       {
        "index": 2,
-       "relevance_score": 0.406080027830339
+       "relevance_score": 0.4068952306702217
       },
       {
        "index": 0,
@@ -41,34 +41,81 @@
       },
       {
        "index": 3,
-       "relevance_score": 0.38984826556868984
+       "relevance_score": 0.38943411531567046
       },
       {
        "index": 1,
-       "relevance_score": 0.3807007372910851
+       "relevance_score": 0.38007429299165235
       },
       {
        "index": 5,
-       "relevance_score": 0.23156247753352951
+       "relevance_score": 0.23133141495891602
       },
       {
        "index": 7,
-       "relevance_score": 0.21742073383012303
+       "relevance_score": 0.21683915756491481
       },
       {
        "index": 6,
-       "relevance_score": 0.20891459088439396
+       "relevance_score": 0.20844757321617682
       },
       {
        "index": 4,
-       "relevance_score": 0.2042401590356623
+       "relevance_score": 0.2044741038983241
       }
      ]
     },
     "usage": {
      "total_tokens": 829
     },
-    "request_id": "0c9cc7ab-99a4-9123-8960-e8e1c790f250"
+    "request_id": "fc1c5a2b-b154-975d-a7de-f520f8b97423"
+   }
+  },
+  {
+   "recorded_at": "2026-11-18T15:09:37+00:00",
+   "run": "hybrid_rerank/qwen-plus",
+   "latency_ms": 1928.0,
+   "response": {
+    "output": {
+     "results": [
+      {
+       "index": 2,
+       "relevance_score": 0.4068952306702217
+      },
+      {
+       "index": 0,
+       "relevance_score": 0.3956297682343481
+      },
+      {
+       "index": 3,
+       "relevance_score": 0.38943411531567046
+      },
+      {
+       "index": 1,
+       "relevance_score": 0.38007429299165235
+      },
+      {
+       "index": 5,
+       "relevance_score": 0.23133141495891602
+      },
+      {
+       "index": 7,
+       "relevance_score": 0.21683915756491481
+      },
+      {
+       "index": 6,
+       "relevance_score": 0.20844757321617682
+      },
+      {
+       "index": 4,
+       "relevance_score": 0.2044741038983241
+      }
+     ]
+    },
+    "usage": {
+     "total_tokens": 829
+    },
+    "request_id": "6991fe23-c908-9564-9277-7ac68179ad93"
    }
   }
  ]

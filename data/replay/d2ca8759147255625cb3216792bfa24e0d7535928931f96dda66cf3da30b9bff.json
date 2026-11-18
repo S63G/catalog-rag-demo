@@ -22,21 +22,21 @@
  },
  "calls": [
   {
-   "recorded_at": "2026-11-18T08:22:17+00:00",
-   "run": "hybrid_rerank",
-   "latency_ms": 2396.6,
+   "recorded_at": "2026-11-18T15:06:35+00:00",
+   "run": "hybrid_rerank/deepseek-flash",
+   "latency_ms": 2839.3,
    "response": {
-    "id": "080d509e-f237-4eeb-a030-7d1ffcf57eed",
+    "id": "100f705d-d512-4d09-8cfe-fe44d14b849f",
     "object": "chat.completion",
-    "created": 1794990135,
+    "created": 1795014393,
     "model": "deepseek-flash",
     "choices": [
      {
       "index": 0,
       "message": {
        "role": "assistant",
-       "content": "{\"answerable\": true, \"answer\": \"可换用 25×3 FKM（物料编码 6.02.0010），内径 25mm、线径 3mm，使用温度 -20~+200℃ [2]。同尺寸时 FKM 可替代 NBR，耐温从 100℃ 提高到 200℃，但 -20℃ 以下不建议使用 [3]。\", \"citations\": [2, 3]}",
-       "reasoning_content": "We need answer based on资料 and candidate given. Need answerable true. Need concise with citations. Need mention 25×3 FKM 物料编码 6.02.0010, 温度 -20~+200, replacement condition: same dimensions, FKM can replace NBR, but low temp below -20 not recommended. Need no price. Cite [2][3] maybe candidate info from message? Candidate says system matched but citations must from资料. Use [2][3]. Need answer Chinese. JSON only.\n\nNeed ensure every fact sentence citation. Could say：可换用 25×3 FKM（物料编码 6.02.0010），内径25mm、线径3mm，使用温度-20~+200℃ [2]。同尺寸时 FKM 可替代 NBR，耐温从100℃提高到200℃，但 -20℃以下不建议使用 [3]。 Good. Answerable true citations [2,3]. Need JSON object."
+       "content": "{\"answerable\": true, \"answer\": \"可换用 25×3 FKM（物料编码 6.02.0010），内径 25 mm、线径 3 mm、材质 FKM 氟橡胶、硬度 75 Shore A、使用温度 -20~+200℃、包装 50件/箱[2]；同尺寸 FKM 可替代 NBR，耐温从 100℃提高到 200℃，但 -20℃以下不建议使用[3]。\", \"citations\": [2, 3]}",
+       "reasoning_content": "We need answer JSON. Need use资料 and system candidate. Question: 25×3 NBR O-ring temp insufficient, which model replace? According to [3] same size FKM can replace NBR, temp from 100 to 200, but low temp poor below -20 not recommended. Candidate 25×3 FKM 物料编码 6.02.0010, inner 25 line 3 material FKM hardness 75 temp -20~+200 packaging 50/box [2]. Need concise, citations [2][3]. No price. Answerable true. Mention alternative condition: FKM can replace NBR same size, temp up to 200, but -20C以下不建议使用 [3]. Also maybe cite [1] for original? Not necessary but maybe cite [1][2][3]. Need answer in Chinese. Ensure every fact sentence citation. We can have one or two sentences. \"可换用 25×3 FKM（物料编码 6.02.0010），内径25 mm、线径3 mm、材质FKM氟橡胶、硬度75 Shore A、使用温度-20~+200℃、包装50件/箱[2]；同尺寸FKM可替代NBR，耐温从100℃提高到200℃，但-20℃以下不建议使用[3]。\" This includes not mention NBR data? Fine. citations [2,3]. JSON only."
       },
       "logprobs": null,
       "finish_reason": "stop"
@@ -44,16 +44,16 @@
     ],
     "usage": {
      "prompt_tokens": 921,
-     "completion_tokens": 301,
-     "total_tokens": 1222,
+     "completion_tokens": 413,
+     "total_tokens": 1334,
      "prompt_tokens_details": {
-      "cached_tokens": 640
+      "cached_tokens": 768
      },
      "completion_tokens_details": {
-      "reasoning_tokens": 203
+      "reasoning_tokens": 297
      },
-     "prompt_cache_hit_tokens": 640,
-     "prompt_cache_miss_tokens": 281
+     "prompt_cache_hit_tokens": 768,
+     "prompt_cache_miss_tokens": 153
     },
     "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
    }

@@ -1,0 +1,54 @@
+{
+ "source": "live",
+ "endpoint": "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
+ "model": "qwen-plus",
+ "request_sha256": "8e8ea54302f3bd18826597c53bb6a7eddfccdd55f73e0c5001096b58cdf2355e",
+ "request": {
+  "model": "qwen-plus",
+  "messages": [
+   {
+    "role": "system",
+    "content": "你是瑞丰机电批发（虚构）的产品目录助手，回答公司销售和客服同事的问题。只能依据用户消息里 <资料> 中的内容回答，不要使用资料以外的知识，也不要做资料里没有的推算。\n规则：\n1. 资料能回答问题时：answerable=true；回答简洁，直接给出型号、参数和单位；每句事实后用 [编号] 标注来源，编号必须是资料里给出的编号。\n2. 资料不能回答问题时（问到的型号、规格、参数、品牌、认证等在资料中不存在）：answerable=false，answer 用一句话说明目录资料中没有这方面信息（可以顺带说明资料里有哪些相近内容），citations 为空。不要猜测。\n3. 表格数据原样引用，不要换算单位。\n4. 给出“系统匹配的替代候选”时，只推荐这些候选并说明替代条件；没有给出候选时不要自行推荐替代型号。\n5. 当前提问者角色：客服。客服看不到价格，回答中不要出现任何价格或金额。\n只输出一个 JSON 对象：{\"answerable\": true 或 false, \"answer\": \"回答正文\", \"citations\": [引用的编号]}"
+   },
+   {
+    "role": "user",
+    "content": "<资料>\n[1] 来源：RF-02_交流接触器规格书.pdf 第2页｜CJX2 系列交流接触器 产品规格书 › 表1 CJX2 接触器规格参数\n型号 CJX2-2510 线圈AC380V；物料编码 1.02.0008；额定电流Ie(A) 25；AC-3可控电机(kW) 11；辅助触点 1NO；线圈电压 AC380V；材质 银合金触点；安装方式 35mm导轨/螺钉\n\n[2] 来源：RF-02_交流接触器规格书.pdf 第2页｜CJX2 系列交流接触器 产品规格书 › 表1 CJX2 接触器规格参数\n型号 CJX2-2510 线圈AC220V；物料编码 1.02.0007；额定电流Ie(A) 25；AC-3可控电机(kW) 11；辅助触点 1NO；线圈电压 AC220V；材质 银合金触点；安装方式 35mm导轨/螺钉\n\n[3] 来源：RF-02_交流接触器规格书.pdf 第2页｜CJX2 系列交流接触器 产品规格书 › 表1 CJX2 接触器规格参数\n型号 CJX2-5011 线圈AC220V；物料编码 1.02.0013；额定电流Ie(A) 50；AC-3可控电机(kW) 22；辅助触点 1NO+1NC；线圈电压 AC220V；材质 银合金触点；安装方式 螺钉安装\n\n[4] 来源：RF-02_交流接触器规格书.pdf 第2页｜CJX2 系列交流接触器 产品规格书 › 表1 CJX2 接触器规格参数\n型号 CJX2-5011 线圈AC380V；物料编码 1.02.0014；额定电流Ie(A) 50；AC-3可控电机(kW) 22；辅助触点 1NO+1NC；线圈电压 AC380V；材质 银合金触点；安装方式 螺钉安装\n\n[5] 来源：RF-02_交流接触器规格书.pdf 第2页｜CJX2 系列交流接触器 产品规格书 › 表1 CJX2 接触器规格参数\n型号 CJX2-1210 线圈AC380V；物料编码 1.02.0004；额定电流Ie(A) 12；AC-3可控电机(kW) 5.5；辅助触点 1NO；线圈电压 AC380V；材质 银合金触点；安装方式 35mm导轨/螺钉\n</资料>\n\n问题：CJX2-2510 接触器能带多大功率的电机？"
+   }
+  ],
+  "temperature": 0,
+  "response_format": {
+   "type": "json_object"
+  }
+ },
+ "calls": [
+  {
+   "recorded_at": "2026-11-18T15:07:33+00:00",
+   "run": "hybrid_rerank/qwen-plus",
+   "latency_ms": 2355.3,
+   "response": {
+    "model": "qwen-plus",
+    "id": "chatcmpl-93c05020-b8cf-9f7e-8055-7245e51a8123",
+    "choices": [
+     {
+      "message": {
+       "content": "{\"answerable\": true, \"answer\": \"CJX2-2510 接触器 AC-3 可控电机功率为 11 kW [1][2]。\", \"citations\": [\"1\", \"2\"]}",
+       "role": "assistant"
+      },
+      "index": 0,
+      "finish_reason": "stop"
+     }
+    ],
+    "created": 1795014452,
+    "object": "chat.completion",
+    "usage": {
+     "total_tokens": 1064,
+     "completion_tokens": 53,
+     "prompt_tokens": 1011,
+     "prompt_tokens_details": {
+      "cached_tokens": 0
+     }
+    }
+   }
+  }
+ ]
+}

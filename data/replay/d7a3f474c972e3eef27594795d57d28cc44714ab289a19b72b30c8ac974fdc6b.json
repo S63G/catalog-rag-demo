@@ -22,21 +22,21 @@
  },
  "calls": [
   {
-   "recorded_at": "2026-11-18T08:22:21+00:00",
-   "run": "hybrid_rerank",
-   "latency_ms": 3221.6,
+   "recorded_at": "2026-11-18T15:06:38+00:00",
+   "run": "hybrid_rerank/deepseek-flash",
+   "latency_ms": 1917.4,
    "response": {
-    "id": "3c45868a-2749-4b00-a9cd-59c9f6015a16",
+    "id": "d0322ce0-7aca-4e65-8edd-723d63004d40",
     "object": "chat.completion",
-    "created": 1794990138,
+    "created": 1795014397,
     "model": "deepseek-flash",
     "choices": [
      {
       "index": 0,
       "message": {
        "role": "assistant",
-       "content": "{\"answerable\": true, \"answer\": \"可替代为 CJX2-2510 线圈AC220V（物料编码 1.02.0007）[3][2]。替代条件：线圈电压必须相同，且额定电流大一档的型号可替代小一档，不可用小一档替代 [3]；该候选额定电流 25A、AC-3 可控电机 11kW、辅助触点 1NO、线圈电压 AC220V [2]。AC220V 与 AC380V 线圈不能互换使用 [3]。\", \"citations\": [3, 2]}",
-       "reasoning_content": "We need answer JSON. Need use资料 only. Question sales asks substitute for CJX2-1810 AC220V out of stock. System matched candidate CJX2-2510 AC220V code 1.02.0007. Need state alternative candidate and conditions from [3], parameters perhaps [2]. Price? Not asked. Could mention if need price? no. Need answerable true. Citations [3],[2] maybe system candidate info is in user message but not numbered? It says system matched candidate with code; but citations must be from资料. [2] has model code etc. [3] rule. Need concise. Answer: 可替代为 CJX2-2510 线圈AC220V（物料编码1.02.0007）；替代条件：线圈电压相同且额定电流大一档，按规则可用大一档替代，不可小一档替代 [3]。该型号额定电流25A，AC-3可控电机11kW，辅助触点1NO，线圈AC220V [2]。Also ensure motor power? Since replacing larger OK if same coil; [3] says AC-3 controlled motor power not less than motor rated. Maybe mention. Also could note cannot interchange AC220V and AC380V [3]. Need citations [3][2]. JSON only."
+       "content": "{\"answerable\": true, \"answer\": \"可用 CJX2-2510 线圈AC220V（物料编码 1.02.0007）替代：额定电流 Ie 25A，AC-3 可控电机 11kW，辅助触点 1NO，线圈电压 AC220V [2]。替代条件为线圈电压相同、额定电流大一档，因此该型号可以替代 CJX2-1810；不可改用额定电流小一档的型号，并且 AC220V 与 AC380V 线圈不能互换使用 [3]。\", \"citations\": [2, 3]}",
+       "reasoning_content": "The user asks for a substitute for CJX2-1810 AC220V.资料 has replacement rules [3] and system-provided candidate CJX2-2510 AC220V (1.02.0007). Also can mention price? Price only for 1.02.0005. Answer: answerable true, use CJX2-2510 线圈AC220V, 物料编码1.02.0007, 额定电流25A, AC-3 11kW [2], condition: 相同线圈电压，额定电流大一档 [3]. Note AC220V and AC380V cannot be interchanged [3].\n\nShould I mention price? Not available for 2510, so don't."
       },
       "logprobs": null,
       "finish_reason": "stop"
@@ -44,16 +44,16 @@
     ],
     "usage": {
      "prompt_tokens": 1118,
-     "completion_tokens": 399,
-     "total_tokens": 1517,
+     "completion_tokens": 281,
+     "total_tokens": 1399,
      "prompt_tokens_details": {
-      "cached_tokens": 640
+      "cached_tokens": 896
      },
      "completion_tokens_details": {
-      "reasoning_tokens": 269
+      "reasoning_tokens": 151
      },
-     "prompt_cache_hit_tokens": 640,
-     "prompt_cache_miss_tokens": 478
+     "prompt_cache_hit_tokens": 896,
+     "prompt_cache_miss_tokens": 222
     },
     "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
    }

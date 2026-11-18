@@ -22,21 +22,21 @@
  },
  "calls": [
   {
-   "recorded_at": "2026-11-18T08:22:28+00:00",
-   "run": "hybrid_rerank",
-   "latency_ms": 3863.4,
+   "recorded_at": "2026-11-18T15:06:47+00:00",
+   "run": "hybrid_rerank/deepseek-flash",
+   "latency_ms": 3259.8,
    "response": {
-    "id": "1e7f6adc-e9c4-4743-b4f3-4b805991c674",
+    "id": "c0dae6c8-76c7-4fe5-ba84-1fd59714cfc4",
     "object": "chat.completion",
-    "created": 1794990145,
+    "created": 1795014404,
     "model": "deepseek-flash",
     "choices": [
      {
       "index": 0,
       "message": {
        "role": "assistant",
-       "content": "{\"answerable\": true, \"answer\": \"目录中符合“材质316、目录含税单价0~150元”条件的不锈钢球阀有：DN15 316，物料编码9.01.0002，连接螺纹G1/2，公称压力6.4MPa，目录含税单价95.1元[2][7]；DN20 316，物料编码9.01.0004，连接螺纹G3/4，公称压力6.4MPa，目录含税单价106元[3][8]；DN25 316，物料编码9.01.0006，连接螺纹G1，公称压力6.4MPa，目录含税单价126.4元[4][5]；DN32 316，物料编码9.01.0008，连接螺纹G1-1/4，公称压力4.0MPa，目录含税单价149.6元[1][6]。以上均为316不锈钢材质、PTFE阀座密封，适用温度-20~+180℃[1][2][3][4]。\", \"citations\": [1, 2, 3, 4, 5, 6, 7, 8]}",
-       "reasoning_content": "We need answer based on资料. Need list 316 material ball valves. Product type不锈钢球阀. Four specs. Include price? Question asks有哪些316材质的球阀. We can list models, maybe DN, material, price. Need each sentence fact cite. Answer concise. Since filtering says price 0~150. Need mention all qualifying. Use answerable true. Citations [1][2][3][4] maybe plus price [5]-[8]. Answer in Chinese. Each factual sentence cite. Could say：目录中符合材质316且含税单价0~150元的不锈钢球阀有：DN15 316（物料编码9.01.0002，G1/2，6.4MPa，目录含税单价95.1元）[2][7]；... Need citations multiple after each clause? \"每句事实后\" perhaps each item sentence. Need no extra. Ensure units. DN32 pressure 4.0 MPa. All have PTFE, temp. Could include enough. Need not overdo. Let's craft JSON only."
+       "content": "{\"answerable\": true, \"answer\": \"目录中 316 材质的不锈钢内螺纹两片式球阀有：DN15 316，物料编码 9.01.0002，连接螺纹 G1/2，公称压力 6.4 MPa，适用温度 -20~+180℃，目录含税单价 95.1 元 [2][7]；DN20 316，物料编码 9.01.0004，连接螺纹 G3/4，公称压力 6.4 MPa，适用温度 -20~+180℃，目录含税单价 106 元 [3][8]；DN25 316，物料编码 9.01.0006，连接螺纹 G1，公称压力 6.4 MPa，适用温度 -20~+180℃，目录含税单价 126.4 元 [4][5]；DN32 316，物料编码 9.01.0008，连接螺纹 G1-1/4，公称压力 4.0 MPa，适用温度 -20~+180℃，目录含税单价 149.6 元 [1][6]。\", \"citations\": [1, 2, 3, 4, 5, 6, 7, 8]}",
+       "reasoning_content": "We need answer based on资料. User asks \"有哪些 316 材质的球阀？\" Need list models/params maybe prices since sales can answer price. Filter already applied material 316, price 0-150. Available: DN15 316, DN20 316, DN25 316, DN32 316. Need concise, direct give model, parameters, units, each fact cite. Could list material, connection, pressure, temp, price. Answerable true.\n\nNeed JSON only. Ensure citations [1][2] etc. Should we mention all four. \"目录中 316 材质不锈钢球阀有：DN15 316（物料编码 9.01.0002，G1/2，6.4 MPa，-20~+180℃，目录含税单价95.1元）[2][7]；...\" Need avoid too much. Every sentence fact citation. Maybe one sentence per item. Citations include product spec and price rows.\n\nNeed ensure \"球阀\" maybe all are stainless internal thread two-piece ball valves. Include.\n\nLet's craft.\n\nAnswer: \"目录中 316 材质的不锈钢内螺纹两片式球阀有：DN15 316，物料编码 9.01.0002，连接螺纹 G1/2，公称压力 6.4 MPa，适用温度 -20~+180℃，目录含税单价 95.1 元 [2][7]；...\" etc. For DN32 pressure 4.0 MPa price149.6. DN25 G1 6.4 126.4. DN20 G3/4 6.4 106.\n\nNeed final JSON."
       },
       "logprobs": null,
       "finish_reason": "stop"
@@ -44,16 +44,16 @@
     ],
     "usage": {
      "prompt_tokens": 1223,
-     "completion_tokens": 483,
-     "total_tokens": 1706,
+     "completion_tokens": 620,
+     "total_tokens": 1843,
      "prompt_tokens_details": {
-      "cached_tokens": 128
+      "cached_tokens": 1024
      },
      "completion_tokens_details": {
-      "reasoning_tokens": 222
+      "reasoning_tokens": 346
      },
-     "prompt_cache_hit_tokens": 128,
-     "prompt_cache_miss_tokens": 1095
+     "prompt_cache_hit_tokens": 1024,
+     "prompt_cache_miss_tokens": 199
     },
     "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
    }

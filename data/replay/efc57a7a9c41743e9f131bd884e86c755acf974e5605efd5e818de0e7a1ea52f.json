@@ -1,0 +1,54 @@
+{
+ "source": "live",
+ "endpoint": "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
+ "model": "qwen-plus",
+ "request_sha256": "efc57a7a9c41743e9f131bd884e86c755acf974e5605efd5e818de0e7a1ea52f",
+ "request": {
+  "model": "qwen-plus",
+  "messages": [
+   {
+    "role": "system",
+    "content": "你是瑞丰机电批发（虚构）的产品目录助手，回答公司销售和客服同事的问题。只能依据用户消息里 <资料> 中的内容回答，不要使用资料以外的知识，也不要做资料里没有的推算。\n规则：\n1. 资料能回答问题时：answerable=true；回答简洁，直接给出型号、参数和单位；每句事实后用 [编号] 标注来源，编号必须是资料里给出的编号。\n2. 资料不能回答问题时（问到的型号、规格、参数、品牌、认证等在资料中不存在）：answerable=false，answer 用一句话说明目录资料中没有这方面信息（可以顺带说明资料里有哪些相近内容），citations 为空。不要猜测。\n3. 表格数据原样引用，不要换算单位。\n4. 给出“系统匹配的替代候选”时，只推荐这些候选并说明替代条件；没有给出候选时不要自行推荐替代型号。\n5. 当前提问者角色：客服。客服看不到价格，回答中不要出现任何价格或金额。\n只输出一个 JSON 对象：{\"answerable\": true 或 false, \"answer\": \"回答正文\", \"citations\": [引用的编号]}"
+   },
+   {
+    "role": "user",
+    "content": "<资料>\n[1] 来源：RF-15_直线导轨规格书.pdf 第2页｜HGR 系列直线导轨（导轨条） 产品规格书 › 表1 HGR 导轨规格参数\n型号 HGR25 L500；物料编码 8.01.0005；导轨宽度(mm) 23；导轨高度(mm) 22；长度(mm) 500；安装孔距P(mm) 60；材质 S55C中碳钢；热处理 高频淬火\n\n[2] 来源：RF-15_直线导轨规格书.pdf 第2页｜HGR 系列直线导轨（导轨条） 产品规格书 › 表1 HGR 导轨规格参数\n型号 HGR25 L1000；物料编码 8.01.0006；导轨宽度(mm) 23；导轨高度(mm) 22；长度(mm) 1000；安装孔距P(mm) 60；材质 S55C中碳钢；热处理 高频淬火\n\n[3] 来源：RF-15_直线导轨规格书.pdf 第3页｜HGR 系列直线导轨（导轨条） 产品规格书 › 6 选型与替代说明\n· 同规格不同长度的导轨可以截短替代（长换短），截短后两端孔距需重新确认。\n· 不同规格（如 HGR20 与 HGR25）的导轨宽度和高度不同，不能互换。\n\n[4] 来源：RF-15_直线导轨规格书.pdf 第1页｜HGR 系列直线导轨（导轨条） 产品规格书 › 1 产品概述\nHGR 系列为四列式滚珠直线导轨的导轨条，型号中的数字为规格（15/20/25/30），L 后为长度（mm）。本目录仅销售导轨条，滑块需按同规格另行订购。\n\n[5] 来源：RF-15_直线导轨规格书.pdf 第2页｜HGR 系列直线导轨（导轨条） 产品规格书 › 表1 HGR 导轨规格参数\n型号 HGR20 L1000；物料编码 8.01.0004；导轨宽度(mm) 20；导轨高度(mm) 17.5；长度(mm) 1000；安装孔距P(mm) 60；材质 S55C中碳钢；热处理 高频淬火\n</资料>\n\n问题：HGR25 导轨的宽度和高度分别是多少？"
+   }
+  ],
+  "temperature": 0,
+  "response_format": {
+   "type": "json_object"
+  }
+ },
+ "calls": [
+  {
+   "recorded_at": "2026-11-18T15:08:03+00:00",
+   "run": "hybrid_rerank/qwen-plus",
+   "latency_ms": 2391.2,
+   "response": {
+    "model": "qwen-plus",
+    "id": "chatcmpl-8cb67646-2592-9aea-8724-11f6a12b17ff",
+    "choices": [
+     {
+      "message": {
+       "content": "{\"answerable\": true, \"answer\": \"HGR25导轨的宽度为23 mm，高度为22 mm。\", \"citations\": [1, 2]}",
+       "role": "assistant"
+      },
+      "index": 0,
+      "finish_reason": "stop"
+     }
+    ],
+    "created": 1795014483,
+    "object": "chat.completion",
+    "usage": {
+     "total_tokens": 940,
+     "completion_tokens": 40,
+     "prompt_tokens": 900,
+     "prompt_tokens_details": {
+      "cached_tokens": 0
+     }
+    }
+   }
+  }
+ ]
+}

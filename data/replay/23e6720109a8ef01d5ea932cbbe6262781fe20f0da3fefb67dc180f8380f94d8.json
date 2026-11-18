@@ -22,21 +22,21 @@
  },
  "calls": [
   {
-   "recorded_at": "2026-11-18T08:23:01+00:00",
-   "run": "hybrid_rerank",
-   "latency_ms": 989.4,
+   "recorded_at": "2026-11-18T15:07:18+00:00",
+   "run": "hybrid_rerank/deepseek-flash",
+   "latency_ms": 1279.7,
    "response": {
-    "id": "6a7ade6b-78c5-4a03-9dc4-1b047bbcd9e3",
+    "id": "2b682d2b-56f5-4448-859d-9f155cc0473a",
     "object": "chat.completion",
-    "created": 1794990181,
+    "created": 1795014437,
     "model": "deepseek-flash",
     "choices": [
      {
       "index": 0,
       "message": {
        "role": "assistant",
-       "content": "{\"answerable\": false, \"answer\": \"目录资料中没有天气方面的信息，只包含产品规格与选型替代说明等内容（如参观宁波仓库展示区需提前一天预约）。\", \"citations\": []}",
-       "reasoning_content": "The资料 doesn't contain weather information. Answerable=false."
+       "content": "{\"answerable\": false, \"answer\": \"目录资料中没有天气信息；资料里只提到宁波仓库展示区工作日开放参观需提前一天预约，未涉及天气预报。\", \"citations\": []}",
+       "reasoning_content": "The question is about weather, not covered by catalog. answerable=false, citations empty."
       },
       "logprobs": null,
       "finish_reason": "stop"
@@ -44,16 +44,16 @@
     ],
     "usage": {
      "prompt_tokens": 780,
-     "completion_tokens": 59,
-     "total_tokens": 839,
+     "completion_tokens": 62,
+     "total_tokens": 842,
      "prompt_tokens_details": {
-      "cached_tokens": 128
+      "cached_tokens": 640
      },
      "completion_tokens_details": {
-      "reasoning_tokens": 12
+      "reasoning_tokens": 18
      },
-     "prompt_cache_hit_tokens": 128,
-     "prompt_cache_miss_tokens": 652
+     "prompt_cache_hit_tokens": 640,
+     "prompt_cache_miss_tokens": 140
     },
     "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
    }

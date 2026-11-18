@@ -22,21 +22,21 @@
  },
  "calls": [
   {
-   "recorded_at": "2026-11-18T08:21:15+00:00",
-   "run": "hybrid_rerank",
-   "latency_ms": 870.8,
+   "recorded_at": "2026-11-18T15:05:34+00:00",
+   "run": "hybrid_rerank/deepseek-flash",
+   "latency_ms": 1071.5,
    "response": {
-    "id": "b81c0911-b5a8-4362-88fa-241b3127b8d4",
+    "id": "eedfa470-fe21-407d-ae1d-ad111f05f2a4",
     "object": "chat.completion",
-    "created": 1794990075,
+    "created": 1795014333,
     "model": "deepseek-flash",
     "choices": [
      {
       "index": 0,
       "message": {
        "role": "assistant",
-       "content": "{\"answerable\": true, \"answer\": \"YE3 系列电机的防护等级为 IP55 [1]；绝缘等级为 F 级，温升按 B 级考核 [1]。\", \"citations\": [1]}",
-       "reasoning_content": "资料[1]明确：防护等级 IP55，冷却方式 IC411；绝缘等级 F 级，温升按 B 级考核。回答防护等级和绝缘等级即可。"
+       "content": "{\"answerable\": true, \"answer\": \"YE3 系列超高效三相异步电动机防护等级为 IP55 [1]；绝缘等级为 F 级，温升按 B 级考核 [1]。\", \"citations\": [1]}",
+       "reasoning_content": "资料[1]有防护等级IP55，绝缘等级F级。回答简洁。"
       },
       "logprobs": null,
       "finish_reason": "stop"
@@ -44,16 +44,16 @@
     ],
     "usage": {
      "prompt_tokens": 914,
-     "completion_tokens": 89,
-     "total_tokens": 1003,
+     "completion_tokens": 72,
+     "total_tokens": 986,
      "prompt_tokens_details": {
-      "cached_tokens": 256
+      "cached_tokens": 768
      },
      "completion_tokens_details": {
-      "reasoning_tokens": 38
+      "reasoning_tokens": 18
      },
-     "prompt_cache_hit_tokens": 256,
-     "prompt_cache_miss_tokens": 658
+     "prompt_cache_hit_tokens": 768,
+     "prompt_cache_miss_tokens": 146
     },
     "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
    }

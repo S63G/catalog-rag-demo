@@ -22,21 +22,21 @@
  },
  "calls": [
   {
-   "recorded_at": "2026-11-18T08:21:32+00:00",
-   "run": "hybrid_rerank",
-   "latency_ms": 1626.4,
+   "recorded_at": "2026-11-18T15:05:49+00:00",
+   "run": "hybrid_rerank/deepseek-flash",
+   "latency_ms": 1550.3,
    "response": {
-    "id": "e6d8a5df-8bf0-486a-a1cf-99ef0d48b743",
+    "id": "6bafaeea-656a-4c95-b17c-1938d0feae95",
     "object": "chat.completion",
-    "created": 1794990091,
+    "created": 1795014348,
     "model": "deepseek-flash",
     "choices": [
      {
       "index": 0,
       "message": {
        "role": "assistant",
-       "content": "{\"answerable\": true, \"answer\": \"18规格的PNP常开型接近开关是 LJ18A3-8-Z/BY，检测距离为 8mm [1]；M18 检测距离为 8mm，以 Q235 钢为标准检测体 [5]。\", \"citations\": [1, 5]}",
-       "reasoning_content": "We need answer based on资料. Need identify M18 PNP常开 = LJ18A3-8-Z/BY detection distance 8mm. Need citations [1] maybe [5]. Answer concise. No price. JSON only. Ensure citations array. Chinese. \"M18 的 PNP 常开型是 LJ18A3-8-Z/BY，检测距离为 8mm [1]；M18 检测距离 8mm（以 Q235 钢为标准检测体）[5]。\" answerable true."
+       "content": "{\"answerable\": true, \"answer\": \"M18 规格的 PNP 常开型号为 LJ18A3-8-Z/BY，检测距离 8mm [1]；LJ 系列 M18 的检测距离为 8mm，以 Q235 钢为标准检测体 [5]。\", \"citations\": [1, 5]}",
+       "reasoning_content": "客服问 LJ18 PNP常开 检测距离。资料[1] LJ18A3-8-Z/BY PNP常开 检测距离8mm，M18。[5] M18 检测距离8mm。回答。"
       },
       "logprobs": null,
       "finish_reason": "stop"
@@ -44,16 +44,16 @@
     ],
     "usage": {
      "prompt_tokens": 895,
-     "completion_tokens": 187,
-     "total_tokens": 1082,
+     "completion_tokens": 129,
+     "total_tokens": 1024,
      "prompt_tokens_details": {
-      "cached_tokens": 128
+      "cached_tokens": 640
      },
      "completion_tokens_details": {
-      "reasoning_tokens": 113
+      "reasoning_tokens": 50
      },
-     "prompt_cache_hit_tokens": 128,
-     "prompt_cache_miss_tokens": 767
+     "prompt_cache_hit_tokens": 640,
+     "prompt_cache_miss_tokens": 255
     },
     "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
    }

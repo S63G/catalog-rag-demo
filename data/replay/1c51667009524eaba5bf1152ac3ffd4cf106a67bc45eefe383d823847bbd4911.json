@@ -22,13 +22,13 @@
  },
  "calls": [
   {
-   "recorded_at": "2026-11-18T08:21:50+00:00",
-   "run": "hybrid_rerank",
-   "latency_ms": 1155.0,
+   "recorded_at": "2026-11-18T15:06:08+00:00",
+   "run": "hybrid_rerank/deepseek-flash",
+   "latency_ms": 1269.3,
    "response": {
-    "id": "63b158f5-3df1-45bc-bfd2-72f8ef158b34",
+    "id": "f034d909-245a-4716-a58a-39181c949be0",
     "object": "chat.completion",
-    "created": 1794990110,
+    "created": 1795014368,
     "model": "deepseek-flash",
     "choices": [
      {
@@ -36,7 +36,7 @@
       "message": {
        "role": "assistant",
        "content": "{\"answerable\": true, \"answer\": \"YE3 3kW 4P（物料编码 5.01.0010）的标准交期为 5 天。[1]\", \"citations\": [\"1\"]}",
-       "reasoning_content": "Need answer from [1]. Cite [1]. Also parameters maybe model. Keep concise."
+       "reasoning_content": "资料[1]显示标准交期5天。回答简洁，引用[1]。 Maybe also [3] has no lead time. Just [1]."
       },
       "logprobs": null,
       "finish_reason": "stop"
@@ -44,16 +44,16 @@
     ],
     "usage": {
      "prompt_tokens": 929,
-     "completion_tokens": 66,
-     "total_tokens": 995,
+     "completion_tokens": 80,
+     "total_tokens": 1009,
      "prompt_tokens_details": {
-      "cached_tokens": 128
+      "cached_tokens": 768
      },
      "completion_tokens_details": {
-      "reasoning_tokens": 18
+      "reasoning_tokens": 32
      },
-     "prompt_cache_hit_tokens": 128,
-     "prompt_cache_miss_tokens": 801
+     "prompt_cache_hit_tokens": 768,
+     "prompt_cache_miss_tokens": 161
     },
     "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
    }

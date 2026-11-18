@@ -22,21 +22,21 @@
  },
  "calls": [
   {
-   "recorded_at": "2026-11-18T08:22:31+00:00",
-   "run": "hybrid_rerank",
-   "latency_ms": 2072.8,
+   "recorded_at": "2026-11-18T15:06:51+00:00",
+   "run": "hybrid_rerank/deepseek-flash",
+   "latency_ms": 2040.8,
    "response": {
-    "id": "616cd5c6-dc2f-4e7e-aa47-00611e866b26",
+    "id": "830a6249-10db-4484-9237-05c2a7449ae5",
     "object": "chat.completion",
-    "created": 1794990150,
+    "created": 1795014409,
     "model": "deepseek-flash",
     "choices": [
      {
       "index": 0,
       "message": {
        "role": "assistant",
-       "content": "{\"answerable\": true, \"answer\": \"M6 内六角圆柱头螺钉可选长度为 10mm [6]、16mm [1]、20mm [4]、25mm [2]、30mm [3]、40mm [5]。\", \"citations\": [6, 1, 4, 2, 3, 5]}",
-       "reasoning_content": "We need answer based on资料. Need list M6 lengths available: from entries: 16,25,30,20,40,10. Need concise, each fact citation. Answerable true. Avoid price. Need citations each sentence after fact. Could format: M6 内六角圆柱头螺钉可选长度有：10mm [6]、16mm [1]、20mm [4]、25mm [2]、30mm [3]、40mm [5]。 But \"每句事实后用[编号]\" This is one sentence with multiple citations attached per fact. Fine. JSON only. Ensure no extra. Use Chinese. Could sort ascending. answerable true. citations [6,1,4,2,3,5] perhaps. Need citations must be IDs in资料. Include all."
+       "content": "{\"answerable\": true, \"answer\": \"目录中 M6 内六角圆柱头螺钉（12.9级）的长度有 10mm [6]、16mm [1]、20mm [4]、25mm [2]、30mm [3]、40mm [5]。\", \"citations\": [6, 1, 4, 2, 3, 5]}",
+       "reasoning_content": "We need answer based on资料. Need list M6 lengths available: 10,16,20,25,30,40. Need mention models perhaps. Answer concise, each fact cited. Since question \"列出 M6 的内六角螺钉有哪些长度\". Need answerable true. Use citations for each length. Could group? Each sentence fact cite. Need every sentence fact after [编号]. We can say: 目录中 M6 内六角圆柱头螺钉（12.9级）长度有 10mm [6]、16mm [1]、20mm [4]、25mm [2]、30mm [3]、40mm [5]。 That's one sentence with citations at end of each fact? It's okay maybe. Need no price. citations [6,1,4,2,3,5] maybe. JSON only. Ensure valid."
       },
       "logprobs": null,
       "finish_reason": "stop"
@@ -44,16 +44,16 @@
     ],
     "usage": {
      "prompt_tokens": 1216,
-     "completion_tokens": 240,
-     "total_tokens": 1456,
+     "completion_tokens": 262,
+     "total_tokens": 1478,
      "prompt_tokens_details": {
-      "cached_tokens": 256
+      "cached_tokens": 1024
      },
      "completion_tokens_details": {
-      "reasoning_tokens": 164
+      "reasoning_tokens": 178
      },
-     "prompt_cache_hit_tokens": 256,
-     "prompt_cache_miss_tokens": 960
+     "prompt_cache_hit_tokens": 1024,
+     "prompt_cache_miss_tokens": 192
     },
     "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
    }

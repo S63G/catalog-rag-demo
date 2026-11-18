@@ -22,21 +22,21 @@
  },
  "calls": [
   {
-   "recorded_at": "2026-11-18T08:21:28+00:00",
-   "run": "hybrid_rerank",
-   "latency_ms": 1156.6,
+   "recorded_at": "2026-11-18T15:05:45+00:00",
+   "run": "hybrid_rerank/deepseek-flash",
+   "latency_ms": 983.3,
    "response": {
-    "id": "b2ff6214-5bd0-4112-ad58-a62ec1a38eb6",
+    "id": "d32f3dfd-a9a5-474d-be47-f472936b012b",
     "object": "chat.completion",
-    "created": 1794990088,
+    "created": 1795014345,
     "model": "deepseek-flash",
     "choices": [
      {
       "index": 0,
       "message": {
        "role": "assistant",
-       "content": "{\"answerable\": true, \"answer\": \"PU 气管温度升高时最高使用压力会下降，60℃ 时约为 0.5MPa [1]。\", \"citations\": [1]}",
-       "reasoning_content": "The 资料 says at 60℃ max working pressure drops to about 0.5MPa [1]. Answerable true."
+       "content": "{\"answerable\": true, \"answer\": \"PU 气管在 60℃ 时最高使用压力约为 0.5MPa[1]。\", \"citations\": [1]}",
+       "reasoning_content": "We need answer based on [1]. At 60℃ about 0.5MPa. Must cite [1]. Answerable true. JSON."
       },
       "logprobs": null,
       "finish_reason": "stop"
@@ -47,13 +47,13 @@
      "completion_tokens": 70,
      "total_tokens": 954,
      "prompt_tokens_details": {
-      "cached_tokens": 384
+      "cached_tokens": 640
      },
      "completion_tokens_details": {
-      "reasoning_tokens": 26
+      "reasoning_tokens": 30
      },
-     "prompt_cache_hit_tokens": 384,
-     "prompt_cache_miss_tokens": 500
+     "prompt_cache_hit_tokens": 640,
+     "prompt_cache_miss_tokens": 244
     },
     "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
    }

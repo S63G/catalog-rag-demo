@@ -22,21 +22,21 @@
  },
  "calls": [
   {
-   "recorded_at": "2026-11-18T08:20:51+00:00",
-   "run": "hybrid_rerank",
-   "latency_ms": 1391.4,
+   "recorded_at": "2026-11-18T15:05:09+00:00",
+   "run": "hybrid_rerank/deepseek-flash",
+   "latency_ms": 1562.9,
    "response": {
-    "id": "d51e6081-7810-4dcc-a205-483aafa5eab8",
+    "id": "d853b29f-aae8-45b0-afbb-b0c7d1e63469",
     "object": "chat.completion",
-    "created": 1794990051,
+    "created": 1795014308,
     "model": "deepseek-flash",
     "choices": [
      {
       "index": 0,
       "message": {
        "role": "assistant",
-       "content": "{\"answerable\": true, \"answer\": \"CJX2-2510 接触器在 AC-3 使用类别下可控电机功率为 11kW [1][2]；其额定电流 Ie 为 25A [1][2]。该型号有线圈 AC380V 和 AC220V 两种版本 [1][2]。\", \"citations\": [1, 2]}",
-       "reasoning_content": "资料中有CJX2-2510两个线圈电压版本，AC-3可控电机11kW。回答简洁。"
+       "content": "{\"answerable\": true, \"answer\": \"CJX2-2510 接触器的额定电流 Ie 为 25 A [1][2]，AC-3 可控电机功率为 11 kW [1][2]。\", \"citations\": [1, 2]}",
+       "reasoning_content": "We need answer. Need include both coil variants? Question CJX2-2510 can carry how much motor power.资料 has two entries same model differing coil voltage, both AC-3可控电机 11 kW, rated current 25A, aux 1NO. Need answer concise with citations. Could say AC-3可控电机 11 kW [1][2], 额定电流 25 A [1][2]. No price. JSON only. Ensure answerable true, citations [1,2]. Chinese."
       },
       "logprobs": null,
       "finish_reason": "stop"
@@ -44,16 +44,16 @@
     ],
     "usage": {
      "prompt_tokens": 912,
-     "completion_tokens": 113,
-     "total_tokens": 1025,
+     "completion_tokens": 168,
+     "total_tokens": 1080,
      "prompt_tokens_details": {
-      "cached_tokens": 128
+      "cached_tokens": 768
      },
      "completion_tokens_details": {
-      "reasoning_tokens": 25
+      "reasoning_tokens": 106
      },
-     "prompt_cache_hit_tokens": 128,
-     "prompt_cache_miss_tokens": 784
+     "prompt_cache_hit_tokens": 768,
+     "prompt_cache_miss_tokens": 144
     },
     "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
    }

@@ -1,0 +1,54 @@
+{
+ "source": "live",
+ "endpoint": "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
+ "model": "qwen-plus",
+ "request_sha256": "6f28f2f423f7eae237d800e8244bbc62eb4797eb85ea3e2cf3cdd811c4945c2a",
+ "request": {
+  "model": "qwen-plus",
+  "messages": [
+   {
+    "role": "system",
+    "content": "从销售同事的消息里提取报价请求，只输出一个 JSON 对象。只提取消息里写明的内容：customer 为客户名称原文（没写则 null）；items 每行包括 product（型号/规格原文，保留原写法，如“6204-2RS”“M8×20”“DN25 316 球阀”）、quantity（数字）、unit（原文单位，如 个、箱、台；没写则 null）、target_price（客户要求的单价；没写则 null）。不要换算单位，不要补全型号。\nJSON Schema:\n{\"$defs\": {\"QuoteItemRequest\": {\"properties\": {\"product\": {\"description\": \"型号/规格原文，如 6204-2RS、M8×20、DN25 316 球阀\", \"minLength\": 1, \"title\": \"Product\", \"type\": \"string\"}, \"quantity\": {\"exclusiveMinimum\": 0, \"title\": \"Quantity\", \"type\": \"number\"}, \"unit\": {\"anyOf\": [{\"type\": \"string\"}, {\"type\": \"null\"}], \"default\": null, \"description\": \"原文单位，如 个、箱、台；没有写则 null\", \"title\": \"Unit\"}, \"target_price\": {\"anyOf\": [{\"exclusiveMinimum\": 0, \"type\": \"number\"}, {\"type\": \"null\"}], \"default\": null, \"description\": \"客户要求的单价；没有写则 null\", \"title\": \"Target Price\"}}, \"required\": [\"product\", \"quantity\"], \"title\": \"QuoteItemRequest\", \"type\": \"object\"}}, \"properties\": {\"customer\": {\"anyOf\": [{\"type\": \"string\"}, {\"type\": \"null\"}], \"default\": null, \"description\": \"客户名称原文；没有写则 null\", \"title\": \"Customer\"}, \"items\": {\"items\": {\"$ref\": \"#/$defs/QuoteItemRequest\"}, \"minItems\": 1, \"title\": \"Items\", \"type\": \"array\"}}, \"required\": [\"items\"], \"title\": \"QuoteRequest\", \"type\": \"object\"}"
+   },
+   {
+    "role": "user",
+    "content": "给沪东衡砺报个价：6204-2RS 200个，M8×20内六角螺钉 5箱"
+   }
+  ],
+  "temperature": 0,
+  "response_format": {
+   "type": "json_object"
+  }
+ },
+ "calls": [
+  {
+   "recorded_at": "2026-11-18T15:09:57+00:00",
+   "run": "hybrid_rerank/qwen-plus",
+   "latency_ms": 2641.4,
+   "response": {
+    "model": "qwen-plus",
+    "id": "chatcmpl-ecb19453-a653-9233-b47e-22e7c42596df",
+    "choices": [
+     {
+      "message": {
+       "content": "{\"customer\":\"沪东衡砺\",\"items\":[{\"product\":\"6204-2RS\",\"quantity\":200,\"unit\":\"个\",\"target_price\":null},{\"product\":\"M8×20内六角螺钉\",\"quantity\":5,\"unit\":\"箱\",\"target_price\":null}]}",
+       "role": "assistant"
+      },
+      "index": 0,
+      "finish_reason": "stop"
+     }
+    ],
+    "created": 1795014596,
+    "object": "chat.completion",
+    "usage": {
+     "total_tokens": 573,
+     "completion_tokens": 62,
+     "prompt_tokens": 511,
+     "prompt_tokens_details": {
+      "cached_tokens": 0
+     }
+    }
+   }
+  }
+ ]
+}

@@ -22,13 +22,13 @@
  },
  "calls": [
   {
-   "recorded_at": "2026-11-18T08:21:23+00:00",
-   "run": "hybrid_rerank",
-   "latency_ms": 1212.0,
+   "recorded_at": "2026-11-18T15:05:41+00:00",
+   "run": "hybrid_rerank/deepseek-flash",
+   "latency_ms": 1023.8,
    "response": {
-    "id": "e44c05e3-1d95-47e9-bd32-ce65dc7d1c32",
+    "id": "d2496177-92e9-4c8c-9a8f-4cdfb15be67d",
     "object": "chat.completion",
-    "created": 1794990082,
+    "created": 1795014341,
     "model": "deepseek-flash",
     "choices": [
      {
@@ -36,7 +36,7 @@
       "message": {
        "role": "assistant",
        "content": "{\"answerable\": true, \"answer\": \"M8 的 12.9 级内六角圆柱头螺钉推荐拧紧力矩为 37N·m（干燥条件）[1]。\", \"citations\": [1]}",
-       "reasoning_content": "资料[1]给出 M8 37N·m。回答简洁，引用[1]。"
+       "reasoning_content": "资料[1]有M8 37N·m。回答简洁，引用[1]。"
       },
       "logprobs": null,
       "finish_reason": "stop"
@@ -47,13 +47,13 @@
      "completion_tokens": 72,
      "total_tokens": 1130,
      "prompt_tokens_details": {
-      "cached_tokens": 256
+      "cached_tokens": 896
      },
      "completion_tokens_details": {
       "reasoning_tokens": 20
      },
-     "prompt_cache_hit_tokens": 256,
-     "prompt_cache_miss_tokens": 802
+     "prompt_cache_hit_tokens": 896,
+     "prompt_cache_miss_tokens": 162
     },
     "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
    }

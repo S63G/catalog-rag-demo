@@ -23,7 +23,7 @@
  "calls": [
   {
    "recorded_at": "2026-11-18T08:18:23+00:00",
-   "run": "bm25",
+   "run": "bm25/deepseek-flash",
    "latency_ms": 1295.8,
    "response": {
     "id": "3245b26d-1ee5-43f8-b543-e48ac6c32f6d",
@@ -60,7 +60,7 @@
   },
   {
    "recorded_at": "2026-11-18T08:20:26+00:00",
-   "run": "hybrid",
+   "run": "hybrid/deepseek-flash",
    "latency_ms": 2842.7,
    "response": {
     "id": "80931be2-ef55-4f96-9f44-26525bf6d0b8",
@@ -96,13 +96,13 @@
    }
   },
   {
-   "recorded_at": "2026-11-18T08:22:38+00:00",
-   "run": "hybrid_rerank",
-   "latency_ms": 1313.5,
+   "recorded_at": "2026-11-18T15:06:55+00:00",
+   "run": "hybrid_rerank/deepseek-flash",
+   "latency_ms": 1645.0,
    "response": {
-    "id": "b57574a0-f174-4b2b-9131-9316743cf9cc",
+    "id": "66753241-67f8-41eb-a693-dacf1279544d",
     "object": "chat.completion",
-    "created": 1794990157,
+    "created": 1795014414,
     "model": "deepseek-flash",
     "choices": [
      {
@@ -110,7 +110,7 @@
       "message": {
        "role": "assistant",
        "content": "{\"customer\":\"沪东衡砺\",\"items\":[{\"product\":\"6204-2RS\",\"quantity\":200,\"unit\":\"个\",\"target_price\":null},{\"product\":\"M8×20内六角螺钉\",\"quantity\":5,\"unit\":\"箱\",\"target_price\":null}]}",
-       "reasoning_content": "We need answer only JSON object per schema. Need extract quote request. Message: \"给沪东衡砺报个价：6204-2RS 200个，M8×20内六角螺钉 5箱\"\n\nCustomer: 沪东衡砺 (the recipient of quote, \"给...报个价\" means quote to them, customer name original). Items:\n1 product \"6204-2RS\", quantity 200, unit \"个\", target_price null.\n2 product \"M8×20内六角螺钉\", quantity 5, unit \"箱\", target_price null.\nNeed output JSON object only. Ensure valid JSON. No markdown. \n"
+       "reasoning_content": "We need answer only JSON object extracting quote request. Need parse Chinese message. \"给沪东衡砺报个价：6204-2RS 200个，M8×20内六角螺钉 5箱\"\n\nCustomer: 沪东衡砺? Message \"给沪东衡砺报个价\" means quote for 沪东衡砺. Customer name original: 沪东衡砺. Items:\n1 product \"6204-2RS\", quantity 200, unit \"个\", target_price null.\n2 product \"M8×20内六角螺钉\" (原文: M8×20内六角螺钉) quantity 5, unit \"箱\", target_price null.\n\nNeed output JSON only. Ensure no extra."
       },
       "logprobs": null,
       "finish_reason": "stop"
@@ -118,13 +118,13 @@
     ],
     "usage": {
      "prompt_tokens": 526,
-     "completion_tokens": 196,
-     "total_tokens": 722,
+     "completion_tokens": 210,
+     "total_tokens": 736,
      "prompt_tokens_details": {
       "cached_tokens": 384
      },
      "completion_tokens_details": {
-      "reasoning_tokens": 138
+      "reasoning_tokens": 152
      },
      "prompt_cache_hit_tokens": 384,
      "prompt_cache_miss_tokens": 142

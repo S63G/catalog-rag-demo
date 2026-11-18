@@ -22,21 +22,21 @@
  },
  "calls": [
   {
-   "recorded_at": "2026-11-18T08:20:59+00:00",
-   "run": "hybrid_rerank",
-   "latency_ms": 1449.4,
+   "recorded_at": "2026-11-18T15:05:15+00:00",
+   "run": "hybrid_rerank/deepseek-flash",
+   "latency_ms": 1143.0,
    "response": {
-    "id": "d4ef22c2-2f23-4260-94ab-eccc66703a15",
+    "id": "32b75f91-714d-4689-9c54-84dd159468ce",
     "object": "chat.completion",
-    "created": 1794990058,
+    "created": 1795014315,
     "model": "deepseek-flash",
     "choices": [
      {
       "index": 0,
       "message": {
        "role": "assistant",
-       "content": "{\"answerable\": true, \"answer\": \"M10×30 12.9级内六角圆柱头螺钉的头部直径dk为16mm [1]。\", \"citations\": [1]}",
-       "reasoning_content": "用户问 M10×30 内六角螺钉头部直径。资料[1]给出 dk 16mm。回答，引用[1]。"
+       "content": "{\"answerable\": true, \"answer\": \"M10×30 12.9级内六角圆柱头螺钉的头部直径dk为16mm。[1]\", \"citations\": [1]}",
+       "reasoning_content": "回答：M10×30 12.9级的头部直径dk为16mm [1]。"
       },
       "logprobs": null,
       "finish_reason": "stop"
@@ -44,16 +44,16 @@
     ],
     "usage": {
      "prompt_tokens": 1052,
-     "completion_tokens": 75,
-     "total_tokens": 1127,
+     "completion_tokens": 63,
+     "total_tokens": 1115,
      "prompt_tokens_details": {
-      "cached_tokens": 256
+      "cached_tokens": 896
      },
      "completion_tokens_details": {
-      "reasoning_tokens": 31
+      "reasoning_tokens": 20
      },
-     "prompt_cache_hit_tokens": 256,
-     "prompt_cache_miss_tokens": 796
+     "prompt_cache_hit_tokens": 896,
+     "prompt_cache_miss_tokens": 156
     },
     "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
    }

@@ -22,21 +22,21 @@
  },
  "calls": [
   {
-   "recorded_at": "2026-11-18T08:22:36+00:00",
-   "run": "hybrid_rerank",
-   "latency_ms": 1606.7,
+   "recorded_at": "2026-11-18T15:06:54+00:00",
+   "run": "hybrid_rerank/deepseek-flash",
+   "latency_ms": 2492.7,
    "response": {
-    "id": "d8f77d81-0632-414c-a1d1-83ea9764f756",
+    "id": "10be49fe-0812-48c8-9baf-76275a65fc28",
     "object": "chat.completion",
-    "created": 1794990155,
+    "created": 1795014412,
     "model": "deepseek-flash",
     "choices": [
      {
       "index": 0,
       "message": {
        "role": "assistant",
-       "content": "{\"answerable\": true, \"answer\": \"目录中 FKM 氟橡胶材质的 O 型密封圈型号如下（硬度均为 Shore A 75，使用温度均为 -20~+200℃，包装均为 50件/箱）：10×2 FKM（内径 10mm，线径 2mm）[7]；12×2 FKM（内径 12mm，线径 2mm）[5]；15×2.5 FKM（内径 15mm，线径 2.5mm）[3]；20×2.5 FKM（内径 20mm，线径 2.5mm）[6]；25×3 FKM（内径 25mm，线径 3mm）[2]；30×3 FKM（内径 30mm，线径 3mm）[4]；40×3.5 FKM（内径 40mm，线径 3.5mm）[8]；50×3.5 FKM（内径 50mm，线径 3.5mm）[1]。\", \"citations\": [7, 5, 3, 6, 2, 4, 8, 1]}",
-       "reasoning_content": "资料列出8个型号，都是FKM。需要回答简洁，每句事实后标注编号。可以列表形式，每项后标注引用编号。\n\n输出JSON。"
+       "content": "{\"answerable\": true, \"answer\": \"资料中 FKM 氟橡胶材质的 O 型密封圈共有以下 8 个型号：\\n1. 型号 50×3.5 FKM，内径 50 mm，线径 3.5 mm，硬度 75 Shore A，使用温度 -20~+200 ℃，包装 50件/箱 [1]；\\n2. 型号 40×3.5 FKM，内径 40 mm，线径 3.5 mm，硬度 75 Shore A，使用温度 -20~+200 ℃，包装 50件/箱 [8]；\\n3. 型号 30×3 FKM，内径 30 mm，线径 3 mm，硬度 75 Shore A，使用温度 -20~+200 ℃，包装 50件/箱 [4]；\\n4. 型号 25×3 FKM，内径 25 mm，线径 3 mm，硬度 75 Shore A，使用温度 -20~+200 ℃，包装 50件/箱 [2]；\\n5. 型号 20×2.5 FKM，内径 20 mm，线径 2.5 mm，硬度 75 Shore A，使用温度 -20~+200 ℃，包装 50件/箱 [6]；\\n6. 型号 15×2.5 FKM，内径 15 mm，线径 2.5 mm，硬度 75 Shore A，使用温度 -20~+200 ℃，包装 50件/箱 [3]；\\n7. 型号 12×2 FKM，内径 12 mm，线径 2 mm，硬度 75 Shore A，使用温度 -20~+200 ℃，包装 50件/箱 [5]；\\n8. 型号 10×2 FKM，内径 10 mm，线径 2 mm，硬度 75 Shore A，使用温度 -20~+200 ℃，包装 50件/箱 [7]。\", \"citations\": [1, 8, 4, 2, 6, 3, 5, 7]}",
+       "reasoning_content": "The user asks which FKM O-rings exist. List all models from [1]-[8].\n\nKeep answer concise, cite each fact. No prices.\n\nFormat: JSON object."
       },
       "logprobs": null,
       "finish_reason": "stop"
@@ -44,16 +44,16 @@
     ],
     "usage": {
      "prompt_tokens": 1212,
-     "completion_tokens": 307,
-     "total_tokens": 1519,
+     "completion_tokens": 514,
+     "total_tokens": 1726,
      "prompt_tokens_details": {
-      "cached_tokens": 128
+      "cached_tokens": 1024
      },
      "completion_tokens_details": {
-      "reasoning_tokens": 35
+      "reasoning_tokens": 37
      },
-     "prompt_cache_hit_tokens": 128,
-     "prompt_cache_miss_tokens": 1084
+     "prompt_cache_hit_tokens": 1024,
+     "prompt_cache_miss_tokens": 188
     },
     "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
    }

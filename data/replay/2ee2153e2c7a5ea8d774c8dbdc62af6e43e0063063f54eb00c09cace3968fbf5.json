@@ -1,0 +1,54 @@
+{
+ "source": "live",
+ "endpoint": "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
+ "model": "qwen-plus",
+ "request_sha256": "2ee2153e2c7a5ea8d774c8dbdc62af6e43e0063063f54eb00c09cace3968fbf5",
+ "request": {
+  "model": "qwen-plus",
+  "messages": [
+   {
+    "role": "system",
+    "content": "从销售同事的消息里提取报价请求，只输出一个 JSON 对象。只提取消息里写明的内容：customer 为客户名称原文（没写则 null）；items 每行包括 product（型号/规格原文，保留原写法，如“6204-2RS”“M8×20”“DN25 316 球阀”）、quantity（数字）、unit（原文单位，如 个、箱、台；没写则 null）、target_price（客户要求的单价；没写则 null）。不要换算单位，不要补全型号。\nJSON Schema:\n{\"$defs\": {\"QuoteItemRequest\": {\"properties\": {\"product\": {\"description\": \"型号/规格原文，如 6204-2RS、M8×20、DN25 316 球阀\", \"minLength\": 1, \"title\": \"Product\", \"type\": \"string\"}, \"quantity\": {\"exclusiveMinimum\": 0, \"title\": \"Quantity\", \"type\": \"number\"}, \"unit\": {\"anyOf\": [{\"type\": \"string\"}, {\"type\": \"null\"}], \"default\": null, \"description\": \"原文单位，如 个、箱、台；没有写则 null\", \"title\": \"Unit\"}, \"target_price\": {\"anyOf\": [{\"exclusiveMinimum\": 0, \"type\": \"number\"}, {\"type\": \"null\"}], \"default\": null, \"description\": \"客户要求的单价；没有写则 null\", \"title\": \"Target Price\"}}, \"required\": [\"product\", \"quantity\"], \"title\": \"QuoteItemRequest\", \"type\": \"object\"}}, \"properties\": {\"customer\": {\"anyOf\": [{\"type\": \"string\"}, {\"type\": \"null\"}], \"default\": null, \"description\": \"客户名称原文；没有写则 null\", \"title\": \"Customer\"}, \"items\": {\"items\": {\"$ref\": \"#/$defs/QuoteItemRequest\"}, \"minItems\": 1, \"title\": \"Items\", \"type\": \"array\"}}, \"required\": [\"items\"], \"title\": \"QuoteRequest\", \"type\": \"object\"}"
+   },
+   {
+    "role": "user",
+    "content": "苏州晨岚汇报价：YE3 3kW 4极电机 2台，DN25 316 球阀 10个"
+   }
+  ],
+  "temperature": 0,
+  "response_format": {
+   "type": "json_object"
+  }
+ },
+ "calls": [
+  {
+   "recorded_at": "2026-11-18T15:10:02+00:00",
+   "run": "hybrid_rerank/qwen-plus",
+   "latency_ms": 2662.7,
+   "response": {
+    "model": "qwen-plus",
+    "id": "chatcmpl-1ad53759-4573-9677-a0e6-da934efa0abb",
+    "choices": [
+     {
+      "message": {
+       "content": "{\"customer\":\"苏州晨岚\",\"items\":[{\"product\":\"YE3 3kW 4极电机\",\"quantity\":2,\"unit\":\"台\",\"target_price\":null},{\"product\":\"DN25 316 球阀\",\"quantity\":10,\"unit\":\"个\",\"target_price\":null}]}",
+       "role": "assistant"
+      },
+      "index": 0,
+      "finish_reason": "stop"
+     }
+    ],
+    "created": 1795014601,
+    "object": "chat.completion",
+    "usage": {
+     "total_tokens": 575,
+     "completion_tokens": 64,
+     "prompt_tokens": 511,
+     "prompt_tokens_details": {
+      "cached_tokens": 0
+     }
+    }
+   }
+  }
+ ]
+}

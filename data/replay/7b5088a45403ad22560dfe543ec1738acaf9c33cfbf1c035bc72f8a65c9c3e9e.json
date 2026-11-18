@@ -22,13 +22,13 @@
  },
  "calls": [
   {
-   "recorded_at": "2026-11-18T08:20:49+00:00",
-   "run": "hybrid_rerank",
-   "latency_ms": 829.7,
+   "recorded_at": "2026-11-18T15:05:05+00:00",
+   "run": "hybrid_rerank/deepseek-flash",
+   "latency_ms": 709.5,
    "response": {
-    "id": "d7d87bd1-445e-4875-91a5-f89ec41d089b",
+    "id": "3bd21ef5-5fc0-4322-93cb-5dec7a5ac31e",
     "object": "chat.completion",
-    "created": 1794990049,
+    "created": 1795014305,
     "model": "deepseek-flash",
     "choices": [
      {
@@ -47,13 +47,13 @@
      "completion_tokens": 46,
      "total_tokens": 976,
      "prompt_tokens_details": {
-      "cached_tokens": 256
+      "cached_tokens": 768
      },
      "completion_tokens_details": {
       "reasoning_tokens": 0
      },
-     "prompt_cache_hit_tokens": 256,
-     "prompt_cache_miss_tokens": 674
+     "prompt_cache_hit_tokens": 768,
+     "prompt_cache_miss_tokens": 162
     },
     "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
    }

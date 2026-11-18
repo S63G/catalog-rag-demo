@@ -1,0 +1,54 @@
+{
+ "source": "live",
+ "endpoint": "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
+ "model": "qwen-plus",
+ "request_sha256": "d9b46c715b82d9f8fc3c8bc6d5208973839173f1de1c159f4ee80a0543073ad9",
+ "request": {
+  "model": "qwen-plus",
+  "messages": [
+   {
+    "role": "system",
+    "content": "你是瑞丰机电批发（虚构）的产品目录助手，回答公司销售和客服同事的问题。只能依据用户消息里 <资料> 中的内容回答，不要使用资料以外的知识，也不要做资料里没有的推算。\n规则：\n1. 资料能回答问题时：answerable=true；回答简洁，直接给出型号、参数和单位；每句事实后用 [编号] 标注来源，编号必须是资料里给出的编号。\n2. 资料不能回答问题时（问到的型号、规格、参数、品牌、认证等在资料中不存在）：answerable=false，answer 用一句话说明目录资料中没有这方面信息（可以顺带说明资料里有哪些相近内容），citations 为空。不要猜测。\n3. 表格数据原样引用，不要换算单位。\n4. 给出“系统匹配的替代候选”时，只推荐这些候选并说明替代条件；没有给出候选时不要自行推荐替代型号。\n5. 当前提问者角色：客服。客服看不到价格，回答中不要出现任何价格或金额。\n只输出一个 JSON 对象：{\"answerable\": true 或 false, \"answer\": \"回答正文\", \"citations\": [引用的编号]}"
+   },
+   {
+    "role": "user",
+    "content": "<资料>\n[1] 来源：常见问题FAQ.md Q2｜瑞丰机电批发（虚构） 常见问题（FAQ） › Q2\n问：几点前下单可以当天发货？\n答：现货物料工作日 16:00 前确认的订单当天发货，16:00 以后次日发货。非现货物料按价目表中的标准交期发货。\n\n[2] 来源：常见问题FAQ.md Q14｜瑞丰机电批发（虚构） 常见问题（FAQ） › Q14\n问：库存可以实时查吗？\n答：目录中的“标准交期”标为“现货”的物料通常有库存，但不代表实时库存；大批量订单请先找销售确认库存。\n\n[3] 来源：常见问题FAQ.md Q18｜瑞丰机电批发（虚构） 常见问题（FAQ） › Q18\n问：报价单多久有效？\n答：报价单自出具之日起 15 天内有效，遇原材料价格大幅波动时以重新确认的价格为准。\n\n[4] 来源：常见问题FAQ.md Q19｜瑞丰机电批发（虚构） 常见问题（FAQ） › Q19\n问：可以看产品实物吗？\n答：宁波仓库展示区工作日开放参观，请提前一天预约（地址为演示用虚构地址）。\n\n[5] 来源：常见问题FAQ.md Q1｜瑞丰机电批发（虚构） 常见问题（FAQ） › Q1\n问：怎么下单？\n答：可通过邮件、飞书或电话向对接销售下单，订单需写明物料编码或规格型号、数量和收货地址。新客户首单需先开户。\n</资料>\n\n问题：下午五点下的现货单今天能发吗？"
+   }
+  ],
+  "temperature": 0,
+  "response_format": {
+   "type": "json_object"
+  }
+ },
+ "calls": [
+  {
+   "recorded_at": "2026-11-18T15:09:09+00:00",
+   "run": "hybrid_rerank/qwen-plus",
+   "latency_ms": 3604.2,
+   "response": {
+    "model": "qwen-plus",
+    "id": "chatcmpl-8a3bc052-f2ee-96a5-8f19-ae71744034b4",
+    "choices": [
+     {
+      "message": {
+       "content": "{\"answerable\": true, \"answer\": \"不能，下午五点（17:00）下单已超过16:00，现货订单次日发货 [1]。\", \"citations\": [1]}",
+       "role": "assistant"
+      },
+      "index": 0,
+      "finish_reason": "stop"
+     }
+    ],
+    "created": 1795014548,
+    "object": "chat.completion",
+    "usage": {
+     "total_tokens": 722,
+     "completion_tokens": 48,
+     "prompt_tokens": 674,
+     "prompt_tokens_details": {
+      "cached_tokens": 0
+     }
+    }
+   }
+  }
+ ]
+}
