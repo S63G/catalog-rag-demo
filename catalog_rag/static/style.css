@@ -32,7 +32,7 @@ th, td { border-bottom: 1px solid var(--line); padding: 4px 6px; text-align: lef
 td.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .msg td:nth-child(6) { white-space: nowrap; }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; }
-.chip { border: 1px solid var(--line); background: var(--card); border-radius: 14px; padding: 2px 10px; cursor: pointer; font-size: 13px; }
+.chip { border: 1px solid var(--line); background: var(--card); color: var(--ink); border-radius: 14px; padding: 2px 10px; cursor: pointer; font-size: 13px; }
 .chip:hover { border-color: var(--accent); color: var(--accent); }
 form#ask { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 10px; }
 .controls { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 8px; flex-wrap: wrap; }
